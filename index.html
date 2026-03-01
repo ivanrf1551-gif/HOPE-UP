@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>HOPE-UP | Prevención del Suicidio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: #f8fafc;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #4A90E2, #7ED6A7);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: white;
+            color: #4A90E2;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #e2e8f0;
+        }
+
+        section {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            color: #111827;
+        }
+
+        .grid {
+            display: grid;
+            gap: 30px;
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: #4A90E2;
+        }
+
+        .impact {
+            background: #f1f5f9;
+        }
+
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+        }
+
+        .cta {
+            background: linear-gradient(135deg, #7ED6A7, #4A90E2);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .cta h2 {
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>HOPE-UP</h1>
+    <p>No estás solo. La tecnología también puede cuidar de ti.  
+    Una herramienta basada en inteligencia artificial para la detección temprana del malestar emocional y la prevención del suicidio en jóvenes.</p>
+    <a href="#proyecto" class="btn">Descubrir el proyecto</a>
+</header>
+
+<section id="proyecto">
+    <h2>¿Qué es HOPE-UP?</h2>
+    <p style="text-align:center; max-width:800px; margin:auto;">
+        HOPE-UP es una iniciativa universitaria multidisciplinar que integra ingeniería, derecho y ciencias sociales para desarrollar una plataforma digital capaz de detectar señales tempranas de riesgo emocional. 
+        Su objetivo es activar redes de apoyo antes de que una situación crítica se produzca, fomentando una cultura de prevención, acompañamiento y bienestar.
+    </p>
+</section>
+
+<section>
+    <h2>Cómo funciona</h2>
+    <div class="grid grid-3">
+        <div class="card">
+            <h3>1. Interacción</h3>
+            <p>El usuario interactúa con la aplicación mediante cuestionarios, textos o herramientas emocionales.</p>
+        </div>
+        <div class="card">
+            <h3>2. Análisis IA</h3>
+            <p>El sistema analiza patrones emocionales utilizando inteligencia artificial responsable.</p>
+        </div>
+        <div class="card">
+            <h3>3. Activación de apoyo</h3>
+            <p>Si se detecta riesgo, se activan recursos de ayuda y acompañamiento profesional.</p>
+        </div>
+    </div>
+</section>
+
+<section class="impact">
+    <h2>Impacto Social</h2>
+    <div class="grid grid-3">
+        <div class="card">
+            <h3>Prevención temprana</h3>
+            <p>Identificación de señales antes de que la situación sea crítica.</p>
+        </div>
+        <div class="card">
+            <h3>Comunidad educativa</h3>
+            <p>Fortalece la sensibilización y el compromiso social en entornos universitarios.</p>
+        </div>
+        <div class="card">
+            <h3>ODS</h3>
+            <p>Contribuye a los Objetivos de Desarrollo Sostenible 3, 4 y 16.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Seguridad y Ética</h2>
+    <p style="text-align:center; max-width:800px; margin:auto;">
+        HOPE-UP cumple con el Reglamento General de Protección de Datos (RGPD), la LOPDGDD y el Reglamento Europeo de Inteligencia Artificial. 
+        El sistema incorpora supervisión humana, protección de datos reforzada y evaluación de impacto en privacidad.
+    </p>
+</section>
+
+<section class="cta">
+    <h2>Si alguna vez lo necesitas, queremos que haya una señal antes de que sea tarde.</h2>
+    <p>La prevención comienza con escuchar.</p>
+</section>
+
+<footer>
+    © 2025 HOPE-UP | Proyecto Universitario de Prevención del Suicidio  
+    <br>
+    Aviso Legal | Política de Privacidad | Contacto
+</footer>
+
+</body>
+</html>
