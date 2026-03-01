@@ -643,4 +643,7 @@ p { font-size: 1rem; opacity: 0.9; line-height: 1.8; }
 @media(max-width: 480px) {
     .hero-compact h1 { font-size: 2rem; }
     .hero-compact p { font-size: 1rem; }
+   <img src="logotipo-HOPE-UP.png" style="display:block; width:150px;">}
+   
 }
+
