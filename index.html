@@ -14,12 +14,27 @@ ul{list-style:none;}
 
 /* NAVEGACION */
 /* NAV */
-nav{position:fixed;top:0;left:0;width:100%;background:#111827;color:white;z-index:1000;display:flex;justify-content:space-between;align-items:center;padding:15px 30px;box-shadow:0 4px 10px rgba(0,0,0,0.2);}
-nav .logo img{width:150px;transition:0.3s;}
-nav .logo img:hover{transform:scale(1.1);}
-@@ -21,7 +20,7 @@
-nav ul li a:hover{color:#7ED6A7;}
-.menu-toggle{display:none;cursor:pointer;font-size:1.5rem;}
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo-container">
+<img src="logotipo-HOPE-UP.png">
+  <img src="UCLM-Logo.png" alt="UCLM Logo">
+<img src="logos-globalcaja_home_sala_prensa_globalcaja.jpg">
+    </div>
+    <nav>
+        <a href="#inicio" data-es="Inicio" data-en="Home">Inicio</a>
+        <a href="#proyecto" data-es="Proyecto" data-en="Project">Proyecto</a>
+        <a href="#impacto" data-es="Impacto" data-en="Impact">Impacto</a>
+        <a href="#cientifico" data-es="Marco Científico" data-en="Scientific Framework">Marco Científico</a>
+        <a href="#etica" data-es="Ética IA" data-en="AI Ethics">Ética IA</a>
+        <a href="#educativo" data-es="Integración" data-en="Educational Integration">Integración</a>
+        <a href="#roadmap" data-es="Roadmap" data-en="Roadmap">Roadmap</a>
+        <a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a>
+    </nav>
+    <div class="lang-toggle">
+        <button onclick="setLang('es')">ES</button>
+        <button onclick="setLang('en')">EN</button>
+    </div>
 
 /* HEADER / HERO */
 /* HERO */
@@ -501,5 +516,6 @@ document.querySelectorAll('.rating span').forEach((s,i)=>{if(i<stars){s.classLis
 document.getElementById('rating-text').textContent=`Tu puntuación: ${stars}/5`;
 }
 </script>
+
 
 
