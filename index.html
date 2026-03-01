@@ -3,344 +3,275 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HOPE-UP | Prevención y Bienestar Emocional</title>
+<title>HOPE-UP | Prevención y Bienestar Emocional con IA</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
-/* RESET & BASE */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Inter',sans-serif;
-  scroll-behavior:smooth;
-}
-body{
-  background:#f4f7fb;
-  color:#1f2937;
-  line-height:1.6;
-}
+/* RESET Y BASE */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;scroll-behavior:smooth;}
+body{background:#f4f7fb;color:#1f2937;line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+ul{list-style:none;}
 
-/* HEADER */
-header{
-  background:linear-gradient(135deg,#4A90E2,#7ED6A7);
-  color:white;
-  text-align:center;
-  padding:90px 20px 60px 20px;
-}
-.logo-container{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:30px;
-  margin-bottom:20px;
-  flex-wrap:wrap;
-}
-.logo-container img{
-  width:120px;
-  max-width:100%;
-  height:auto;
-  transition: transform 0.3s, opacity 0.3s;
-}
-.logo-container img:hover{
-  transform: scale(1.1);
-  opacity:1;
-}
-header h1{
-  font-size:3rem;
-  margin-bottom:15px;
-}
-header p{
-  max-width:900px;
-  margin:auto;
-  opacity:0.95;
-}
-.btn{
-  display:inline-block;
-  margin-top:25px;
-  padding:12px 28px;
-  background:white;
-  color:#4A90E2;
-  border-radius:30px;
-  text-decoration:none;
-  font-weight:600;
-  transition:0.3s;
-}
-.btn:hover{
-  background:#e2e8f0;
-}
+/* NAVEGACION */
+nav{position:fixed;top:0;left:0;width:100%;background:#111827;color:white;z-index:1000;display:flex;justify-content:space-between;align-items:center;padding:15px 30px;box-shadow:0 4px 10px rgba(0,0,0,0.2);}
+nav .logo img{width:150px;transition:0.3s;}
+nav .logo img:hover{transform:scale(1.1);}
+nav ul{display:flex;gap:25px;}
+nav ul li a{color:white;font-weight:600;transition:0.3s;}
+nav ul li a:hover{color:#7ED6A7;}
+.menu-toggle{display:none;cursor:pointer;font-size:1.5rem;}
+
+/* HEADER / HERO */
+header{padding:140px 20px 80px 20px;text-align:center;background:linear-gradient(135deg,#4A90E2,#7ED6A7);color:white;}
+header h1{font-size:3rem;margin-bottom:15px;}
+header p{max-width:900px;margin:auto;opacity:0.95;margin-bottom:25px;font-size:1.2rem;}
+header .btn{display:inline-block;padding:12px 28px;background:white;color:#4A90E2;border-radius:30px;font-weight:600;transition:0.3s;}
+header .btn:hover{background:#e2e8f0;}
 
 /* SECCIONES */
-section{
-  padding:80px 20px;
-  max-width:1100px;
-  margin:auto;
-}
-h2{
-  text-align:center;
-  margin-bottom:50px;
-  font-size:2.2rem;
-  color:#1f2937;
-}
-p{
-  margin-bottom:20px;
-  line-height:1.8;
-}
-ul{
-  margin-left:20px;
-  margin-bottom:20px;
-}
-ul li{
-  margin-bottom:10px;
-}
+section{padding:80px 20px;max-width:1100px;margin:auto;}
+h2{text-align:center;margin-bottom:50px;font-size:2.2rem;color:#1f2937;}
+p, li{margin-bottom:20px;line-height:1.8;}
+.grid{display:grid;gap:30px;}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+.card{background:white;padding:30px;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.05);text-align:center;transition:0.3s;}
+.card:hover{transform:translateY(-5px);box-shadow:0 15px 35px rgba(0,0,0,0.1);}
+.card h3{margin-bottom:15px;color:#4A90E2;}
 
-/* GRID & CARDS */
-.grid{
-  display:grid;
-  gap:30px;
-}
-.grid-3{
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-}
-.card{
-  background:white;
-  padding:30px;
-  border-radius:15px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.05);
-  text-align:center;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.card:hover{
-  transform: translateY(-5px);
-  box-shadow:0 15px 35px rgba(0,0,0,0.1);
-}
-.card h3{
-  margin-bottom:15px;
-  color:#4A90E2;
-}
+/* EMERGENCIAS */
+.emergency{background:#fff3f3;border-left:6px solid #e63946;padding:20px;margin-bottom:20px;border-radius:10px;font-weight:600;}
 
-/* EMERGENCY */
-.contact-section{
-  background:#ffffff;
-}
-.emergency{
-  background:#fff3f3;
-  border-left:6px solid #e63946;
-  padding:20px;
-  margin-bottom:20px;
-  border-radius:10px;
-  font-weight:600;
-}
-.emojis span{
-  font-size:2rem;
-  cursor:pointer;
-  margin:10px;
-  transition:0.3s;
-}
-.emojis span:hover{
-  transform:scale(1.3);
-}
+/* EJERCICIOS Y EMOJIS */
+.emojis span{font-size:2rem;cursor:pointer;margin:10px;transition:0.3s;}
+.emojis span:hover{transform:scale(1.3);}
+.exercise{background:#f1f5f9;padding:20px;border-radius:12px;margin-top:15px;}
 
-/* EJERCICIOS */
-.exercise{
-  background:#f1f5f9;
-  padding:20px;
-  border-radius:12px;
-  margin-top:15px;
-}
+/* ACORDEON FAQ */
+.faq-item{margin-bottom:15px;border-bottom:1px solid #ddd;}
+.faq-item button{width:100%;text-align:left;padding:15px;background:white;border:none;font-weight:600;font-size:1rem;cursor:pointer;transition:0.3s;}
+.faq-item button:hover{background:#f1f5f9;}
+.faq-item .answer{max-height:0;overflow:hidden;transition:max-height 0.3s ease;padding:0 15px;}
+.faq-item.active .answer{max-height:500px;padding:15px;}
+
+/* VALORACIÓN ESTRELLAS */
+.rating{display:flex;gap:10px;justify-content:center;margin:20px 0;}
+.rating span{font-size:2rem;cursor:pointer;transition:0.3s;}
+.rating span:hover, .rating span.active{color:#f9d71c;}
 
 /* FOOTER */
-footer{
-  background:#111827;
-  color:white;
-  padding:60px 20px;
-  text-align:center;
-  font-size:0.9rem;
-}
-footer a{
-  color:#7ED6A7;
-  text-decoration:none;
-}
-footer a:hover{
-  text-decoration:underline;
-}
+footer{background:#111827;color:white;padding:60px 20px;text-align:center;font-size:0.9rem;}
+footer a{color:#7ED6A7;}
+footer a:hover{text-decoration:underline;}
 
 /* COOKIE BANNER */
-.cookie-banner{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  background:#111827;
-  color:white;
-  padding:15px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  z-index:1000;
-}
-.cookie-banner button{
-  background:#7ED6A7;
-  border:none;
-  padding:8px 16px;
-  border-radius:20px;
-  cursor:pointer;
-  font-weight:600;
-}
-.hidden{
-  display:none;
-}
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;background:#111827;color:white;padding:15px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;z-index:1000;}
+.cookie-banner button{background:#7ED6A7;border:none;padding:8px 16px;border-radius:20px;cursor:pointer;font-weight:600;}
+.hidden{display:none;}
 
 /* RESPONSIVE */
 @media(max-width:768px){
-  header h1{
-    font-size:2rem;
-  }
+  nav ul{display:none;flex-direction:column;background:#111827;position:absolute;top:60px;right:0;width:200px;padding:15px;border-radius:0 0 10px 10px;}
+  nav ul.show{display:flex;}
+  .menu-toggle{display:block;}
+  header h1{font-size:2rem;}
 }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header>
-  <div class="logo-container">
-    <img src="logotipo HOPE-UP.png" alt="Logo HOPE-UP">
-    <img src="UCLM-Logo.png" alt="Logo UCLM">
-    <img src="logos-globalcaja_home_sala_prensa_globalcaja.jpg" alt="Logo Globalcaja">
-  </div>
-  <h1>HOPE-UP</h1>
-  <p>Plataforma universitaria para la detección temprana de malestar emocional y riesgo suicida, integrando inteligencia artificial, comunicación digital y acompañamiento profesional.</p>
-  <a href="#recursos" class="btn">Necesito ayuda</a>
+<!-- NAVEGACION -->
+<nav>
+<div class="logo"><img src="logotipo HOPE-UP.png" alt="HOPE-UP Logo"></div>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+<ul>
+<li><a href="#inicio">Inicio</a></li>
+<li><a href="#proyecto">El Proyecto</a></li>
+<li><a href="#funciona">Cómo Funciona</a></li>
+<li><a href="#impacto">Impacto</a></li>
+<li><a href="#equipo">Equipo</a></li>
+<li><a href="#contactar">Contactar</a></li>
+</ul>
+</nav>
+
+<!-- HERO PRINCIPAL -->
+<header id="inicio">
+<h1>HOPE-UP</h1>
+<p>Prevención con Inteligencia Artificial. No estás solo. La tecnología también puede cuidar de ti.</p>
+<a href="#proyecto" class="btn">Descubrir el proyecto</a>
 </header>
 
-<!-- SECCION CONTEXTO -->
-<section>
-<h2>Contexto y Tecnología</h2>
-<p>El avance de la tecnología digital ha generado nuevas oportunidades para la identificación temprana de señales de riesgo en población joven, quienes presentan patrones de comunicación emocional cada vez más asociados a entornos digitales, como redes sociales, plataformas de mensajería y foros.</p>
-<p>La literatura reciente se centra en tres líneas principales:</p>
+<!-- SECCIÓN PROYECTO -->
+<section id="proyecto">
+<h2>Nuestro Propósito</h2>
+<p>HOPE-UP es un proyecto universitario innovador que combina inteligencia artificial con un enfoque humano, interdisciplinar y ético. Nuestro objetivo es crear una red de seguridad digital que identifique patrones de malestar emocional y active recursos de apoyo de manera temprana y respetuosa.</p>
+<p>El aumento de casos de malestar emocional y conductas de riesgo en jóvenes ha motivado el desarrollo de herramientas tecnológicas responsables, integrando psicología clínica, ética, derecho, ciencia de datos y tecnología de IA.</p>
 <ul>
-  <li>Identificación de factores de riesgo y perfiles conductuales en jóvenes.</li>
-  <li>Aplicación de modelos de inteligencia artificial para la detección temprana de riesgo suicida.</li>
-  <li>Integración de herramientas digitales en estrategias preventivas.</li>
+<li><strong>Prevención Temprana:</strong> Identificamos señales de riesgo antes de que se conviertan en crisis mediante la monitorización de patrones de comunicación.</li>
+<li><strong>IA Responsable:</strong> Modelos éticos supervisados por profesionales y alineados con normativa europea EU AI Act.</li>
+<li><strong>Conexión con Profesionales:</strong> Facilitamos comunicación con psicólogos, servicios de salud y redes de apoyo.</li>
+<li><strong>Impacto Social:</strong> Contribuimos a los ODS 3, 4 y 16 y fomentamos una sociedad más saludable y resiliente.</li>
 </ul>
-<p>El suicidio constituye un fenómeno complejo y multifactorial, en el que confluyen factores psicológicos (depresión, ansiedad, desesperanza), sociales (aislamiento, estigmatización, presión académica), culturales y económicos.</p>
-<p>El estudio de la conducta suicida ha incorporado herramientas digitales y técnicas de IA, dando lugar a un campo interdisciplinar que combina psicología clínica, psiquiatría, ciencia de datos y ética tecnológica.</p>
 </section>
 
-<!-- SECCION FUNCIONALIDADES -->
-<section>
-<h2>Funcionalidades de HOPE-UP</h2>
+<!-- SECCIÓN CÓMO FUNCIONA -->
+<section id="funciona">
+<h2>Cómo Funciona</h2>
 <div class="grid grid-3">
-  <div class="card">
-    <h3>Chatbots y Soporte</h3>
-    <p>Comunicación directa con la plataforma mediante chatbots inteligentes para primeros pasos de acompañamiento emocional.</p>
-  </div>
-  <div class="card">
-    <h3>Notificaciones Emergentes</h3>
-    <p>Mensajes de acompañamiento y recursos de ayuda inmediata enviados a dispositivos móviles de manera personalizada.</p>
-  </div>
-  <div class="card">
-    <h3>Recursos Educativos</h3>
-    <p>Formación y sensibilización para alumnado, profesorado y comunidad educativa, fomentando respeto y empatía.</p>
-  </div>
-  <div class="card">
-    <h3>Conexión con Profesionales</h3>
-    <p>Llamadas personalizadas y soporte de psicólogos para intervención rápida ante situaciones de riesgo.</p>
-  </div>
+<div class="card">
+<h3>01. Interacción Natural</h3>
+<p>Los usuarios comparten emociones y pensamientos de forma natural mediante chatbots, encuestas y comunicación segura. Toda la información se procesa de manera confidencial.</p>
+</div>
+<div class="card">
+<h3>02. Análisis Inteligente</h3>
+<p>La IA analiza patrones emocionales en texto y comportamiento digital, detectando cambios significativos con algoritmos de aprendizaje automático y supervisión humana.</p>
+</div>
+<div class="card">
+<h3>03. Detección Temprana</h3>
+<p>Se identifican señales de riesgo antes de que se agraven, permitiendo activar recursos de apoyo de manera inmediata.</p>
+</div>
+<div class="card">
+<h3>04. Activación de Apoyo</h3>
+<p>Se envían notificaciones, se conectan con profesionales de la psicología y se ofrecen recursos de ayuda inmediata, líneas de atención y seguimiento personalizado.</p>
+</div>
+</div>
+<p><strong>Nota:</strong> HOPE-UP complementa, no sustituye, la atención profesional.</p>
+</section>
+
+<!-- SECCIÓN IMPACTO -->
+<section id="impacto">
+<h2>Impacto Social</h2>
+<div class="grid grid-3">
+<div class="card">
+<h3>4,000+ Jóvenes</h3>
+<p>en riesgo cada año en España</p>
+</div>
+<div class="card">
+<h3>85% Prevenible</h3>
+<p>con detección temprana</p>
+</div>
+<div class="card">
+<h3>3 ODS Impactados</h3>
+<p>Salud y Bienestar, Educación de Calidad, Paz y Justicia</p>
+</div>
 </div>
 </section>
 
-<!-- SECCION EQUIPO -->
+<!-- SECCIÓN BIENESTAR EMOCIONAL -->
 <section>
-<h2>Equipo Profesional</h2>
-<div class="grid grid-3">
-  <div class="card">
-    <h3>Dirección Académica</h3>
-    <p>Supervisión científica y coordinación institucional.</p>
-  </div>
-  <div class="card">
-    <h3>Psicología y Salud Mental</h3>
-    <p>Asesoramiento clínico y validación de protocolos de actuación.</p>
-  </div>
-  <div class="card">
-    <h3>Ingeniería e IA</h3>
-    <p>Desarrollo de modelos de análisis emocional responsables y seguros.</p>
-  </div>
-</div>
-</section>
-
-<!-- SECCION RECURSOS -->
-<section id="recursos" class="contact-section">
-<h2>Teléfonos de Emergencia y Recursos</h2>
-<div class="grid grid-3">
-  <div class="card emergency">
-    <h3>024 – Línea de Atención a la Conducta Suicida</h3>
-    <p>Disponible 24/7 · Confidencial y gratuito</p>
-  </div>
-  <div class="card">
-    <h3>Teléfono Talitha</h3>
-    <p>674 859 568</p>
-    <p>Apoyo y orientación</p>
-  </div>
-  <div class="card">
-    <h3>La Esperanza de Albacete</h3>
-    <p>967 52 34 34</p>
-    <p>Atención y apoyo emocional</p>
-  </div>
-  <div class="card">
-    <h3>Salud Responde Castilla-La Mancha</h3>
-    <p>900 122 112</p>
-    <p>Información sanitaria 24h</p>
-  </div>
-  <div class="card">
-    <h3>Hospital General de Albacete</h3>
-    <p>967 59 70 00</p>
-    <p>Urgencias Psiquiatría</p>
-  </div>
-  <div class="card emergency">
-    <h3>Emergencias</h3>
-    <p><strong>112</strong></p>
-    <p>En caso de peligro inmediato</p>
-  </div>
-</div>
-</section>
-
-<!-- SECCION EMOCIONES Y EJERCICIOS -->
-<section>
-<h2>Bienestar Emocional</h2>
-<p style="text-align:center;">Selecciona un estado emocional:</p>
+<h2>¿Cómo te sientes hoy?</h2>
+<p style="text-align:center;">Selecciona un emoji que represente tu estado emocional:</p>
 <div class="emojis" style="text-align:center;">
-  <span>😊</span>
-  <span>😐</span>
-  <span>😔</span>
-  <span>😢</span>
-  <span>😰</span>
+<span>😊</span>
+<span>😐</span>
+<span>😔</span>
+<span>😰</span>
+<span>😤</span>
+<span>🌿</span>
 </div>
 
 <div class="exercise">
 <h3>Ejercicio de respiración guiada</h3>
-<p>Inhala durante 4 segundos, mantén 4 segundos y exhala lentamente durante 6 segundos. Repite 5 veces.</p>
+<p>Inhala 4s, mantén 4s y exhala 6s. Repite 5 veces.</p>
 </div>
-
 <div class="exercise">
 <h3>Técnica 5-4-3-2-1</h3>
-<p>Identifica 5 cosas que ves, 4 que sientes, 3 que oyes, 2 que hueles y 1 que saboreas para reconectar con tu entorno.</p>
+<p>Identifica 5 cosas que ves, 4 que sientes, 3 que oyes, 2 que hueles y 1 que saboreas. Una técnica de mindfulness sencilla para recuperar calma.</p>
 </div>
+</section>
+
+<!-- SECCIÓN EQUIPO -->
+<section id="equipo">
+<h2>Equipo HOPE-UP</h2>
+<div class="grid grid-3">
+<div class="card">
+<h3>Responsable</h3>
+<p>Gloria Parra Requena<br>Investigadora Principal y coordinadora del proyecto. Experta en prevención de malestar emocional en jóvenes, supervisión ética y evaluación de impacto social.</p>
+</div>
+<div class="card">
+<h3>Alumnos Fundadores</h3>
+<p>Celia Ibáñez García, Carmen Gómez Alarcón, Marta Gómez Alarcón, Iván Ruiz Fernández.<br>Encargados de desarrollo técnico, diseño, análisis de datos y comunicación del proyecto.</p>
+</div>
+</div>
+</section>
+
+<!-- SECCIÓN RECURSOS -->
+<section id="contactar">
+<h2>Recursos y Contacto</h2>
+<div class="grid grid-3">
+<div class="card emergency">
+<h3>024 – Línea de Atención a la Conducta Suicida</h3>
+<p>Disponible 24/7 · Confidencial y gratuito</p>
+</div>
+<div class="card">
+<h3>Teléfono Talitha</h3>
+<p>674 859 568</p>
+<p>Apoyo y orientación</p>
+</div>
+<div class="card">
+<h3>La Esperanza de Albacete</h3>
+<p>967 52 34 34</p>
+<p>Atención y apoyo emocional</p>
+</div>
+<div class="card">
+<h3>Salud Responde Castilla-La Mancha</h3>
+<p>900 122 112 · Información sanitaria 24h</p>
+</div>
+<div class="card">
+<h3>Hospital General de Albacete</h3>
+<p>967 59 70 00 · Urgencias Psiquiatría</p>
+</div>
+<div class="card emergency">
+<h3>Emergencias</h3>
+<p><strong>112</strong> · En caso de peligro inmediato</p>
+</div>
+</div>
+
+<h3>Formulario de contacto</h3>
+<form>
+<label>Nombre</label><br>
+<input type="text" placeholder="Tu nombre" style="width:100%;padding:8px;margin-bottom:10px;"><br>
+<label>Email</label><br>
+<input type="email" placeholder="tu@email.com" style="width:100%;padding:8px;margin-bottom:10px;"><br>
+<label>Asunto</label><br>
+<select style="width:100%;padding:8px;margin-bottom:10px;">
+<option>Selecciona un asunto</option>
+<option>Consulta general</option>
+<option>Colaboración</option>
+<option>Emergencia</option>
+</select><br>
+<label>Mensaje</label><br>
+<textarea placeholder="Cuéntanos..." style="width:100%;padding:8px;margin-bottom:10px;" rows="5"></textarea><br>
+<button type="submit" style="padding:10px 20px;background:#4A90E2;color:white;border:none;border-radius:10px;cursor:pointer;">Enviar mensaje</button>
+</form>
+</section>
+
+<!-- SECCIÓN VALORACIÓN -->
+<section>
+<h2>Valoración de HOPE-UP</h2>
+<div class="rating">
+<span onclick="rate(1)">★</span>
+<span onclick="rate(2)">★</span>
+<span onclick="rate(3)">★</span>
+<span onclick="rate(4)">★</span>
+<span onclick="rate(5)">★</span>
+</div>
+<p id="rating-text" style="text-align:center;font-weight:600;">Selecciona tu puntuación</p>
 </section>
 
 <!-- POLÍTICAS -->
 <section>
 <h2>Política de Privacidad</h2>
-<p>HOPE-UP cumple con el Reglamento General de Protección de Datos (RGPD) y la LOPDGDD. Los datos tratados se utilizan exclusivamente con fines de prevención y mejora del bienestar emocional.</p>
+<p>HOPE-UP cumple con RGPD, LOPDGDD y EU AI Act. Toda la información personal es encriptada, supervisada por profesionales y usada solo para prevención y acompañamiento emocional.</p>
+<p>Los usuarios pueden solicitar eliminación de datos y ejercer todos sus derechos de acceso, rectificación, supresión, limitación, oposición y portabilidad.</p>
 
-<h2 style="margin-top:50px;">Política de Cookies</h2>
-<p>Este sitio utiliza cookies técnicas necesarias para su funcionamiento y cookies analíticas anónimas para mejorar la experiencia del usuario.</p>
+<h2>Política de Cookies</h2>
+<p>Se usan cookies técnicas necesarias para el funcionamiento, analíticas para mejorar la experiencia y de preferencias para personalización. No se comparte información personal con terceros.</p>
+<p>El banner de cookies permite aceptar o rechazar cookies analíticas y se recuerda tu elección para visitas futuras.</p>
 </section>
 
 <!-- FOOTER -->
 <footer>
-© 2025 HOPE-UP · Proyecto Universitario  
-<br>
+© 2025 HOPE-UP · Proyecto Universitario<br>
 Contacto: <a href="mailto:hopeup.proyecto@gmail.com">hopeup.proyecto@gmail.com</a>
 </footer>
 
@@ -351,14 +282,22 @@ Contacto: <a href="mailto:hopeup.proyecto@gmail.com">hopeup.proyecto@gmail.com</
 </div>
 
 <script>
+// Menu toggle
+function toggleMenu(){document.querySelector('nav ul').classList.toggle('show');}
+
+// Cookie banner
 function acceptCookies(){
-  document.getElementById('cookieBanner').classList.add('hidden');
-  localStorage.setItem("cookiesAccepted", "true");
+document.getElementById('cookieBanner').classList.add('hidden');
+localStorage.setItem("cookiesAccepted","true");
 }
-window.onload = function(){
-  if(localStorage.getItem("cookiesAccepted")){
-    document.getElementById('cookieBanner').classList.add('hidden');
-  }
+window.onload=function(){
+if(localStorage.getItem("cookiesAccepted")){document.getElementById('cookieBanner').classList.add('hidden');}
+}
+
+// Rating
+function rate(stars){
+document.querySelectorAll('.rating span').forEach((s,i)=>{if(i<stars){s.classList.add('active');}else{s.classList.remove('active');}});
+document.getElementById('rating-text').textContent=`Tu puntuación: ${stars}/5`;
 }
 </script>
 
