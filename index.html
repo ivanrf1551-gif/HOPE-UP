@@ -9,167 +9,177 @@
 
 <style>
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Inter',sans-serif;
-scroll-behavior:smooth;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+  scroll-behavior:smooth;
 }
 
 body{
-background:#f4f7fb;
-color:#1f2937;
-line-height:1.6;
+  background:#f4f7fb;
+  color:#1f2937;
+  line-height:1.6;
 }
 
 header{
-background:linear-gradient(135deg,#4A90E2,#7ED6A7);
-color:white;
-text-align:center;
-padding:90px 20px;
+  background:linear-gradient(135deg,#4A90E2,#7ED6A7);
+  color:white;
+  text-align:center;
+  padding:90px 20px;
 }
 
-header img{
-width:140px;
-margin-bottom:20px;
+.logo-container{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:30px;
+  margin-bottom:20px;
+  flex-wrap:wrap;
+}
+
+.logo-container img{
+  width:120px;
+  max-width:100%;
+  height:auto;
 }
 
 header h1{
-font-size:2.8rem;
-margin-bottom:15px;
+  font-size:2.8rem;
+  margin-bottom:15px;
 }
 
 header p{
-max-width:700px;
-margin:auto;
-opacity:0.95;
+  max-width:700px;
+  margin:auto;
+  opacity:0.95;
 }
 
 .btn{
-display:inline-block;
-margin-top:25px;
-padding:12px 28px;
-background:white;
-color:#4A90E2;
-border-radius:30px;
-text-decoration:none;
-font-weight:600;
-transition:0.3s;
+  display:inline-block;
+  margin-top:25px;
+  padding:12px 28px;
+  background:white;
+  color:#4A90E2;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
 }
 
 .btn:hover{
-background:#e2e8f0;
+  background:#e2e8f0;
 }
 
 section{
-padding:80px 20px;
-max-width:1100px;
-margin:auto;
+  padding:80px 20px;
+  max-width:1100px;
+  margin:auto;
 }
 
 h2{
-text-align:center;
-margin-bottom:50px;
-font-size:2rem;
+  text-align:center;
+  margin-bottom:50px;
+  font-size:2rem;
 }
 
 .grid{
-display:grid;
-gap:30px;
+  display:grid;
+  gap:30px;
 }
 
 .grid-3{
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 }
 
 .card{
-background:white;
-padding:30px;
-border-radius:15px;
-box-shadow:0 10px 30px rgba(0,0,0,0.05);
-text-align:center;
+  background:white;
+  padding:30px;
+  border-radius:15px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.05);
+  text-align:center;
 }
 
 .card h3{
-margin-bottom:15px;
-color:#4A90E2;
+  margin-bottom:15px;
+  color:#4A90E2;
 }
 
 .contact-section{
-background:#ffffff;
+  background:#ffffff;
 }
 
 .emergency{
-background:#fff3f3;
-border-left:6px solid #e63946;
-padding:20px;
-margin-bottom:20px;
-border-radius:10px;
+  background:#fff3f3;
+  border-left:6px solid #e63946;
+  padding:20px;
+  margin-bottom:20px;
+  border-radius:10px;
 }
 
 .emojis span{
-font-size:2rem;
-cursor:pointer;
-margin:10px;
-transition:0.3s;
+  font-size:2rem;
+  cursor:pointer;
+  margin:10px;
+  transition:0.3s;
 }
 
 .emojis span:hover{
-transform:scale(1.3);
+  transform:scale(1.3);
 }
 
 .exercise{
-background:#f1f5f9;
-padding:20px;
-border-radius:12px;
-margin-top:15px;
+  background:#f1f5f9;
+  padding:20px;
+  border-radius:12px;
+  margin-top:15px;
 }
 
 footer{
-background:#111827;
-color:white;
-padding:40px 20px;
-text-align:center;
-font-size:0.9rem;
+  background:#111827;
+  color:white;
+  padding:40px 20px;
+  text-align:center;
+  font-size:0.9rem;
 }
 
 footer a{
-color:#7ED6A7;
-text-decoration:none;
+  color:#7ED6A7;
+  text-decoration:none;
 }
 
 .cookie-banner{
-position:fixed;
-bottom:0;
-left:0;
-right:0;
-background:#111827;
-color:white;
-padding:15px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-flex-wrap:wrap;
-z-index:1000;
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:#111827;
+  color:white;
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  z-index:1000;
 }
 
 .cookie-banner button{
-background:#7ED6A7;
-border:none;
-padding:8px 16px;
-border-radius:20px;
-cursor:pointer;
-font-weight:600;
+  background:#7ED6A7;
+  border:none;
+  padding:8px 16px;
+  border-radius:20px;
+  cursor:pointer;
+  font-weight:600;
 }
 
 .hidden{
-display:none;
+  display:none;
 }
 
 @media(max-width:768px){
-header h1{
-font-size:2rem;
-}
+  header h1{
+    font-size:2rem;
+  }
 }
 </style>
 </head>
@@ -177,10 +187,14 @@ font-size:2rem;
 <body>
 
 <header>
-<img src="logotipo HOPE-UP.png" alt="Logo HOPE-UP">
-<h1>HOPE-UP</h1>
-<p>Plataforma universitaria para la detección temprana del malestar emocional y la activación de redes de apoyo.</p>
-<a href="#recursos" class="btn">Necesito ayuda</a>
+  <div class="logo-container">
+    <img src="logotipo HOPE-UP.png" alt="Logo HOPE-UP">
+    <img src="UCLM-Logo.png" alt="Logo UCLM">
+    <img src="logos-globalcaja_home_sala_prensa_globalcaja.jpg" alt="Logo Globalcaja">
+  </div>
+  <h1>HOPE-UP</h1>
+  <p>Plataforma universitaria para la detección temprana del malestar emocional y la activación de redes de apoyo.</p>
+  <a href="#recursos" class="btn">Necesito ayuda</a>
 </header>
 
 <section>
@@ -193,18 +207,18 @@ HOPE-UP es una iniciativa multidisciplinar que integra tecnología, ética y aco
 <section>
 <h2>Equipo Profesional</h2>
 <div class="grid grid-3">
-<div class="card">
-<h3>Dirección Académica</h3>
-<p>Supervisión científica y coordinación institucional.</p>
-</div>
-<div class="card">
-<h3>Psicología y Salud Mental</h3>
-<p>Asesoramiento clínico y validación de protocolos de actuación.</p>
-</div>
-<div class="card">
-<h3>Ingeniería e IA</h3>
-<p>Desarrollo de modelos de análisis emocional responsables y seguros.</p>
-</div>
+  <div class="card">
+    <h3>Dirección Académica</h3>
+    <p>Supervisión científica y coordinación institucional.</p>
+  </div>
+  <div class="card">
+    <h3>Psicología y Salud Mental</h3>
+    <p>Asesoramiento clínico y validación de protocolos de actuación.</p>
+  </div>
+  <div class="card">
+    <h3>Ingeniería e IA</h3>
+    <p>Desarrollo de modelos de análisis emocional responsables y seguros.</p>
+  </div>
 </div>
 </section>
 
@@ -218,35 +232,35 @@ Disponible 24/7 · Confidencial y gratuita
 
 <div class="grid grid-3">
 
-<div class="card">
-<h3>Teléfono Talitha</h3>
-<p>674 859 568</p>
-<p>Apoyo y orientación</p>
-</div>
+  <div class="card">
+    <h3>Teléfono Talitha</h3>
+    <p>674 859 568</p>
+    <p>Apoyo y orientación</p>
+  </div>
 
-<div class="card">
-<h3>La Esperanza de Albacete</h3>
-<p>967 52 34 34</p>
-<p>Atención y apoyo emocional</p>
-</div>
+  <div class="card">
+    <h3>La Esperanza de Albacete</h3>
+    <p>967 52 34 34</p>
+    <p>Atención y apoyo emocional</p>
+  </div>
 
-<div class="card">
-<h3>Salud Responde Castilla-La Mancha</h3>
-<p>900 122 112</p>
-<p>Información sanitaria 24h</p>
-</div>
+  <div class="card">
+    <h3>Salud Responde Castilla-La Mancha</h3>
+    <p>900 122 112</p>
+    <p>Información sanitaria 24h</p>
+  </div>
 
-<div class="card">
-<h3>Hospital General de Albacete</h3>
-<p>967 59 70 00</p>
-<p>Urgencias Psiquiatría</p>
-</div>
+  <div class="card">
+    <h3>Hospital General de Albacete</h3>
+    <p>967 59 70 00</p>
+    <p>Urgencias Psiquiatría</p>
+  </div>
 
-<div class="card">
-<h3>Emergencias</h3>
-<p><strong>112</strong></p>
-<p>En caso de peligro inmediato</p>
-</div>
+  <div class="card">
+    <h3>Emergencias</h3>
+    <p><strong>112</strong></p>
+    <p>En caso de peligro inmediato</p>
+  </div>
 
 </div>
 </section>
@@ -256,11 +270,11 @@ Disponible 24/7 · Confidencial y gratuita
 <p style="text-align:center;">Selecciona un estado emocional:</p>
 
 <div class="emojis" style="text-align:center;">
-<span>😊</span>
-<span>😐</span>
-<span>😔</span>
-<span>😢</span>
-<span>😰</span>
+  <span>😊</span>
+  <span>😐</span>
+  <span>😔</span>
+  <span>😢</span>
+  <span>😰</span>
 </div>
 
 <div class="exercise">
@@ -296,14 +310,14 @@ Contacto: hopeup.proyecto@gmail.com
 
 <script>
 function acceptCookies(){
-document.getElementById('cookieBanner').classList.add('hidden');
-localStorage.setItem("cookiesAccepted", "true");
+  document.getElementById('cookieBanner').classList.add('hidden');
+  localStorage.setItem("cookiesAccepted", "true");
 }
 
 window.onload = function(){
-if(localStorage.getItem("cookiesAccepted")){
-document.getElementById('cookieBanner').classList.add('hidden');
-}
+  if(localStorage.getItem("cookiesAccepted")){
+    document.getElementById('cookieBanner').classList.add('hidden');
+  }
 }
 </script>
 
