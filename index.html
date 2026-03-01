@@ -1,198 +1,311 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>HOPE-UP | Prevención del Suicidio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HOPE-UP | Prevención y Bienestar Emocional</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-        body {
-            background: #f8fafc;
-            color: #1f2937;
-            line-height: 1.6;
-        }
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+scroll-behavior:smooth;
+}
 
-        header {
-            background: linear-gradient(135deg, #4A90E2, #7ED6A7);
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-        }
+body{
+background:#f4f7fb;
+color:#1f2937;
+line-height:1.6;
+}
 
-        header h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
+header{
+background:linear-gradient(135deg,#4A90E2,#7ED6A7);
+color:white;
+text-align:center;
+padding:90px 20px;
+}
 
-        header p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px auto;
-        }
+header img{
+width:140px;
+margin-bottom:20px;
+}
 
-        .btn {
-            display: inline-block;
-            padding: 12px 25px;
-            background: white;
-            color: #4A90E2;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: 0.3s ease;
-        }
+header h1{
+font-size:2.8rem;
+margin-bottom:15px;
+}
 
-        .btn:hover {
-            background: #e2e8f0;
-        }
+header p{
+max-width:700px;
+margin:auto;
+opacity:0.95;
+}
 
-        section {
-            padding: 80px 20px;
-            max-width: 1100px;
-            margin: auto;
-        }
+.btn{
+display:inline-block;
+margin-top:25px;
+padding:12px 28px;
+background:white;
+color:#4A90E2;
+border-radius:30px;
+text-decoration:none;
+font-weight:600;
+transition:0.3s;
+}
 
-        h2 {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 2rem;
-            color: #111827;
-        }
+.btn:hover{
+background:#e2e8f0;
+}
 
-        .grid {
-            display: grid;
-            gap: 30px;
-        }
+section{
+padding:80px 20px;
+max-width:1100px;
+margin:auto;
+}
 
-        .grid-3 {
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        }
+h2{
+text-align:center;
+margin-bottom:50px;
+font-size:2rem;
+}
 
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            text-align: center;
-        }
+.grid{
+display:grid;
+gap:30px;
+}
 
-        .card h3 {
-            margin-bottom: 15px;
-            color: #4A90E2;
-        }
+.grid-3{
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+}
 
-        .impact {
-            background: #f1f5f9;
-        }
+.card{
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
+text-align:center;
+}
 
-        footer {
-            background: #111827;
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 0.9rem;
-        }
+.card h3{
+margin-bottom:15px;
+color:#4A90E2;
+}
 
-        .cta {
-            background: linear-gradient(135deg, #7ED6A7, #4A90E2);
-            color: white;
-            text-align: center;
-            padding: 80px 20px;
-        }
+.contact-section{
+background:#ffffff;
+}
 
-        .cta h2 {
-            color: white;
-        }
+.emergency{
+background:#fff3f3;
+border-left:6px solid #e63946;
+padding:20px;
+margin-bottom:20px;
+border-radius:10px;
+}
 
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.2rem;
-            }
-        }
-    </style>
+.emojis span{
+font-size:2rem;
+cursor:pointer;
+margin:10px;
+transition:0.3s;
+}
+
+.emojis span:hover{
+transform:scale(1.3);
+}
+
+.exercise{
+background:#f1f5f9;
+padding:20px;
+border-radius:12px;
+margin-top:15px;
+}
+
+footer{
+background:#111827;
+color:white;
+padding:40px 20px;
+text-align:center;
+font-size:0.9rem;
+}
+
+footer a{
+color:#7ED6A7;
+text-decoration:none;
+}
+
+.cookie-banner{
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+background:#111827;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+z-index:1000;
+}
+
+.cookie-banner button{
+background:#7ED6A7;
+border:none;
+padding:8px 16px;
+border-radius:20px;
+cursor:pointer;
+font-weight:600;
+}
+
+.hidden{
+display:none;
+}
+
+@media(max-width:768px){
+header h1{
+font-size:2rem;
+}
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <h1>HOPE-UP</h1>
-    <p>No estás solo. La tecnología también puede cuidar de ti.  
-    Una herramienta basada en inteligencia artificial para la detección temprana del malestar emocional y la prevención del suicidio en jóvenes.</p>
-    <a href="#proyecto" class="btn">Descubrir el proyecto</a>
+<img src="logotipo HOPE-UP.png" alt="Logo HOPE-UP">
+<h1>HOPE-UP</h1>
+<p>Plataforma universitaria para la detección temprana del malestar emocional y la activación de redes de apoyo.</p>
+<a href="#recursos" class="btn">Necesito ayuda</a>
 </header>
 
-<section id="proyecto">
-    <h2>¿Qué es HOPE-UP?</h2>
-    <p style="text-align:center; max-width:800px; margin:auto;">
-        HOPE-UP es una iniciativa universitaria multidisciplinar que integra ingeniería, derecho y ciencias sociales para desarrollar una plataforma digital capaz de detectar señales tempranas de riesgo emocional. 
-        Su objetivo es activar redes de apoyo antes de que una situación crítica se produzca, fomentando una cultura de prevención, acompañamiento y bienestar.
-    </p>
+<section>
+<h2>¿Qué es HOPE-UP?</h2>
+<p style="text-align:center;max-width:800px;margin:auto;">
+HOPE-UP es una iniciativa multidisciplinar que integra tecnología, ética y acompañamiento profesional para prevenir situaciones de riesgo emocional en jóvenes.
+</p>
 </section>
 
 <section>
-    <h2>Cómo funciona</h2>
-    <div class="grid grid-3">
-        <div class="card">
-            <h3>1. Interacción</h3>
-            <p>El usuario interactúa con la aplicación mediante cuestionarios, textos o herramientas emocionales.</p>
-        </div>
-        <div class="card">
-            <h3>2. Análisis IA</h3>
-            <p>El sistema analiza patrones emocionales utilizando inteligencia artificial responsable.</p>
-        </div>
-        <div class="card">
-            <h3>3. Activación de apoyo</h3>
-            <p>Si se detecta riesgo, se activan recursos de ayuda y acompañamiento profesional.</p>
-        </div>
-    </div>
+<h2>Equipo Profesional</h2>
+<div class="grid grid-3">
+<div class="card">
+<h3>Dirección Académica</h3>
+<p>Supervisión científica y coordinación institucional.</p>
+</div>
+<div class="card">
+<h3>Psicología y Salud Mental</h3>
+<p>Asesoramiento clínico y validación de protocolos de actuación.</p>
+</div>
+<div class="card">
+<h3>Ingeniería e IA</h3>
+<p>Desarrollo de modelos de análisis emocional responsables y seguros.</p>
+</div>
+</div>
 </section>
 
-<section class="impact">
-    <h2>Impacto Social</h2>
-    <div class="grid grid-3">
-        <div class="card">
-            <h3>Prevención temprana</h3>
-            <p>Identificación de señales antes de que la situación sea crítica.</p>
-        </div>
-        <div class="card">
-            <h3>Comunidad educativa</h3>
-            <p>Fortalece la sensibilización y el compromiso social en entornos universitarios.</p>
-        </div>
-        <div class="card">
-            <h3>ODS</h3>
-            <p>Contribuye a los Objetivos de Desarrollo Sostenible 3, 4 y 16.</p>
-        </div>
-    </div>
+<section id="recursos" class="contact-section">
+<h2>Recursos y Teléfonos de Ayuda</h2>
+
+<div class="emergency">
+<strong>024 – Línea de Atención a la Conducta Suicida</strong><br>
+Disponible 24/7 · Confidencial y gratuita
+</div>
+
+<div class="grid grid-3">
+
+<div class="card">
+<h3>Teléfono Talitha</h3>
+<p>674 859 568</p>
+<p>Apoyo y orientación</p>
+</div>
+
+<div class="card">
+<h3>La Esperanza de Albacete</h3>
+<p>967 52 34 34</p>
+<p>Atención y apoyo emocional</p>
+</div>
+
+<div class="card">
+<h3>Salud Responde Castilla-La Mancha</h3>
+<p>900 122 112</p>
+<p>Información sanitaria 24h</p>
+</div>
+
+<div class="card">
+<h3>Hospital General de Albacete</h3>
+<p>967 59 70 00</p>
+<p>Urgencias Psiquiatría</p>
+</div>
+
+<div class="card">
+<h3>Emergencias</h3>
+<p><strong>112</strong></p>
+<p>En caso de peligro inmediato</p>
+</div>
+
+</div>
 </section>
 
 <section>
-    <h2>Seguridad y Ética</h2>
-    <p style="text-align:center; max-width:800px; margin:auto;">
-        HOPE-UP cumple con el Reglamento General de Protección de Datos (RGPD), la LOPDGDD y el Reglamento Europeo de Inteligencia Artificial. 
-        El sistema incorpora supervisión humana, protección de datos reforzada y evaluación de impacto en privacidad.
-    </p>
+<h2>¿Cómo te sientes?</h2>
+<p style="text-align:center;">Selecciona un estado emocional:</p>
+
+<div class="emojis" style="text-align:center;">
+<span>😊</span>
+<span>😐</span>
+<span>😔</span>
+<span>😢</span>
+<span>😰</span>
+</div>
+
+<div class="exercise">
+<h3>Ejercicio de respiración guiada</h3>
+<p>Inhala durante 4 segundos, mantén 4 segundos y exhala lentamente durante 6 segundos. Repite 5 veces.</p>
+</div>
+
+<div class="exercise">
+<h3>Técnica 5-4-3-2-1</h3>
+<p>Identifica 5 cosas que ves, 4 que sientes, 3 que oyes, 2 que hueles y 1 que saboreas.</p>
+</div>
+
 </section>
 
-<section class="cta">
-    <h2>Si alguna vez lo necesitas, queremos que haya una señal antes de que sea tarde.</h2>
-    <p>La prevención comienza con escuchar.</p>
+<section>
+<h2>Política de Privacidad</h2>
+<p>HOPE-UP cumple con el Reglamento General de Protección de Datos (RGPD) y la LOPDGDD. Los datos tratados se utilizan exclusivamente con fines de prevención y mejora del bienestar emocional.</p>
+
+<h2 style="margin-top:50px;">Política de Cookies</h2>
+<p>Este sitio utiliza cookies técnicas necesarias para su funcionamiento y cookies analíticas anónimas para mejorar la experiencia del usuario.</p>
 </section>
 
 <footer>
-    © 2025 HOPE-UP | Proyecto Universitario de Prevención del Suicidio  
-    <br>
-    Aviso Legal | Política de Privacidad | Contacto
+© 2025 HOPE-UP · Proyecto Universitario  
+<br>
+Contacto: hopeup.proyecto@gmail.com
 </footer>
+
+<div class="cookie-banner" id="cookieBanner">
+<p>Este sitio utiliza cookies para mejorar la experiencia de usuario.</p>
+<button onclick="acceptCookies()">Aceptar</button>
+</div>
+
+<script>
+function acceptCookies(){
+document.getElementById('cookieBanner').classList.add('hidden');
+localStorage.setItem("cookiesAccepted", "true");
+}
+
+window.onload = function(){
+if(localStorage.getItem("cookiesAccepted")){
+document.getElementById('cookieBanner').classList.add('hidden');
+}
+}
+</script>
 
 </body>
 </html>
