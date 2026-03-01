@@ -1,10 +1,10 @@
 /* =====================================================
-   HOPE-UP JAVASCRIPT
-   Funcionalidad Profesional Interactiva
+   HOPE-UP JAVASCRIPT 3.1
+   Funcionalidad Profesional Interactiva – Parte 1
    ===================================================== */
 
 /* ------------------------------
-   NAVBAR EFECTO SCROLL
+   NAVBAR EFECTO SCROLL Y STICKY
 --------------------------------*/
 window.addEventListener("scroll", function () {
     const navbar = document.querySelector(".navbar");
@@ -87,7 +87,7 @@ function changeLanguage(lang) {
 }
 
 /* ------------------------------
-   FORMULARIO CONTACTO
+   FORMULARIO CONTACTO CON VALIDACIÓN
 --------------------------------*/
 const form = document.getElementById("contactForm");
 
@@ -218,4 +218,376 @@ function emergencyCall() {
 document.addEventListener("DOMContentLoaded", function () {
     revealOnScroll();
     updateTime();
+});
+/* =====================================================
+   HOPE-UP JAVASCRIPT 3.2
+   Funcionalidad Profesional Interactiva – Parte 2
+   ===================================================== */
+
+/* ------------------------------
+   TOOLTIP INTERACTIVO
+--------------------------------*/
+const tooltipElements = document.querySelectorAll("[data-tooltip]");
+
+tooltipElements.forEach(el => {
+    el.addEventListener("mouseenter", () => {
+        let tooltip = document.createElement("div");
+        tooltip.className = "tooltip";
+        tooltip.innerText = el.getAttribute("data-tooltip");
+        document.body.appendChild(tooltip);
+
+        const rect = el.getBoundingClientRect();
+        tooltip.style.top = rect.top - tooltip.offsetHeight - 5 + "px";
+        tooltip.style.left = rect.left + rect.width / 2 - tooltip.offsetWidth / 2 + "px";
+    });
+
+    el.addEventListener("mouseleave", () => {
+        const tooltip = document.querySelector(".tooltip");
+        if (tooltip) tooltip.remove();
+    });
+});
+
+/* ------------------------------
+   DRAG & DROP DINÁMICO
+--------------------------------*/
+const draggables = document.querySelectorAll(".draggable");
+let dragged = null;
+
+draggables.forEach(item => {
+    item.setAttribute("draggable", true);
+
+    item.addEventListener("dragstart", (e) => {
+        dragged = item;
+        setTimeout(() => item.style.opacity = "0.5", 0);
+    });
+
+    item.addEventListener("dragend", () => {
+        dragged.style.opacity = "1";
+        dragged = null;
+    });
+});
+
+const dropZones = document.querySelectorAll(".dropzone");
+
+dropZones.forEach(zone => {
+    zone.addEventListener("dragover", e => e.preventDefault());
+    zone.addEventListener("dragenter", e => e.preventDefault());
+    zone.addEventListener("drop", e => {
+        if (dragged) zone.appendChild(dragged);
+    });
+});
+
+/* ------------------------------
+   FILTROS DINÁMICOS DE TARJETAS
+--------------------------------*/
+const filterButtons = document.querySelectorAll(".filter-btn");
+const cards = document.querySelectorAll(".filter-card");
+
+filterButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        const filter = btn.getAttribute("data-filter");
+
+        cards.forEach(card => {
+            if (filter === "all" || card.getAttribute("data-category") === filter) {
+                card.style.display = "block";
+                card.classList.add("fade-in");
+            } else {
+                card.style.display = "none";
+                card.classList.remove("fade-in");
+            }
+        });
+    });
+});
+
+/* ------------------------------
+   LOCALSTORAGE PARA PREFERENCIAS
+--------------------------------*/
+const savePreference = (key, value) => {
+    localStorage.setItem(key, value);
+};
+
+const getPreference = (key) => {
+    return localStorage.getItem(key);
+};
+
+// Ejemplo: guardar idioma seleccionado
+const langButtons = document.querySelectorAll(".lang-toggle button");
+
+langButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        const lang = btn.innerText.toLowerCase();
+        changeLanguage(lang);
+        savePreference("preferredLang", lang);
+    });
+});
+
+// Al cargar, aplicar idioma guardado
+document.addEventListener("DOMContentLoaded", () => {
+    const savedLang = getPreference("preferredLang");
+    if (savedLang) changeLanguage(savedLang);
+});
+
+/* ------------------------------
+   ANIMACIONES AVANZADAS CON INTERSECT OBSERVER
+--------------------------------*/
+const animatedElements = document.querySelectorAll(".animate-on-scroll");
+
+const observerAnim = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+        }
+    });
+}, { threshold: 0.3 });
+
+animatedElements.forEach(el => observerAnim.observe(el));
+
+/* ------------------------------
+   NOTIFICACIONES MODALES AVANZADAS
+--------------------------------*/
+function showModal(message, type="info") {
+    const modal = document.createElement("div");
+    modal.className = `modal ${type}`;
+    modal.innerHTML = `<p>${message}</p><span class="close-modal">✖</span>`;
+    document.body.appendChild(modal);
+
+    modal.querySelector(".close-modal").addEventListener("click", () => {
+        modal.remove();
+    });
+
+    setTimeout(() => modal.remove(), 7000);
+}
+
+/* ------------------------------
+   COOKIE CONSENT BANNER
+--------------------------------*/
+function checkCookies() {
+    if (!getPreference("cookiesAccepted")) {
+        const banner = document.createElement("div");
+        banner.className = "cookie-banner";
+        banner.innerHTML = `
+            <p>Usamos cookies para mejorar la experiencia. <button id="acceptCookies">Aceptar</button></p>
+        `;
+        document.body.appendChild(banner);
+
+        document.getElementById("acceptCookies").addEventListener("click", () => {
+            savePreference("cookiesAccepted", true);
+            banner.remove();
+        });
+    }
+}
+
+document.addEventListener("DOMContentLoaded", checkCookies);
+
+/* ------------------------------
+   ACCESIBILIDAD MEJORADA (TECLADO)
+--------------------------------*/
+document.addEventListener("keydown", e => {
+    if (e.key === "Escape") {
+        const modals = document.querySelectorAll(".modal");
+        modals.forEach(modal => modal.remove());
+    }
+});
+
+/* ------------------------------
+   HERRAMIENTA DE FEEDBACK RÁPIDO
+--------------------------------*/
+function quickFeedback(type) {
+    showModal(`Gracias por tu feedback: ${type}`, "success");
+}
+
+const feedbackButtons = document.querySelectorAll(".feedback-btn");
+feedbackButtons.forEach(btn => {
+    btn.addEventListener("click", () => quickFeedback(btn.getAttribute("data-feedback")));
+});
+
+/* ------------------------------
+   INICIALIZACIÓN ADICIONAL
+--------------------------------*/
+document.addEventListener("DOMContentLoaded", () => {
+    observerAnim.disconnect(); // para performance
+});
+/* =====================================================
+   HOPE-UP JAVASCRIPT 3.3
+   Funcionalidad Profesional Interactiva – Parte 3
+   ===================================================== */
+
+/* ------------------------------
+   DASHBOARD KPI DINÁMICO
+--------------------------------*/
+const kpiElements = document.querySelectorAll(".metric h3");
+const kpiTargets = [4000, 850, 15, 25, 20];
+kpiElements.forEach((el, idx) => {
+    let count = 0;
+    const target = kpiTargets[idx];
+    const interval = setInterval(() => {
+        count += Math.ceil(target / 50);
+        if (count > target) count = target;
+        el.innerText = idx === 4 ? count + "%" : count;
+        if (count === target) clearInterval(interval);
+    }, 50);
+});
+
+/* ------------------------------
+   CHART.JS AVANZADO
+--------------------------------*/
+const chartOptions = {
+    responsive: true,
+    plugins: {
+        legend: { display: true, position: "top", labels: { font: { size: 14 } } },
+        title: { display: true, text: "Alertas detectadas semanalmente", font: { size: 16 } }
+    },
+    scales: {
+        x: { title: { display: true, text: "Semana", font: { size: 14 } } },
+        y: { title: { display: true, text: "Número de alertas", font: { size: 14 } }, beginAtZero: true }
+    }
+};
+
+const ctxGraf1 = document.getElementById("grafico1").getContext("2d");
+const grafico1 = new Chart(ctxGraf1, {
+    type: "bar",
+    data: {
+        labels: ["Semana 1", "Semana 2", "Semana 3", "Semana 4"],
+        datasets: [{ label: "Alertas detectadas", data: [5, 10, 7, 12], backgroundColor: "#FF6600" }]
+    },
+    options: chartOptions
+});
+
+const ctxGraf2 = document.getElementById("grafico2").getContext("2d");
+const grafico2 = new Chart(ctxGraf2, {
+    type: "line",
+    data: {
+        labels: ["Enero", "Febrero", "Marzo", "Abril"],
+        datasets: [{ label: "Reducción Riesgo (%)", data: [2, 5, 10, 15], borderColor: "#FF6600", fill: false, tension: 0.4 }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { display: true },
+            title: { display: true, text: "Reducción de riesgo mensual (%)", font: { size: 16 } }
+        },
+        scales: {
+            x: { title: { display: true, text: "Mes", font: { size: 14 } } },
+            y: { title: { display: true, text: "Reducción (%)", font: { size: 14 } }, beginAtZero: true }
+        }
+    }
+});
+
+/* ------------------------------
+   EMOJIS INTERACTIVOS
+--------------------------------*/
+const emojiContainer = document.querySelector(".emojis");
+const emojiDisplay = document.getElementById("emoji-seleccionado");
+
+if (emojiContainer && emojiDisplay) {
+    emojiContainer.addEventListener("click", e => {
+        if (e.target.tagName === "SPAN") {
+            const estado = e.target.innerText;
+            emojiDisplay.innerText = `Has seleccionado: ${estado}`;
+            showModal(`Estado registrado: ${estado}`, "info");
+        }
+    });
+}
+
+/* ------------------------------
+   SIMULACIÓN INTERACTIVA DE RIESGO
+--------------------------------*/
+const riskBtn = document.getElementById("simulateRisk");
+if (riskBtn) {
+    riskBtn.addEventListener("click", () => {
+        const random = Math.random();
+        let msg = "";
+        if (random < 0.3) msg = "Nivel bajo detectado. Mantén tus hábitos saludables 💙";
+        else if (random < 0.6) msg = "Nivel moderado. Revisa tu estado emocional y cuida tu bienestar.";
+        else msg = "Nivel alto detectado. Se recomienda asistencia profesional inmediata.";
+
+        showModal(msg, random < 0.3 ? "success" : random < 0.6 ? "warning" : "danger");
+    });
+}
+
+/* ------------------------------
+   KPIS Y PROGRESS BARS ANIMADOS
+--------------------------------*/
+const progressElements = document.querySelectorAll(".progress-bar-fill");
+
+progressElements.forEach(bar => {
+    const targetWidth = bar.getAttribute("data-progress");
+    let width = 0;
+    const anim = setInterval(() => {
+        if (width >= targetWidth) clearInterval(anim);
+        else width++;
+        bar.style.width = width + "%";
+    }, 15);
+});
+
+/* ------------------------------
+   NOTIFICACIONES EN TIEMPO REAL
+--------------------------------*/
+function showLiveNotification(text) {
+    const notif = document.createElement("div");
+    notif.className = "live-notification";
+    notif.innerText = text;
+    document.body.appendChild(notif);
+    setTimeout(() => notif.remove(), 4000);
+}
+
+// Ejemplo de notificación simulada
+setInterval(() => {
+    const alerts = ["Nueva alerta detectada en estudiante A", "Alerta moderada registrada", "Nivel de riesgo actualizado"];
+    const randomAlert = alerts[Math.floor(Math.random() * alerts.length)];
+    showLiveNotification(randomAlert);
+}, 15000);
+
+/* ------------------------------
+   FEEDBACK EN TIEMPO REAL
+--------------------------------*/
+const liveFeedbackButtons = document.querySelectorAll(".live-feedback-btn");
+liveFeedbackButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        const feedback = btn.getAttribute("data-feedback");
+        showModal(`Feedback recibido: ${feedback}`, "success");
+    });
+});
+
+/* ------------------------------
+   VISUALIZACIÓN DE DATOS INTERACTIVA
+--------------------------------*/
+const dataCards = document.querySelectorAll(".data-card");
+
+dataCards.forEach(card => {
+    card.addEventListener("click", () => {
+        card.classList.toggle("expanded");
+    });
+});
+
+/* ------------------------------
+   TOOLTIP DINÁMICO EN DASHBOARD
+--------------------------------*/
+const dashboardMetrics = document.querySelectorAll(".metric");
+dashboardMetrics.forEach(metric => {
+    metric.addEventListener("mouseenter", () => {
+        const info = metric.getAttribute("data-info");
+        if (!info) return;
+        const tooltip = document.createElement("div");
+        tooltip.className = "dashboard-tooltip";
+        tooltip.innerText = info;
+        document.body.appendChild(tooltip);
+        const rect = metric.getBoundingClientRect();
+        tooltip.style.top = rect.top - tooltip.offsetHeight - 8 + "px";
+        tooltip.style.left = rect.left + rect.width / 2 - tooltip.offsetWidth / 2 + "px";
+    });
+    metric.addEventListener("mouseleave", () => {
+        const tooltip = document.querySelector(".dashboard-tooltip");
+        if (tooltip) tooltip.remove();
+    });
+});
+
+/* ------------------------------
+   INICIALIZACIÓN FINAL
+--------------------------------*/
+document.addEventListener("DOMContentLoaded", () => {
+    animateCounters();
+    revealOnScroll();
+    updateTime();
+    checkCookies();
 });
