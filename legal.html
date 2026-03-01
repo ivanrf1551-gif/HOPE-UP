@@ -6,56 +6,57 @@
     <title>HOPE-UP - Legal & Privacidad</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* ==================== VARIABLES ==================== */
-        :root {
-            --primary: #1E88E5;
-            --secondary: #00A87A;
-            --accent: #F59E0B;
-            --white: #ffffff;
-            --light: #f4f4f4;
-            --dark: #111827;
-        }
-
         /* ==================== POPUP COOKIES ==================== */
-        #cookie-banner {
+        #cookie-popup {
             position: fixed;
-            bottom: 0;
-            width: 100%;
-            background: var(--primary);
-            color: var(--white);
+            bottom: 20px;
+            right: 20px;
+            width: 320px;
+            max-width: 90%;
+            background: var(--white);
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            padding: 20px;
             display: none;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 30px;
-            z-index: 9999;
-            box-shadow: 0 -5px 15px rgba(0,0,0,0.2);
+            z-index: 10000;
             font-family: 'Inter', sans-serif;
+            color: var(--dark);
         }
-        .cookie-buttons button {
-            margin-left: 10px;
-            padding: 10px 20px;
-            border-radius: 25px;
+        #cookie-popup h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+        #cookie-popup p {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        #cookie-popup button {
+            padding: 10px 18px;
             border: none;
-            font-weight: 600;
+            border-radius: 8px;
+            margin-right: 10px;
             cursor: pointer;
+            font-weight: 600;
             transition: 0.3s;
         }
-        #accept-cookies {
+        #cookie-popup button#accept {
             background: var(--secondary);
             color: var(--white);
         }
-        #accept-cookies:hover {
+        #cookie-popup button#accept:hover {
             background: #00A87A;
         }
-        #reject-cookies {
-            background: var(--dark);
+        #cookie-popup button#reject {
+            background: #E53E3E;
             color: var(--white);
         }
-        #reject-cookies:hover {
-            background: #111827;
+        #cookie-popup button#reject:hover {
+            background: #C53030;
         }
 
-        /* ==================== NAV LATERAL ==================== */
+        /* ==================== NAV LATERAL LEGAL ==================== */
         .legal-nav {
             position: fixed;
             top: 80px;
@@ -85,7 +86,6 @@
             margin-left: 260px;
             padding: 40px 60px;
             max-width: 900px;
-            font-family: 'Inter', sans-serif;
         }
         .legal-content h1 {
             font-size: 2rem;
@@ -102,7 +102,7 @@
             margin-top: 20px;
             color: var(--primary);
         }
-        .legal-content p, .legal-content ul {
+        .legal-content p {
             margin: 10px 0;
             font-size: 0.95rem;
             line-height: 1.6;
@@ -112,69 +112,39 @@
             margin-bottom: 15px;
         }
 
-        /* ==================== NOTIFICACIONES ==================== */
-        .notification {
-            animation: fadeIn 0.5s, fadeOut 0.5s 5.5s;
+        /* ==================== MODAL INFORMACION ==================== */
+        .modal {
             position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: var(--accent);
-            color: var(--white);
-            padding: 12px 20px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        .modal-content {
+            background: var(--white);
+            padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            z-index: 9999;
+            max-width: 500px;
+            text-align: center;
         }
-        @keyframes fadeIn {
-            from {opacity: 0; transform: translateY(20px);}
-            to {opacity: 1; transform: translateY(0);}
-        }
-        @keyframes fadeOut {
-            from {opacity: 1; transform: translateY(0);}
-            to {opacity: 0; transform: translateY(20px);}
-        }
-
-        /* ==================== MODO OSCURO ==================== */
-        .dark-mode {
-            background: var(--dark);
-            color: var(--white);
-        }
-        .dark-mode .legal-nav {
-            background: #1A1F2C;
-            border-color: #333;
-        }
-        .dark-mode .legal-content a {
-            color: #1E88E5;
-        }
-        .dark-mode #cookie-banner {
-            background: var(--secondary);
-            color: var(--white);
-        }
-        .dark-mode-toggle {
-            position: fixed;
-            top: 15px;
-            right: 15px;
-            padding: 10px 18px;
-            border-radius: 25px;
-            background: var(--accent);
-            color: var(--white);
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            z-index: 9999;
-            transition: 0.3s;
-        }
-        .dark-mode-toggle:hover {
-            background: var(--secondary);
-        }
-
-        /* ==================== TRANSICIONES ==================== */
-        .legal-content h2, .legal-content h3 {
-            transition: 0.3s;
+        .modal-content button {
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
+    <!-- ==================== POPUP COOKIES ==================== -->
+    <div id="cookie-popup">
+        <h3>Política de Cookies</h3>
+        <p>Usamos cookies propias y de terceros para mejorar tu experiencia, analizar el uso y personalizar contenido. ¿Aceptas el uso de cookies?</p>
+        <button id="accept">Aceptar</button>
+        <button id="reject">Rechazar</button>
+    </div>
 
     <!-- ==================== NAV LATERAL ==================== -->
     <nav class="legal-nav">
@@ -194,164 +164,76 @@
 
     <!-- ==================== CONTENIDO LEGAL ==================== -->
     <div class="legal-content">
-
-        <!-- PRIVACIDAD -->
         <h1 id="privacidad">Política de Privacidad HOPE-UP</h1>
-        <p>En HOPE-UP nos comprometemos a proteger la privacidad de nuestros usuarios...</p>
+        <p>En HOPE-UP nos comprometemos a proteger la privacidad de nuestros usuarios y a garantizar un uso responsable de sus datos personales. Esta política detalla cómo recopilamos, tratamos y protegemos la información personal, en cumplimiento de la legislación vigente (LOPDGDD, RGPD y LSSI-CE).</p>
 
-        <h2 id="lopdgdd">5.1. Cumplimiento LOPDGDD</h2>
-        <h3>5.1.1. Tratamiento de datos de menores</h3>
-        <p>Los menores de 14 años requieren consentimiento...</p>
-        <h3>5.1.2. Garantía de derechos digitales</h3>
-        <p>Se garantiza a los usuarios el acceso, rectificación...</p>
+        <h2 id="lopdgdd">5.1. Cumplimiento de la Ley Orgánica de Protección de Datos (LOPDGDD)</h2>
+        <h3>5.1.1. Tratamiento de datos de menores de edad</h3>
+        <p>Los menores de 14 años requieren consentimiento explícito de sus padres o tutores para el tratamiento de sus datos personales.</p>
+        <h3>5.1.2. Garantía de los derechos digitales</h3>
+        <p>Se garantiza a los usuarios el acceso, rectificación, supresión, limitación, portabilidad y oposición al tratamiento de sus datos.</p>
         <h3>5.1.3. Acceso a datos de personas fallecidas</h3>
-        <p>Se regula el acceso a los datos de personas fallecidas...</p>
-        <h3>5.1.4. Delegado de Protección de Datos</h3>
-        <p>HOPE-UP ha designado un DPD responsable...</p>
+        <p>Se regula el acceso a los datos de personas fallecidas siguiendo lo establecido en la normativa vigente.</p>
+        <h3>5.1.4. Designación del Delegado de Protección de Datos (DPD)</h3>
+        <p>HOPE-UP ha designado un Delegado de Protección de Datos responsable de supervisar y garantizar el cumplimiento normativo.</p>
 
-        <h2 id="rgpd">5.2. Reglamento RGPD</h2>
+        <h2 id="rgpd">5.2. Reglamento General de Protección de Datos (RGPD)</h2>
         <h3>5.2.1. Responsable del tratamiento</h3>
-        <p>El responsable del tratamiento es HOPE-UP S.A...</p>
-        <h3>5.2.2. Tipos de datos tratados</h3>
-        <p>Recogemos datos personales básicos...</p>
-        <h3>5.2.3. Base jurídica</h3>
-        <p>El tratamiento se realiza con base en el consentimiento...</p>
-        <h3>5.2.4. Finalidad</h3>
-        <p>Analizar el bienestar emocional de los usuarios...</p>
-        <h3>5.2.5. Principios aplicables</h3>
-        <p>Todos los datos personales se tratan bajo los principios...</p>
-        <h3>5.2.6. Derechos de los usuarios</h3>
-        <ul>
-            <li>Acceso a los datos.</li>
-            <li>Rectificación de información inexacta.</li>
-            <li>Supresión de datos (“derecho al olvido”).</li>
-            <li>Limitación u oposición.</li>
-            <li>Portabilidad de los datos.</li>
-        </ul>
-        <h3>5.2.7. Medidas de seguridad</h3>
-        <p>Cifrado, control de accesos, auditorías periódicas...</p>
-        <h3>5.2.8. Evaluación de Impacto (EIPD)</h3>
-        <p>Se realiza de forma sistemática para identificar riesgos...</p>
-        <h3>5.2.9. Sistemas automatizados</h3>
-        <p>El sistema de IA analiza los datos con supervisión humana...</p>
-        <h3>5.2.10. Actualización de la política</h3>
-        <p>La política se revisa periódicamente, notificando a los usuarios...</p>
+        <p>El responsable del tratamiento de los datos es HOPE-UP S.A., con domicilio social en [dirección] y contacto: privacidad@hopeup.com.</p>
+        <h3>5.2.2. Naturaleza y tipología de los datos tratados</h3>
+        <p>Recogemos datos personales básicos, datos de uso de la aplicación y datos de salud emocional bajo consentimiento explícito.</p>
+        <h3>5.2.3. Base jurídica del tratamiento</h3>
+        <p>El tratamiento se realiza con base en el consentimiento, interés legítimo y cumplimiento de obligaciones legales.</p>
+        <h3>5.2.4. Finalidad del tratamiento</h3>
+        <p>Analizar el bienestar emocional de los usuarios y ofrecer recomendaciones personalizadas mediante IA, cumpliendo con fines de salud y seguridad.</p>
 
-        <!-- LSSI-CE -->
-        <h2 id="lssi">5.3. Cumplimiento LSSI-CE</h2>
-        <h3>5.3.1. Aviso Legal</h3>
-        <p>HOPE-UP proporciona información clara sobre identidad y contacto...</p>
-        <h3>5.3.2. Obligaciones legales</h3>
-        <ul>
-            <li>Informar sobre datos y cookies.</li>
-            <li>Garantizar seguridad de sistemas.</li>
-            <li>Evitar contenidos ilícitos.</li>
-        </ul>
-        <h3>5.3.3. Política de cookies</h3>
-        <p>Los usuarios pueden aceptar o rechazar cookies...</p>
-
-        <!-- TÉRMINOS Y CONDICIONES -->
-        <h2 id="terminos">5.4. Términos y Condiciones</h2>
-        <h3>5.4.1. Naturaleza y limitación</h3>
-        <p>HOPE-UP ofrece información y recomendaciones basadas en IA...</p>
-        <h3>5.4.2. Edad y consentimiento</h3>
-        <p>Se requiere ser mayor de 14 años o contar con consentimiento parental...</p>
-        <h3>5.4.3. Normas de uso</h3>
-        <ul>
-            <li>No difundir contenido ofensivo o ilegal.</li>
-            <li>No vulnerar la seguridad del sistema.</li>
-            <li>Respetar derechos y propiedad intelectual.</li>
-        </ul>
-
-        <!-- PROTECCIÓN DEL MENOR -->
-        <h2 id="menor">5.5. Protección del Menor</h2>
-        <h3>5.5.1. Principio interés superior</h3>
-        <p>Todos los tratamientos priorizan la protección y bienestar...</p>
-
-        <!-- REGULACIÓN IA -->
-        <h2 id="ia">5.6. Regulación IA</h2>
-        <h3>5.6.1. Clasificación por riesgo</h3>
-        <p>HOPE-UP es sistema de riesgo moderado...</p>
-
-        <!-- EIPD -->
-        <h2 id="eipd">5.7. Evaluación de Impacto (EIPD)</h2>
-        <h3>5.7.1. Descripción del tratamiento</h3>
-        <p>Documentación de cada fase del procesamiento...</p>
-
-        <!-- CRISIS -->
-        <h2 id="crisis">5.8. Protocolo de Crisis</h2>
-        <h3>5.8.1. Fases del protocolo</h3>
-        <ul>
-            <li>Detección temprana.</li>
-            <li>Notificación inmediata.</li>
-            <li>Activación de asistencia profesional.</li>
-            <li>Registro de eventos.</li>
-        </ul>
-
-        <!-- GESTIÓN DE RIESGO -->
-        <h2 id="riesgo">5.9. Gestión de Riesgo</h2>
-        <h3>5.9.1. Identificación de riesgos</h3>
-        <ul>
-            <li>Riesgos regulatorios.</li>
-            <li>Riesgos operativos.</li>
-            <li>Riesgos reputacionales.</li>
-        </ul>
-
-        <!-- RESPONSABILIDAD CIVIL -->
-        <h2 id="responsabilidad">5.10. Responsabilidad Civil</h2>
-        <h3>5.10.1. Alcance</h3>
-        <p>HOPE-UP actúa bajo diligencia y buena fe...</p>
-
-        <!-- SUPERVISIÓN Y AUDITORÍA -->
-        <h2 id="supervision">5.11. Supervisión y Auditoría</h2>
-        <h3>5.11.1. Objetivos</h3>
-        <ul>
-            <li>Garantizar cumplimiento legal.</li>
-            <li>Verificar eficacia de protocolos.</li>
-        </ul>
+        <!-- CONTINUAR DESARROLLO CON 5.2.5 A 5.2.10 EN LA SIGUIENTE SUBPARTE -->
     </div>
 
-    <!-- ==================== BANNER COOKIES ==================== -->
-    <div id="cookie-banner">
-        <p>HOPE-UP utiliza cookies para mejorar tu experiencia. ¿Aceptas su uso?</p>
-        <div class="cookie-buttons">
-            <button id="accept-cookies">Aceptar</button>
-            <button id="reject-cookies">Rechazar</button>
+    <!-- ==================== MODAL INFORMACION ==================== -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <p id="modal-text"></p>
+            <button onclick="closeModal()">Cerrar</button>
         </div>
     </div>
 
-    <!-- ==================== MODO OSCURO ==================== -->
-    <button class="dark-mode-toggle">Modo Oscuro</button>
-
     <script>
-        /* ==================== COOKIE FUNCTIONALITY ==================== */
-        document.addEventListener('DOMContentLoaded', () => {
-            const cookieBanner = document.getElementById('cookie-banner');
-            const acceptBtn = document.getElementById('accept-cookies');
-            const rejectBtn = document.getElementById('reject-cookies');
+        /* ==================== FUNCIONALIDAD COOKIES ==================== */
+        const cookiePopup = document.getElementById("cookie-popup");
+        const acceptBtn = document.getElementById("accept");
+        const rejectBtn = document.getElementById("reject");
 
-            const cookieAccepted = localStorage.getItem('cookiesAccepted');
-            if (!cookieAccepted) cookieBanner.style.display = 'flex';
-
-            acceptBtn.onclick = () => {
-                localStorage.setItem('cookiesAccepted', 'true');
-                cookieBanner.style.display = 'none';
-                showNotification("Gracias por aceptar cookies.");
-            };
-            rejectBtn.onclick = () => {
-                localStorage.setItem('cookiesAccepted', 'false');
-                cookieBanner.style.display = 'none';
-                showNotification("Has rechazado cookies, algunas funciones pueden limitarse.");
-            };
+        // Mostrar popup si no hay cookie guardada
+        window.addEventListener("load", () => {
+            if (!localStorage.getItem("cookiesAccepted")) {
+                cookiePopup.style.display = "block";
+            }
         });
 
-        /* ==================== NOTIFICACIONES ==================== */
-        function showNotification(message) {
-            const notif = document.createElement('div');
-            notif.className = 'notification';
-            notif.innerText = message;
-            document.body.appendChild(notif);
-            setTimeout(() => notif.remove(), 6000);
+        // Función aceptar cookies
+        acceptBtn.addEventListener("click", () => {
+            localStorage.setItem("cookiesAccepted", "true");
+            cookiePopup.style.display = "none";
+            showModal("Has aceptado todas las cookies. Gracias por tu consentimiento.", "success");
+        });
+
+        // Función rechazar cookies
+        rejectBtn.addEventListener("click", () => {
+            localStorage.setItem("cookiesAccepted", "false");
+            cookiePopup.style.display = "none";
+            showModal("Has rechazado todas las cookies no esenciales.", "warning");
+        });
+
+        // Modal genérico
+        function showModal(message, type) {
+            const modal = document.getElementById("modal");
+            const text = document.getElementById("modal-text");
+            text.innerText = message;
+            modal.style.display = "flex";
+        }
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
         }
 
         /* ==================== SCROLL SUAVE ==================== */
@@ -361,28 +243,634 @@
                 document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
             });
         });
-
-        /* ==================== SCROLL ACTIVO ==================== */
-        const sections = document.querySelectorAll('.legal-content h2, .legal-content h3');
-        window.addEventListener('scroll', () => {
-            const scrollPos = window.scrollY + 120;
-            sections.forEach(sec => {
-                if (sec.offsetTop <= scrollPos && (sec.offsetTop + sec.offsetHeight) > scrollPos) {
-                    sec.style.color = 'var(--secondary)';
-                    sec.style.fontWeight = '600';
-                } else {
-                    sec.style.color = '';
-                    sec.style.fontWeight = '';
-                }
-            });
-        });
-
-        /* ==================== MODO OSCURO ==================== */
-        const darkToggle = document.querySelector('.dark-mode-toggle');
-        darkToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            showNotification("Modo oscuro activado/desactivado.");
-        });
     </script>
 </body>
 </html>
+<div class="legal-content">
+
+    <!-- ==================== CONTINUACIÓN RGPD ==================== -->
+    <h3>5.2.5. Principios aplicables al tratamiento</h3>
+    <p>Todos los datos personales se tratan bajo los principios de licitud, lealtad, transparencia, limitación de la finalidad, minimización, exactitud, integridad y confidencialidad.</p>
+
+    <h3>5.2.6. Derechos de los usuarios</h3>
+    <ul>
+        <li>Acceso a los datos personales.</li>
+        <li>Rectificación de información inexacta.</li>
+        <li>Supresión de datos cuando proceda (“derecho al olvido”).</li>
+        <li>Limitación u oposición al tratamiento.</li>
+        <li>Portabilidad de los datos.</li>
+    </ul>
+
+    <h3>5.2.7. Medidas técnicas y organizativas de seguridad</h3>
+    <p>HOPE-UP aplica cifrado, control de accesos, auditorías periódicas y protocolos internos de seguridad para garantizar la protección de la información.</p>
+
+    <h3>5.2.8. Evaluación de Impacto en Protección de Datos (EIPD)</h3>
+    <p>Se realiza de forma sistemática para identificar riesgos y mitigarlos, especialmente en tratamientos de alto riesgo relacionados con salud emocional.</p>
+
+    <h3>5.2.9. Funcionamiento de los sistemas automatizados</h3>
+    <p>El sistema de IA analiza los datos de forma automatizada pero garantiza supervisión humana y decisiones responsables, evitando sesgos o discriminaciones.</p>
+
+    <h3>5.2.10. Actualización de la política de privacidad</h3>
+    <p>La política se revisa periódicamente, notificando a los usuarios cualquier modificación significativa en su tratamiento de datos.</p>
+
+    <!-- ==================== LSSI-CE ==================== -->
+    <h2 id="lssi">5.3. Cumplimiento de la Ley de Servicios de la Sociedad de la Información (LSSI-CE)</h2>
+
+    <h3>5.3.1. Aviso Legal</h3>
+    <p>HOPE-UP proporciona información clara sobre la identidad del responsable, datos de contacto y fines del servicio, en cumplimiento del artículo 10 de la LSSI-CE.</p>
+
+    <h3>5.3.2. Obligaciones legales conforme a la LSSI-CE</h3>
+    <ul>
+        <li>Informar a los usuarios sobre el uso de datos y cookies.</li>
+        <li>Garantizar la seguridad de los sistemas electrónicos.</li>
+        <li>Evitar la difusión de contenidos ilícitos o dañinos.</li>
+    </ul>
+
+    <h3>5.3.3. Política de Cookies</h3>
+    <p>Los usuarios pueden aceptar o rechazar cookies a través del pop-up inicial, y modificar sus preferencias en cualquier momento desde la sección de privacidad.</p>
+
+    <!-- ==================== TÉRMINOS Y CONDICIONES ==================== -->
+    <h2 id="terminos">5.4. Términos y Condiciones</h2>
+
+    <h3>5.4.1. Naturaleza del servicio y limitación de responsabilidad</h3>
+    <p>HOPE-UP ofrece información y recomendaciones basadas en IA sobre bienestar emocional, sin sustituir asesoramiento profesional. La responsabilidad del servicio se limita a la disponibilidad y precisión de la plataforma.</p>
+
+    <h3>5.4.2. Requisitos de edad y consentimiento</h3>
+    <p>Se requiere ser mayor de 14 años o contar con consentimiento parental. Al usar la plataforma, el usuario acepta estas condiciones de manera expresa.</p>
+
+    <h3>5.4.3. Normas de uso y conducta</h3>
+    <ul>
+        <li>No difundir contenido ofensivo o ilegal.</li>
+        <li>No intentar vulnerar la seguridad del sistema.</li>
+        <li>Respetar los derechos de otros usuarios y la propiedad intelectual.</li>
+    </ul>
+
+    <h3>5.4.4. Suspensión y cancelación del servicio</h3>
+    <p>HOPE-UP puede suspender temporalmente el acceso ante uso indebido o incumplimiento de los términos, notificando al usuario con antelación cuando sea posible.</p>
+
+    <h3>5.4.5. Propiedad intelectual e industrial</h3>
+    <p>Todo el contenido, diseños, software y documentación de HOPE-UP son propiedad de la empresa o licenciados, quedando prohibida su reproducción no autorizada.</p>
+
+    <h3>5.4.6. Protección del sistema automatizado</h3>
+    <p>Se prohíbe cualquier manipulación o interferencia con la plataforma que pueda comprometer la seguridad o privacidad de otros usuarios.</p>
+
+    <h3>5.4.7. Modificación de los términos</h3>
+    <p>Los términos y condiciones podrán actualizarse periódicamente, siendo responsabilidad del usuario revisar estos cambios.</p>
+
+    <h3>5.4.8. Ley aplicable y jurisdicción</h3>
+    <p>Los servicios se rigen por la legislación española y europea, con jurisdicción en tribunales competentes de [ciudad].</p>
+
+    <h3>5.4.9. Aceptación expresa</h3>
+    <p>Al acceder y usar HOPE-UP, los usuarios aceptan de manera expresa todos los términos y condiciones aquí establecidos.</p>
+</div>
+
+<script>
+    /* ==================== TOOLTIP INFORMACION ==================== */
+    const legalHeadings = document.querySelectorAll('.legal-content h3, .legal-content h2');
+    legalHeadings.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            el.style.cursor = 'help';
+            el.style.color = 'var(--accent)';
+        });
+        el.addEventListener('mouseleave', () => {
+            el.style.color = '';
+        });
+    });
+
+    /* ==================== MODO OSCURO LECTURA LEGAL ==================== */
+    const darkModeToggle = document.createElement('button');
+    darkModeToggle.innerText = 'Modo Oscuro';
+    darkModeToggle.style.position = 'fixed';
+    darkModeToggle.style.bottom = '20px';
+    darkModeToggle.style.right = '20px';
+    darkModeToggle.style.padding = '10px 18px';
+    darkModeToggle.style.border = 'none';
+    darkModeToggle.style.borderRadius = '8px';
+    darkModeToggle.style.cursor = 'pointer';
+    darkModeToggle.style.background = 'var(--primary)';
+    darkModeToggle.style.color = 'var(--white)';
+    darkModeToggle.style.zIndex = '9999';
+    document.body.appendChild(darkModeToggle);
+
+    darkModeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode-legal');
+    });
+
+    const darkLegalStyle = document.createElement('style');
+    darkLegalStyle.innerHTML = `
+        .dark-mode-legal {
+            background: #111827;
+            color: #F4F7FA;
+        }
+        .dark-mode-legal .legal-nav {
+            background: #1A1F2C;
+            border-color: #333;
+        }
+        .dark-mode-legal .legal-content a {
+            color: #1E88E5;
+        }
+        .dark-mode-legal #cookie-popup {
+            background: #1A1F2C;
+            color: #F4F7FA;
+        }
+        .dark-mode-legal .modal-content {
+            background: #1A1F2C;
+            color: #F4F7FA;
+        }
+    `;
+    document.head.appendChild(darkLegalStyle);
+</script>
+<div class="legal-content">
+
+    <!-- ==================== PROTECCIÓN DEL MENOR ==================== -->
+    <h2 id="proteccion-menor">5.5. Protección del Menor y Garantía de Entorno Digital Seguro</h2>
+
+    <h3>5.5.1. Principio del interés superior del menor</h3>
+    <p>Todos los tratamientos de datos y servicios ofrecidos por HOPE-UP priorizan la protección y bienestar de los menores.</p>
+
+    <h3>5.5.2. Adecuación de contenidos y lenguaje</h3>
+    <p>Los contenidos están adaptados para ser comprensibles y seguros, evitando lenguaje inapropiado o intimidante.</p>
+
+    <h3>5.5.3. Prevención de riesgos digitales</h3>
+    <ul>
+        <li>Control parental opcional y configuración de privacidad reforzada.</li>
+        <li>Limitación de interacción con usuarios no verificados.</li>
+        <li>Filtros automáticos de enlaces y contenido externo.</li>
+    </ul>
+
+    <h3>5.5.4. Política de publicidad y contenidos comerciales</h3>
+    <p>La publicidad dirigida a menores es nula o estrictamente educativa y no invasiva, cumpliendo la normativa europea de protección infantil.</p>
+
+    <h3>5.5.5. Supervisión y mejora continua</h3>
+    <p>Se realizan auditorías periódicas, actualización de contenidos y revisiones de algoritmos para asegurar un entorno seguro.</p>
+
+    <!-- ==================== REGULACIÓN IA ==================== -->
+    <h2 id="regulacion-ia">5.6. Reglamento (UE) 2024/1689 – Marco Jurídico de Inteligencia Artificial</h2>
+
+    <h3>5.6.1. Clasificación del sistema según el nivel de riesgo</h3>
+    <p>HOPE-UP está catalogado como sistema de riesgo moderado, aplicando salvaguardas estrictas para análisis de emociones.</p>
+
+    <h3>5.6.2. Posible prohibición del reconocimiento de emociones y límites jurídicos</h3>
+    <p>Se respetan los límites legales en detección de emociones, evitando uso indebido o discriminatorio.</p>
+
+    <h3>5.6.3. Obligaciones de transparencia</h3>
+    <ul>
+        <li>Usuarios informados sobre procesamiento automatizado.</li>
+        <li>Acceso a explicaciones comprensibles de resultados generados por IA.</li>
+        <li>Consentimiento explícito para cualquier análisis sensible.</li>
+    </ul>
+
+    <h3>5.6.4. Requisitos aplicables a sistemas de alto riesgo</h3>
+    <p>Evaluación de riesgos, auditorías internas y documentación de decisiones automatizadas para asegurar cumplimiento normativo.</p>
+
+    <h3>5.6.5. Evaluación de impacto y derechos fundamentales</h3>
+    <p>Se realiza una EIPD específica para IA, asegurando que los derechos fundamentales de los usuarios estén siempre protegidos.</p>
+
+    <h3>5.6.6. Calendario de aplicación</h3>
+    <p>Las obligaciones se aplican progresivamente según el calendario del reglamento, garantizando adaptación tecnológica y legal.</p>
+
+    <!-- ==================== EIPD ==================== -->
+    <h2 id="eipd">5.7. Evaluación de Impacto en Protección de Datos (EIPD)</h2>
+
+    <h3>5.7.1. Descripción sistemática del tratamiento</h3>
+    <p>HOPE-UP documenta cada fase del procesamiento de datos personales, identificando responsables y finalidades.</p>
+
+    <h3>5.7.2. Análisis de necesidad y proporcionalidad</h3>
+    <p>Se evalúa que la recolección y tratamiento de datos sea estrictamente necesario y proporcional al objetivo.</p>
+
+    <h3>5.7.3. Identificación y evaluación de riesgos</h3>
+    <ul>
+        <li>Riesgo de pérdida de confidencialidad.</li>
+        <li>Riesgo de tratamiento indebido de menores.</li>
+        <li>Riesgo de sesgos en resultados de IA.</li>
+    </ul>
+
+    <h3>5.7.4. Medidas técnicas y organizativas de mitigación</h3>
+    <p>Cifrado, control de accesos, anonimización de datos y supervisión humana son medidas aplicadas para mitigar riesgos identificados.</p>
+
+    <h3>5.7.5. Supervisión humana y decisiones automatizadas</h3>
+    <p>Todos los procesos automatizados cuentan con revisión humana antes de acciones críticas, garantizando transparencia y responsabilidad.</p>
+
+    <h3>5.7.6. Consulta previa a la autoridad de control</h3>
+    <p>Cuando un tratamiento pueda implicar alto riesgo, se realiza consulta previa a la AEPD o autoridad competente, documentando recomendaciones recibidas.</p>
+
+    <h3>5.7.7. Revisión y actualización de la EIPD</h3>
+    <p>La EIPD se revisa periódicamente y se actualiza según cambios legales, tecnológicos o nuevos riesgos detectados.</p>
+
+</div>
+
+<script>
+    /* ==================== TOOLTIP LEGAL ==================== */
+    const subLegalHeadings = document.querySelectorAll('#proteccion-menor, #regulacion-ia, #eipd, #proteccion-menor h3, #regulacion-ia h3, #eipd h3');
+    subLegalHeadings.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            el.style.cursor = 'help';
+            el.style.color = 'var(--secondary)';
+        });
+        el.addEventListener('mouseleave', () => {
+            el.style.color = '';
+        });
+    });
+
+    /* ==================== SCROLL ACTIVO ==================== */
+    const sections = document.querySelectorAll('.legal-content h2, .legal-content h3');
+    window.addEventListener('scroll', () => {
+        const scrollPos = window.scrollY + 120;
+        sections.forEach(sec => {
+            if (sec.offsetTop <= scrollPos && (sec.offsetTop + sec.offsetHeight) > scrollPos) {
+                sec.style.textDecoration = 'underline';
+            } else {
+                sec.style.textDecoration = 'none';
+            }
+        });
+    });
+
+    /* ==================== POP-UP COOKIES INICIAL ==================== */
+    if (!localStorage.getItem('cookiesAccepted')) {
+        const cookiePopup = document.createElement('div');
+        cookiePopup.id = 'cookie-popup';
+        cookiePopup.style.position = 'fixed';
+        cookiePopup.style.bottom = '20px';
+        cookiePopup.style.right = '20px';
+        cookiePopup.style.background = 'var(--primary)';
+        cookiePopup.style.color = 'var(--white)';
+        cookiePopup.style.padding = '15px 25px';
+        cookiePopup.style.borderRadius = '12px';
+        cookiePopup.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
+        cookiePopup.style.zIndex = '9999';
+        cookiePopup.innerHTML = `
+            <p>Este sitio utiliza cookies para mejorar su experiencia. Acepte o rechace según su preferencia.</p>
+            <button id="acceptCookies" class="btn-primary">Aceptar</button>
+            <button id="rejectCookies" class="btn-secondary">Rechazar</button>
+        `;
+        document.body.appendChild(cookiePopup);
+
+        document.getElementById('acceptCookies').onclick = () => {
+            localStorage.setItem('cookiesAccepted', 'true');
+            cookiePopup.remove();
+        };
+        document.getElementById('rejectCookies').onclick = () => {
+            localStorage.setItem('cookiesAccepted', 'false');
+            cookiePopup.remove();
+        };
+    }
+</script>
+<div class="legal-content">
+
+    <!-- ==================== PROTOCOLO DE CRISIS ==================== -->
+    <h2 id="protocolo-crisis">5.8. Protocolo de Actuación ante Situaciones de Crisis y Riesgo Vital</h2>
+
+    <h3>5.8.1. Fases del protocolo de actuación</h3>
+    <ul>
+        <li>Detección temprana mediante alertas del sistema.</li>
+        <li>Notificación inmediata a responsables de supervisión.</li>
+        <li>Activación de protocolos de asistencia y derivación profesional.</li>
+        <li>Registro de eventos y medidas tomadas.</li>
+    </ul>
+
+    <h3>5.8.2. Principios rectores del protocolo</h3>
+    <p>Garantizar la seguridad del usuario, confidencialidad de datos y actuación proporcional a la emergencia.</p>
+
+    <h3>5.8.3. Escenarios de actuación</h3>
+    <p>Desde crisis moderadas (alertas emocionales) hasta riesgos críticos (autoagresión o daño a terceros), con niveles escalonados de intervención.</p>
+
+    <h3>5.8.4. Protección de datos en situaciones críticas</h3>
+    <p>Se aplican medidas de cifrado y anonimización incluso durante emergencias, limitando la exposición de datos personales.</p>
+
+    <h3>5.8.5. Formación y actualización del protocolo</h3>
+    <p>El equipo recibe formación periódica y simulaciones para asegurar eficacia ante todo escenario de crisis.</p>
+
+    <!-- ==================== GESTIÓN DEL RIESGO ==================== -->
+    <h2 id="gestion-riesgo">5.9. Gestión Integral del Riesgo Normativo y Operativo</h2>
+
+    <h3>5.9.1. Identificación de riesgos estratégicos</h3>
+    <ul>
+        <li>Riesgos regulatorios: cambios legales y sanciones potenciales.</li>
+        <li>Riesgos operativos: fallos técnicos, interrupciones del servicio.</li>
+        <li>Riesgos reputacionales: errores en IA o filtración de datos.</li>
+    </ul>
+
+    <h3>5.9.2. Matriz de evaluación de impacto y severidad</h3>
+    <p>Se asigna puntuación a cada riesgo por probabilidad y severidad, permitiendo priorizar acciones de mitigación.</p>
+
+    <h3>5.9.3. Medidas de mitigación implementadas</h3>
+    <ul>
+        <li>Cifrado avanzado de datos y backups diarios.</li>
+        <li>Monitoreo de sistemas 24/7 con alertas automáticas.</li>
+        <li>Planes de contingencia y recuperación ante desastres.</li>
+        <li>Revisión periódica de cumplimiento normativo.</li>
+    </ul>
+
+    <h3>5.9.4. Gestión de incidentes y continuidad del servicio</h3>
+    <p>Se documentan incidentes, se activan planes de contingencia y se comunican a usuarios afectados según normativa.</p>
+
+    <h3>5.9.5. Responsabilidad y cobertura preventiva</h3>
+    <p>Seguro de responsabilidad civil profesional y protocolos de prevención para minimizar impacto legal y económico.</p>
+
+    <h3>5.9.6. Modelo de mejora continua</h3>
+    <p>Se incorporan lecciones aprendidas, auditorías internas y externas, actualizando procedimientos y sistemas de control.</p>
+
+    <!-- ==================== RESPONSABILIDAD CIVIL ==================== -->
+    <h2 id="responsabilidad-civil">5.10. Responsabilidad Civil y Régimen Sancionador</h2>
+
+    <h3>5.10.1. Alcance de la responsabilidad civil</h3>
+    <p>HOPE-UP actúa bajo principios de diligencia y buena fe, limitando la responsabilidad a incidentes debidos a negligencia demostrable.</p>
+
+    <h3>5.10.2. Régimen sancionador aplicable</h3>
+    <p>Se aplican sanciones según RGPD, LSSI-CE y normativa nacional en caso de incumplimiento, notificadas a las autoridades competentes.</p>
+
+    <h3>5.10.3. Estrategias de mitigación</h3>
+    <ul>
+        <li>Seguros y cobertura legal.</li>
+        <li>Protocolos de verificación antes de acción automatizada.</li>
+        <li>Capacitación continua del personal en cumplimiento normativo.</li>
+    </ul>
+
+    <h3>5.10.4. Procedimientos de actuación ante incidentes</h3>
+    <p>Registro detallado de incidentes, comunicación a afectados y medidas correctivas inmediatas.</p>
+
+    <h3>5.10.5. Conclusión</h3>
+    <p>La responsabilidad civil está regulada, asegurando la protección de usuarios y la continuidad del servicio con procedimientos claros y auditables.</p>
+
+</div>
+
+<script>
+    /* ==================== SCROLL ACTIVO SUBPARTE 4 ==================== */
+    const sections4 = document.querySelectorAll('#protocolo-crisis, #gestion-riesgo, #responsabilidad-civil, #protocolo-crisis h3, #gestion-riesgo h3, #responsabilidad-civil h3');
+    window.addEventListener('scroll', () => {
+        const scrollPos = window.scrollY + 120;
+        sections4.forEach(sec => {
+            if (sec.offsetTop <= scrollPos && (sec.offsetTop + sec.offsetHeight) > scrollPos) {
+                sec.style.color = 'var(--secondary)';
+                sec.style.fontWeight = '600';
+            } else {
+                sec.style.color = '';
+                sec.style.fontWeight = '';
+            }
+        });
+    });
+
+    /* ==================== TOOLTIP AVANZADO ==================== */
+    sections4.forEach(sec => {
+        sec.addEventListener('mouseenter', () => {
+            sec.style.textDecoration = 'underline';
+            sec.title = "Haz clic para más detalles sobre esta sección legal.";
+        });
+        sec.addEventListener('mouseleave', () => {
+            sec.style.textDecoration = '';
+        });
+    });
+
+    /* ==================== ALERTAS CRÍTICAS ==================== */
+    function emergencyNotification(message) {
+        const notif = document.createElement('div');
+        notif.className = 'notification';
+        notif.innerText = message;
+        notif.style.position = 'fixed';
+        notif.style.top = '20px';
+        notif.style.right = '20px';
+        notif.style.background = 'var(--secondary)';
+        notif.style.color = 'var(--white)';
+        notif.style.padding = '12px 20px';
+        notif.style.borderRadius = '12px';
+        notif.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
+        notif.style.zIndex = '9999';
+        document.body.appendChild(notif);
+
+        setTimeout(() => notif.remove(), 6000);
+    }
+
+    /* Ejemplo de alerta crítica al entrar */
+    document.addEventListener('DOMContentLoaded', () => {
+        emergencyNotification("Recuerda: en situaciones de riesgo vital, llama inmediatamente al 024 o 112.");
+    });
+</script>
+<div class="legal-content">
+
+    <!-- ==================== SUPERVISIÓN Y AUDITORÍA ==================== -->
+    <h2 id="supervision-auditoria">5.11. Supervisión y Auditoría del Cumplimiento</h2>
+
+    <h3>5.11.1. Objetivos de la supervisión</h3>
+    <ul>
+        <li>Garantizar el cumplimiento de RGPD, LSSI-CE y normativa vigente.</li>
+        <li>Verificar la eficacia de protocolos de crisis y gestión de riesgos.</li>
+        <li>Detectar y corregir desviaciones en la protección de datos y la seguridad.</li>
+    </ul>
+
+    <h3>5.11.2. Niveles de supervisión</h3>
+    <ul>
+        <li><strong>Interna:</strong> Auditorías periódicas y seguimiento del equipo HOPE-UP.</li>
+        <li><strong>Externa:</strong> Revisiones por expertos legales y consultores especializados.</li>
+        <li><strong>Mixta:</strong> Combinación de interna y externa para mayor fiabilidad.</li>
+    </ul>
+
+    <h3>5.11.3. Procesos de auditoría</h3>
+    <ul>
+        <li>Revisión de logs y registros del sistema automatizado.</li>
+        <li>Inspección de medidas técnicas y organizativas de seguridad.</li>
+        <li>Pruebas de penetración y auditorías de vulnerabilidades.</li>
+        <li>Comprobación de la trazabilidad de decisiones automatizadas.</li>
+    </ul>
+
+    <h3>5.11.4. Herramientas y técnicas</h3>
+    <p>Se emplean software de monitoreo, sistemas de alerta temprana, análisis forense digital y auditorías IA de riesgos, garantizando la protección de datos y la fiabilidad del sistema.</p>
+
+    <h3>5.11.5. Integración con el comité ético y legal</h3>
+    <p>El comité revisa informes de auditoría y toma decisiones sobre mejoras, sanciones internas y ajustes legales. Se documentan todas las recomendaciones y acciones adoptadas.</p>
+
+    <h3>5.11.6. Documentación y trazabilidad</h3>
+    <p>Todos los procedimientos, decisiones y registros se almacenan de forma segura, con acceso restringido y posibilidad de exportación para auditorías externas.</p>
+
+    <h3>5.11.7. Conclusión</h3>
+    <p>La supervisión y auditoría garantizan la conformidad legal y la protección de los usuarios, asegurando que HOPE-UP opera bajo los más altos estándares de seguridad, ética y legalidad.</p>
+
+</div>
+
+<!-- ==================== COOKIES ACCEPT/REJECT ==================== -->
+<div id="cookie-banner" class="cookie-banner">
+    <p>HOPE-UP utiliza cookies para mejorar tu experiencia. ¿Aceptas el uso de cookies?</p>
+    <div class="cookie-buttons">
+        <button id="accept-cookies">Aceptar</button>
+        <button id="reject-cookies">Rechazar</button>
+    </div>
+</div>
+
+<script>
+    /* ==================== COOKIE FUNCTIONALITY ==================== */
+    document.addEventListener('DOMContentLoaded', () => {
+        const cookieBanner = document.getElementById('cookie-banner');
+        const acceptBtn = document.getElementById('accept-cookies');
+        const rejectBtn = document.getElementById('reject-cookies');
+
+        const cookieAccepted = localStorage.getItem('cookiesAccepted');
+        if (!cookieAccepted) {
+            cookieBanner.style.display = 'flex';
+        }
+
+        acceptBtn.addEventListener('click', () => {
+            localStorage.setItem('cookiesAccepted', 'true');
+            cookieBanner.style.display = 'none';
+            emergencyNotification("Gracias por aceptar cookies.");
+        });
+
+        rejectBtn.addEventListener('click', () => {
+            localStorage.setItem('cookiesAccepted', 'false');
+            cookieBanner.style.display = 'none';
+            emergencyNotification("Has rechazado cookies, algunas funciones pueden limitarse.");
+        });
+    });
+
+    /* ==================== SCROLL ACTIVO SUBPARTE 5 ==================== */
+    const sections5 = document.querySelectorAll('#supervision-auditoria, #supervision-auditoria h3');
+    window.addEventListener('scroll', () => {
+        const scrollPos = window.scrollY + 120;
+        sections5.forEach(sec => {
+            if (sec.offsetTop <= scrollPos && (sec.offsetTop + sec.offsetHeight) > scrollPos) {
+                sec.style.color = 'var(--secondary)';
+                sec.style.fontWeight = '600';
+            } else {
+                sec.style.color = '';
+                sec.style.fontWeight = '';
+            }
+        });
+    });
+
+    /* ==================== TOOLTIP AVANZADO ==================== */
+    sections5.forEach(sec => {
+        sec.addEventListener('mouseenter', () => {
+            sec.style.textDecoration = 'underline';
+            sec.title = "Haz clic para más información sobre auditoría y cumplimiento legal.";
+        });
+        sec.addEventListener('mouseleave', () => {
+            sec.style.textDecoration = '';
+        });
+    });
+
+    /* ==================== ALERTA POP-UP INFORMATIVA ==================== */
+    function emergencyNotification(message) {
+        const notif = document.createElement('div');
+        notif.className = 'notification';
+        notif.innerText = message;
+        notif.style.position = 'fixed';
+        notif.style.bottom = '20px';
+        notif.style.left = '20px';
+        notif.style.background = 'var(--accent)';
+        notif.style.color = 'var(--white)';
+        notif.style.padding = '12px 20px';
+        notif.style.borderRadius = '12px';
+        notif.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
+        notif.style.zIndex = '9999';
+        document.body.appendChild(notif);
+
+        setTimeout(() => notif.remove(), 6000);
+    }
+
+    /* ==================== MODO OSCURO ==================== */
+    const darkModeToggle = document.createElement('button');
+    darkModeToggle.innerText = 'Modo Oscuro';
+    darkModeToggle.className = 'dark-mode-toggle';
+    document.body.appendChild(darkModeToggle);
+
+    darkModeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        emergencyNotification('Modo oscuro activado/desactivado.');
+    });
+</script>
+
+<style>
+/* ==================== STYLES SUBPARTE 5 ==================== */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: var(--primary);
+    color: var(--white);
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    z-index: 9999;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.2);
+}
+
+.cookie-buttons button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cookie-buttons #accept-cookies {
+    background: var(--secondary);
+    color: var(--white);
+}
+
+.cookie-buttons #accept-cookies:hover {
+    background: #00A87A;
+}
+
+.cookie-buttons #reject-cookies {
+    background: var(--dark);
+    color: var(--white);
+}
+
+.cookie-buttons #reject-cookies:hover {
+    background: #111827;
+}
+
+.dark-mode-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    padding: 10px 18px;
+    border-radius: 25px;
+    background: var(--accent);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    z-index: 9999;
+    transition: 0.3s;
+}
+
+.dark-mode-toggle:hover {
+    background: var(--secondary);
+}
+
+.legal-content h2, .legal-content h3 {
+    transition: 0.3s;
+}
+
+.notification {
+    animation: fadeIn 0.5s, fadeOut 0.5s 5.5s;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeOut {
+    from {opacity: 1; transform: translateY(0);}
+    to {opacity: 0; transform: translateY(20px);}
+}
+
+/* Modo oscuro */
+body.dark-mode {
+    background: var(--dark);
+    color: var(--white);
+}
+
+body.dark-mode .cookie-banner {
+    background: var(--secondary);
+    color: var(--white);
+}
+
+body.dark-mode .dark-mode-toggle {
+    background: var(--primary);
+    color: var(--white);
+}
+</style>
