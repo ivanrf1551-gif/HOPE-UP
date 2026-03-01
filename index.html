@@ -5,13 +5,51 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HOPE-UP | Prevención con IA</title>
 
-<!-- Fuentes y estilos externos -->
+<!-- Fuentes y estilos -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 
-<!-- Chart.js -->
+<!-- Chart.js para gráficos -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="app.js" defer></script>
+
+<style>
+/* --- Estilos generales --- */
+body { margin:0; font-family:'Inter', sans-serif; background:#f7f7f7; color:#222; scroll-behavior:smooth; }
+a { text-decoration:none; }
+button { cursor:pointer; border:none; background:none; }
+header.navbar { background:#000; color:#fff; height:50px; display:flex; justify-content:space-between; align-items:center; padding:0 1.5rem; position:sticky; top:0; z-index:1000; }
+header.navbar nav a { color:#fff; margin-left:1rem; font-weight:600; transition:0.3s; }
+header.navbar nav a:hover { color:#ff6600; }
+header.navbar .logo-container { display:flex; align-items:center; gap:1rem; }
+header.navbar .logo-container img { height:35px; display:block; }
+.hero-compact { background:#0a0a0a url('assets/hero-bg.jpg') no-repeat center/cover; color:#fff; text-align:center; padding:3rem 1rem; }
+.hero-compact h1 { font-size:2.5rem; margin-bottom:1rem; animation:fadeIn 1.5s ease-out; }
+.hero-compact p { font-size:1.2rem; max-width:700px; margin:0 auto 2rem auto; animation:fadeIn 2s ease-out; }
+.hero-buttons a { display:inline-block; padding:0.8rem 2rem; margin:0.5rem; border-radius:5px; font-weight:600; transition:0.3s; }
+.btn-primary { background:#ff6600; color:#fff; }
+.btn-primary:hover { background:#ff8533; }
+.btn-secondary { background:#444; color:#fff; }
+.btn-secondary:hover { background:#666; }
+.institucional { background:#fff; text-align:center; padding:2rem 1rem; }
+.institucional .logos img { max-height:50px; margin:0 1rem; vertical-align:middle; }
+.section, .section-alt { padding:4rem 2rem; opacity:0; transform:translateY(50px); transition:all 0.7s ease-out; }
+.section.visible, .section-alt.visible { opacity:1; transform:translateY(0); }
+.section-title { text-align:center; font-size:2rem; margin-bottom:2rem; color:#0a0a0a; }
+.grid-2, .grid-3 { display:grid; gap:1.5rem; }
+.grid-2 { grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); }
+.grid-3 { grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); }
+.dashboard-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1.5rem; text-align:center; margin-top:2rem; }
+.metric h3 { font-size:2rem; color:#ff6600; margin-bottom:0.5rem; }
+.emojis span { font-size:2.5rem; cursor:pointer; margin:0 0.5rem; transition:transform 0.3s; }
+.emojis span:hover { transform:scale(1.3); }
+.calma-exercises { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.5rem; margin-top:2rem; }
+.exercise { background:#fff; padding:1rem; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1); text-align:center; transition:0.3s; }
+.exercise:hover { transform:scale(1.05); }
+.stars span { font-size:2rem; cursor:pointer; transition:0.2s; }
+.stars span:hover { color:#ffcc00; transform:scale(1.2); }
+canvas { background:#fff; border-radius:8px; padding:1rem; box-shadow:0 2px 8px rgba(0,0,0,0.1); margin-top:2rem; }
+@keyframes fadeIn { 0%{opacity:0; transform:translateY(50px);} 100%{opacity:1; transform:translateY(0);} }
+</style>
 </head>
 
 <body>
@@ -42,7 +80,9 @@
 <!-- HERO -->
 <section id="inicio" class="hero-compact">
     <div class="hero-content">
-        <h1 data-es="La tecnología al servicio de la vida" data-en="Technology at the Service of Life">La tecnología al servicio de la vida</h1>
+        <h1 data-es="La tecnología al servicio de la vida" data-en="Technology at the Service of Life">
+            La tecnología al servicio de la vida
+        </h1>
         <p data-es="Plataforma de detección temprana de malestar emocional basada en Inteligencia Artificial."
            data-en="Early detection platform of emotional distress using AI.">
            Plataforma de detección temprana de malestar emocional basada en Inteligencia Artificial.
@@ -132,17 +172,483 @@
     </div>
 </section>
 
-<!-- Resto de secciones: Proyecto, Marco Científico, Ética, Educativo, Roadmap, App Simulación, Testimonios, Valoración, Reconocimiento y Legal -->
-<section id="proyecto" class="section"> <!-- contenido igual que antes --> </section>
-<section id="cientifico" class="section-alt"> <!-- contenido igual que antes --> </section>
-<section id="etica" class="section"> <!-- contenido igual que antes --> </section>
-<section id="educativo" class="section-alt"> <!-- contenido igual que antes --> </section>
-<section id="roadmap" class="section"> <!-- contenido igual que antes --> </section>
-<section id="app-simulacion" class="section-alt"> <!-- contenido igual que antes --> </section>
-<section id="testimonios" class="section"> <!-- contenido igual que antes --> </section>
-<section id="valoracion" class="section-alt"> <!-- contenido igual que antes --> </section>
-<section id="reconocimiento" class="section"> <!-- contenido igual que antes --> </section>
-<section id="legal" class="section-alt"> <!-- contenido igual que antes --> </section>
+<script>
+// Función emojis
+function seleccionarEmoji(estado){
+    document.getElementById('emoji-seleccionado').innerHTML = `Has seleccionado: ${estado}`;
+}
 
-</body>
-</html>
+// Scroll reveal
+window.addEventListener('scroll', function(){
+    document.querySelectorAll('.section, .section-alt').forEach(function(section){
+        if(section.getBoundingClientRect().top < window.innerHeight - 100){
+            section.classList.add('visible');
+        }
+    });
+});
+
+// Cambio de idioma
+function setLang(lang){
+    document.querySelectorAll('[data-es]').forEach(el=>{
+        el.innerHTML = (lang==='es') ? el.getAttribute('data-es') : el.getAttribute('data-en');
+    });
+}
+
+// Animación dashboard
+let counts = [4000, 850, 15, 25, 20];
+let ids = ['metric1','metric2','metric3','metric4','metric5'];
+ids.forEach((id,i)=>{
+    let el = document.getElementById(id);
+    let count = 0;
+    let target = counts[i];
+    let interval = setInterval(()=>{
+        if(count<target){
+            count+=Math.ceil(target/50);
+            if(count>target) count=target;
+            el.innerText = (i===4)? count+"%" : count;
+        } else clearInterval(interval);
+    },50);
+});
+
+// Charts
+const ctx1 = document.getElementById('grafico1').getContext('2d');
+const chart1 = new Chart(ctx1,{
+    type:'bar',
+    data:{
+        labels:['Semana 1','Semana 2','Semana 3','Semana 4'],
+        datasets:[{label:'Alertas detectadas', data:[5,10,7,12], backgroundColor:'#ff6600'}]
+    },
+    options:{responsive:true, plugins:{legend:{display:false}}}
+});
+
+const ctx2 = document.getElementById('grafico2').getContext('2d');
+const chart2 = new Chart(ctx2,{
+    type:'line',
+    data:{
+        labels:['Enero','Febrero','Marzo','Abril'],
+        datasets:[{label:'Reducción Riesgo (%)', data:[2,5,10,15], borderColor:'#ff6600', fill:false, tension:0.3}]
+    },
+    options:{responsive:true, plugins:{legend:{display:false}}}
+});
+</script>
+<!-- PARTE 1.2 – CONTINUA DESDE 1.1 -->
+
+<!-- PROYECTO -->
+<section id="proyecto" class="section">
+    <h2 class="section-title" data-es="Resumen del Proyecto" data-en="Project Summary">Resumen del Proyecto</h2>
+    <p data-es="HOPE-UP desarrolla una herramienta digital basada en redes neuronales profundas y análisis multimodal destinada a la identificación precoz de indicadores de riesgo emocional en población joven."
+       data-en="HOPE-UP develops a digital tool based on deep neural networks and multimodal analysis aimed at early identification of emotional risk indicators in young populations.">
+        HOPE-UP desarrolla una herramienta digital basada en redes neuronales profundas y análisis multimodal destinada a la identificación precoz de indicadores de riesgo emocional en población joven.
+    </p>
+    <p data-es="El sistema analiza expresiones faciales, patrones lingüísticos, frecuencia de interacción digital y variaciones conductuales mediante modelos entrenados bajo principios éticos y supervisión humana obligatoria."
+       data-en="The system analyzes facial expressions, linguistic patterns, frequency of digital interaction, and behavioral variations using models trained under ethical principles and mandatory human supervision.">
+        El sistema analiza expresiones faciales, patrones lingüísticos, frecuencia de interacción digital y variaciones conductuales mediante modelos entrenados bajo principios éticos y supervisión humana obligatoria.
+    </p>
+    <p data-es="En España, más de 4.000 personas fallecen anualmente por suicidio, siendo una de las principales causas de muerte en jóvenes entre 15 y 29 años (Ministerio de Sanidad, 2024)."
+       data-en="In Spain, more than 4,000 people die annually by suicide, one of the leading causes of death in young people aged 15-29 (Ministry of Health, 2024).">
+        En España, más de 4.000 personas fallecen anualmente por suicidio, siendo una de las principales causas de muerte en jóvenes entre 15 y 29 años (Ministerio de Sanidad, 2024).
+    </p>
+</section>
+
+<!-- MARCO CIENTÍFICO -->
+<section id="cientifico" class="section-alt">
+    <h2 class="section-title" data-es="Marco Científico y Referencias Académicas" data-en="Scientific Framework and Academic References">Marco Científico y Referencias Académicas</h2>
+    <div class="grid-2">
+        <div>
+            <h3 data-es="Base Clínica" data-en="Clinical Base">Base Clínica</h3>
+            <p data-es="Modelo cognitivo-conductual, teoría de desesperanza de Beck, y estudios longitudinales sobre detección temprana."
+               data-en="Cognitive-behavioral model, Beck's hopelessness theory, and longitudinal studies on early detection.">
+               Modelo cognitivo-conductual, teoría de desesperanza de Beck, y estudios longitudinales sobre detección temprana.
+            </p>
+        </div>
+        <div>
+            <h3 data-es="Evidencia IA" data-en="AI Evidence">Evidencia IA</h3>
+            <p data-es="Modelos NLP y análisis de sentimiento con precisión superior al 82% en detección de patrones depresivos (OMS, 2023)."
+               data-en="NLP models and sentiment analysis with over 82% accuracy in detecting depressive patterns (WHO, 2023).">
+               Modelos NLP y análisis de sentimiento con precisión superior al 82% en detección de patrones depresivos (OMS, 2023).
+            </p>
+        </div>
+    </div>
+    <div class="references">
+        <h4 data-es="Referencias" data-en="References">Referencias</h4>
+        <ul>
+            <li>OMS (2023). Suicide worldwide report.</li>
+            <li>Ministerio de Sanidad (2024). Estadísticas Nacionales.</li>
+            <li>EU AI Act (2024).</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ÉTICA Y GOBERNANZA -->
+<section id="etica" class="section">
+    <h2 class="section-title" data-es="Ética y Gobernanza de IA" data-en="AI Ethics and Governance">Ética y Gobernanza de IA</h2>
+    <ul class="checklist">
+        <li data-es="Comité Ético Universitario" data-en="University Ethics Committee">Comité Ético Universitario</li>
+        <li data-es="Supervisión humana obligatoria" data-en="Mandatory human supervision">Supervisión humana obligatoria</li>
+        <li data-es="Explicabilidad algorítmica" data-en="Algorithm explainability">Explicabilidad algorítmica</li>
+        <li data-es="Prevención de sesgos" data-en="Bias prevention">Prevención de sesgos</li>
+        <li data-es="Consentimiento informado digital" data-en="Digital informed consent">Consentimiento informado digital</li>
+        <li data-es="Derecho al olvido (RGPD)" data-en="Right to be forgotten (GDPR)">Derecho al olvido (RGPD)</li>
+    </ul>
+</section>
+
+<!-- INTEGRACIÓN EDUCATIVA FORMAL -->
+<section id="educativo" class="section-alt">
+    <h2 class="section-title" data-es="Integración Educativa Formal" data-en="Formal Educational Integration">Integración Educativa Formal</h2>
+    <p data-es="El proyecto se integra en:" data-en="The project is integrated into:">El proyecto se integra en:</p>
+    <ul>
+        <li data-es="Plan de Acción Tutorial" data-en="Tutorial Action Plan">Plan de Acción Tutorial</li>
+        <li data-es="Programas de resiliencia emocional" data-en="Emotional resilience programs">Programas de resiliencia emocional</li>
+        <li data-es="Formación docente especializada" data-en="Specialized teacher training">Formación docente especializada</li>
+        <li data-es="Aprendizaje Basado en Proyectos (ABP)" data-en="Project-Based Learning (PBL)">Aprendizaje Basado en Proyectos (ABP)</li>
+        <li data-es="Marco del Espacio Europeo de Educación Superior" data-en="European Higher Education Area Framework">Marco del Espacio Europeo de Educación Superior</li>
+    </ul>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap" class="section">
+    <h2 class="section-title" data-es="Roadmap Estratégico 2025–2030" data-en="Strategic Roadmap 2025–2030">Roadmap Estratégico 2025–2030</h2>
+    <div class="timeline">
+        <div data-es="Fase piloto universitaria" data-en="University pilot phase">Fase piloto universitaria</div>
+        <div data-es="Validación clínica supervisada" data-en="Supervised clinical validation">Validación clínica supervisada</div>
+        <div data-es="Escalado regional" data-en="Regional scaling">Escalado regional</div>
+        <div data-es="Escalado nacional" data-en="National scaling">Escalado nacional</div>
+        <div data-es="Internacionalización UE" data-en="EU Internationalization">Internacionalización UE</div>
+    </div>
+</section>
+
+<!-- SIMULACIÓN APP -->
+<section class="section-alt">
+    <h2 class="section-title" data-es="Simulación Visual de la App" data-en="App Visual Simulation">Simulación Visual de la App</h2>
+    <div class="mockups grid-3">
+        <div class="phone" data-es="Pantalla Alerta" data-en="Alert Screen">Pantalla Alerta</div>
+        <div class="phone" data-es="Chatbot" data-en="Chatbot">Chatbot</div>
+        <div class="phone" data-es="Mensaje Apoyo" data-en="Support Message">Mensaje Apoyo</div>
+        <div class="phone" data-es="Panel Profesional" data-en="Professional Panel">Panel Profesional</div>
+    </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="section">
+    <h2 class="section-title" data-es="Testimonios Académicos" data-en="Academic Testimonials">Testimonios Académicos</h2>
+    <div class="testimonials grid-2">
+        <div data-es='"Proyecto con alto potencial preventivo." – Profesor UCLM' 
+             data-en='"Project with high preventive potential." – UCLM Professor'>
+             "Proyecto con alto potencial preventivo." – Profesor UCLM
+        </div>
+        <div data-es='"Integra tecnología y ética de forma ejemplar." – Psicóloga colaboradora'
+             data-en='"Integrates technology and ethics excellently." – Collaborating Psychologist'>
+             "Integra tecnología y ética de forma ejemplar." – Psicóloga colaboradora
+        </div>
+        <div data-es='"Innovación con impacto real." – Evaluador externo'
+             data-en='"Innovation with real impact." – External Evaluator'>
+             "Innovación con impacto real." – Evaluador externo
+        </div>
+    </div>
+</section>
+
+<!-- VALORACIÓN WEB -->
+<section id="valoracion" class="section-alt">
+    <h2 class="section-title" data-es="Valora esta página" data-en="Rate this page">Valora esta página</h2>
+    <div class="stars">
+        <span onclick="setRating(1)">★</span>
+        <span onclick="setRating(2)">★</span>
+        <span onclick="setRating(3)">★</span>
+        <span onclick="setRating(4)">★</span>
+        <span onclick="setRating(5)">★</span>
+    </div>
+    <p id="rating-result" data-es="Gracias por valorar" data-en="Thanks for your rating">Gracias por valorar</p>
+</section>
+
+<!-- RECONOCIMIENTO / CONVOCATORIA -->
+<section id="reconocimiento" class="section">
+    <h2 class="section-title" data-es="Reconocimiento Oficial" data-en="Official Recognition">Reconocimiento Oficial</h2>
+    <p data-es="Seleccionado en la I Convocatoria de Proyectos de Alto Impacto Estudiantil 2025-26. Evaluación externa institucional y financiación parcial concedida."
+       data-en="Selected in the I Call for High Impact Student Projects 2025-26. External institutional evaluation and partial funding granted.">
+        Seleccionado en la I Convocatoria de Proyectos de Alto Impacto Estudiantil 2025-26. Evaluación externa institucional y financiación parcial concedida.
+    </p>
+</section>
+
+<!-- AVISO LEGAL Y PRIVACIDAD -->
+<section id="legal" class="section-alt">
+    <h2 class="section-title" data-es="Aviso Legal y Política de Privacidad" data-en="Legal Notice and Privacy Policy">Aviso Legal y Política de Privacidad</h2>
+    <ul>
+        <li data-es="Responsable del tratamiento: HOPE-UP" data-en="Data controller: HOPE-UP">Responsable del tratamiento: HOPE-UP</li>
+        <li data-es="Finalidad: Prevención y acompañamiento emocional" data-en="Purpose: Emotional prevention and support">Finalidad: Prevención y acompañamiento emocional</li>
+        <li data-es="Base legal: Consentimiento y interés legítimo" data-en="Legal basis: Consent and legitimate interest">Base legal: Consentimiento y interés legítimo</li>
+        <li data-es="Derechos ARCO: Acceso, Rectificación, Cancelación, Oposición" data-en="ARCO rights: Access, Rectification, Cancellation, Opposition">Derechos ARCO: Acceso, Rectificación, Cancelación, Oposición</li>
+        <li data-es="Conservación de datos: 5 años" data-en="Data retention: 5 years">Conservación de datos: 5 años</li>
+    </ul>
+</section>
+
+<script>
+// Valoración estrellas
+function setRating(r){
+    document.getElementById('rating-result').innerHTML = `Has dado ${r} estrellas ⭐`;
+}
+
+// Scroll reveal ya incluido en 1.1
+</script>
+    <!-- =========================
+     SECCIÓN PROYECTO
+========================= -->
+<section id="proyecto" class="section">
+    <h2 class="section-title" data-es="Resumen del Proyecto" data-en="Project Summary">Resumen del Proyecto</h2>
+    <p data-es="HOPE-UP desarrolla una herramienta digital basada en redes neuronales profundas y análisis multimodal destinada a la identificación precoz de indicadores de riesgo emocional en población joven."
+       data-en="HOPE-UP develops a digital tool based on deep neural networks and multimodal analysis aimed at early identification of emotional risk indicators in young populations.">
+        HOPE-UP desarrolla una herramienta digital basada en redes neuronales profundas y análisis multimodal destinada a la identificación precoz de indicadores de riesgo emocional en población joven.
+    </p>
+    <p data-es="El sistema analiza expresiones faciales, patrones lingüísticos, frecuencia de interacción digital y variaciones conductuales mediante modelos entrenados bajo principios éticos y supervisión humana obligatoria."
+       data-en="The system analyzes facial expressions, linguistic patterns, frequency of digital interaction, and behavioral variations using models trained under ethical principles and mandatory human supervision.">
+        El sistema analiza expresiones faciales, patrones lingüísticos, frecuencia de interacción digital y variaciones conductuales mediante modelos entrenados bajo principios éticos y supervisión humana obligatoria.
+    </p>
+    <p data-es="En España, más de 4.000 personas fallecen anualmente por suicidio, siendo una de las principales causas de muerte en jóvenes entre 15 y 29 años (Ministerio de Sanidad, 2024)."
+       data-en="In Spain, more than 4,000 people die annually by suicide, one of the leading causes of death in young people aged 15-29 (Ministry of Health, 2024).">
+        En España, más de 4.000 personas fallecen anualmente por suicidio, siendo una de las principales causas de muerte en jóvenes entre 15 y 29 años (Ministerio de Sanidad, 2024).
+    </p>
+
+    <!-- Gráfico de impacto del proyecto -->
+    <canvas id="graficoProyecto" aria-label="Gráfico de evolución de alertas por tipo" role="img"></canvas>
+</section>
+
+<!-- =========================
+     MARCO CIENTÍFICO
+========================= -->
+<section id="cientifico" class="section-alt">
+    <h2 class="section-title" data-es="Marco Científico y Referencias Académicas" data-en="Scientific Framework and Academic References">Marco Científico y Referencias Académicas</h2>
+    <div class="grid-2">
+        <div>
+            <h3 data-es="Base Clínica" data-en="Clinical Base">Base Clínica</h3>
+            <p data-es="Modelo cognitivo-conductual, teoría de desesperanza de Beck, y estudios longitudinales sobre detección temprana."
+               data-en="Cognitive-behavioral model, Beck's hopelessness theory, and longitudinal studies on early detection.">
+               Modelo cognitivo-conductual, teoría de desesperanza de Beck, y estudios longitudinales sobre detección temprana.
+            </p>
+        </div>
+        <div>
+            <h3 data-es="Evidencia IA" data-en="AI Evidence">Evidencia IA</h3>
+            <p data-es="Modelos NLP y análisis de sentimiento con precisión superior al 82% en detección de patrones depresivos (OMS, 2023)."
+               data-en="NLP models and sentiment analysis with over 82% accuracy in detecting depressive patterns (WHO, 2023).">
+               Modelos NLP y análisis de sentimiento con precisión superior al 82% en detección de patrones depresivos (OMS, 2023).
+            </p>
+        </div>
+    </div>
+
+    <!-- Referencias con hover -->
+    <div class="references">
+        <h4 data-es="Referencias" data-en="References">Referencias</h4>
+        <ul>
+            <li title="Click para más info" class="reference" data-es="OMS (2023). Suicide worldwide report." data-en="WHO (2023). Suicide worldwide report.">OMS (2023). Suicide worldwide report.</li>
+            <li title="Click para más info" class="reference" data-es="Ministerio de Sanidad (2024). Estadísticas Nacionales." data-en="Ministry of Health (2024). National Statistics.">Ministerio de Sanidad (2024). Estadísticas Nacionales.</li>
+            <li title="Click para más info" class="reference" data-es="EU AI Act (2024)." data-en="EU AI Act (2024).">EU AI Act (2024).</li>
+        </ul>
+    </div>
+</section>
+
+<!-- =========================
+     ÉTICA Y GOBERNANZA
+========================= -->
+<section id="etica" class="section">
+    <h2 class="section-title" data-es="Ética y Gobernanza de IA" data-en="AI Ethics and Governance">Ética y Gobernanza de IA</h2>
+    <ul class="checklist">
+        <li data-es="Comité Ético Universitario" data-en="University Ethics Committee">Comité Ético Universitario</li>
+        <li data-es="Supervisión humana obligatoria" data-en="Mandatory human supervision">Supervisión humana obligatoria</li>
+        <li data-es="Explicabilidad algorítmica" data-en="Algorithm explainability">Explicabilidad algorítmica</li>
+        <li data-es="Prevención de sesgos" data-en="Bias prevention">Prevención de sesgos</li>
+        <li data-es="Consentimiento informado digital" data-en="Digital informed consent">Consentimiento informado digital</li>
+        <li data-es="Derecho al olvido (RGPD)" data-en="Right to be forgotten (GDPR)">Derecho al olvido (RGPD)</li>
+    </ul>
+</section>
+
+<!-- =========================
+     INTEGRACIÓN EDUCATIVA
+========================= -->
+<section id="educativo" class="section-alt">
+    <h2 class="section-title" data-es="Integración Educativa Formal" data-en="Formal Educational Integration">Integración Educativa Formal</h2>
+    <p data-es="El proyecto se integra en:" data-en="The project is integrated into:">El proyecto se integra en:</p>
+    <ul>
+        <li data-es="Plan de Acción Tutorial" data-en="Tutorial Action Plan">Plan de Acción Tutorial</li>
+        <li data-es="Programas de resiliencia emocional" data-en="Emotional resilience programs">Programas de resiliencia emocional</li>
+        <li data-es="Formación docente especializada" data-en="Specialized teacher training">Formación docente especializada</li>
+        <li data-es="Aprendizaje Basado en Proyectos (ABP)" data-en="Project-Based Learning (PBL)">Aprendizaje Basado en Proyectos (ABP)</li>
+        <li data-es="Marco del Espacio Europeo de Educación Superior" data-en="European Higher Education Area Framework">Marco del Espacio Europeo de Educación Superior</li>
+    </ul>
+</section>
+
+<!-- =========================
+     ROADMAP INTERACTIVO
+========================= -->
+<section id="roadmap" class="section">
+    <h2 class="section-title" data-es="Roadmap Estratégico 2025–2030" data-en="Strategic Roadmap 2025–2030">Roadmap Estratégico 2025–2030</h2>
+    <div class="timeline">
+        <div class="timeline-item" onclick="alert('Fase piloto universitaria')" data-es="Fase piloto universitaria" data-en="University pilot phase">Fase piloto universitaria</div>
+        <div class="timeline-item" onclick="alert('Validación clínica supervisada')" data-es="Validación clínica supervisada" data-en="Supervised clinical validation">Validación clínica supervisada</div>
+        <div class="timeline-item" onclick="alert('Escalado regional')" data-es="Escalado regional" data-en="Regional scaling">Escalado regional</div>
+        <div class="timeline-item" onclick="alert('Escalado nacional')" data-es="Escalado nacional" data-en="National scaling">Escalado nacional</div>
+        <div class="timeline-item" onclick="alert('Internacionalización UE')" data-es="Internacionalización UE" data-en="EU Internationalization">Internacionalización UE</div>
+    </div>
+</section>
+
+<script>
+// Gráfico de proyecto con títulos de ejes
+const ctxProyecto = document.getElementById('graficoProyecto').getContext('2d');
+const chartProyecto = new Chart(ctxProyecto, {
+    type:'bar',
+    data:{
+        labels:['Tipo A','Tipo B','Tipo C','Tipo D'],
+        datasets:[{
+            label:'Número de Alertas',
+            data:[12, 19, 7, 14],
+            backgroundColor:['#A8DADC','#457B9D','#F1FAEE','#1D3557']
+        }]
+    },
+    options:{
+        responsive:true,
+        plugins:{legend:{display:true, position:'top', labels:{color:'#0A1F44'}}},
+        scales:{
+            x:{title:{display:true, text:'Tipo de alerta', color:'#0A1F44'}},
+            y:{title:{display:true, text:'Cantidad', color:'#0A1F44'}}
+        }
+    }
+});
+</script>
+    <!-- =========================
+     SIMULACIÓN APP
+========================= -->
+<section id="app-simulacion" class="section-alt">
+    <h2 class="section-title" data-es="Simulación Visual de la App" data-en="App Visual Simulation">Simulación Visual de la App</h2>
+    <div class="mockups grid-3">
+        <div class="phone" data-es="Pantalla Alerta" data-en="Alert Screen" tabindex="0" aria-label="Pantalla de alertas HOPE-UP">
+            Pantalla Alerta
+            <p data-es="Visualiza alertas tempranas de riesgo emocional." data-en="View early emotional risk alerts.">
+                Visualiza alertas tempranas de riesgo emocional.
+            </p>
+        </div>
+        <div class="phone" data-es="Chatbot" data-en="Chatbot" tabindex="0" aria-label="Chatbot HOPE-UP">
+            Chatbot
+            <p data-es="Interacción automatizada para apoyo emocional." data-en="Automated interaction for emotional support.">
+                Interacción automatizada para apoyo emocional.
+            </p>
+        </div>
+        <div class="phone" data-es="Mensaje Apoyo" data-en="Support Message" tabindex="0" aria-label="Mensaje de apoyo HOPE-UP">
+            Mensaje Apoyo
+            <p data-es="Recibe mensajes de acompañamiento personalizados." data-en="Receive personalized support messages.">
+                Recibe mensajes de acompañamiento personalizados.
+            </p>
+        </div>
+        <div class="phone" data-es="Panel Profesional" data-en="Professional Panel" tabindex="0" aria-label="Panel para profesionales HOPE-UP">
+            Panel Profesional
+            <p data-es="Visualiza métricas y seguimiento de estudiantes." data-en="View metrics and student follow-up.">
+                Visualiza métricas y seguimiento de estudiantes.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- =========================
+     TESTIMONIOS
+========================= -->
+<section id="testimonios" class="section">
+    <h2 class="section-title" data-es="Testimonios Académicos" data-en="Academic Testimonials">Testimonios Académicos</h2>
+    <div class="testimonials grid-2">
+        <div data-es='"Proyecto con alto potencial preventivo." – Profesor UCLM' 
+             data-en='"Project with high preventive potential." – UCLM Professor'
+             tabindex="0" aria-label="Testimonio Profesor UCLM">
+             "Proyecto con alto potencial preventivo." – Profesor UCLM
+        </div>
+        <div data-es='"Integra tecnología y ética de forma ejemplar." – Psicóloga colaboradora'
+             data-en='"Integrates technology and ethics excellently." – Collaborating Psychologist'
+             tabindex="0" aria-label="Testimonio Psicóloga colaboradora">
+             "Integra tecnología y ética de forma ejemplar." – Psicóloga colaboradora
+        </div>
+        <div data-es='"Innovación con impacto real." – Evaluador externo'
+             data-en='"Innovation with real impact." – External Evaluator'
+             tabindex="0" aria-label="Testimonio Evaluador externo">
+             "Innovación con impacto real." – Evaluador externo
+        </div>
+    </div>
+</section>
+
+<!-- =========================
+     VALORACIÓN WEB
+========================= -->
+<section id="valoracion" class="section-alt">
+    <h2 class="section-title" data-es="Valora esta página" data-en="Rate this page">Valora esta página</h2>
+    <div class="stars" aria-label="Sistema de valoración de 1 a 5 estrellas">
+        <span onclick="setRating(1)" tabindex="0">★</span>
+        <span onclick="setRating(2)" tabindex="0">★</span>
+        <span onclick="setRating(3)" tabindex="0">★</span>
+        <span onclick="setRating(4)" tabindex="0">★</span>
+        <span onclick="setRating(5)" tabindex="0">★</span>
+    </div>
+    <p id="rating-result" data-es="Gracias por valorar" data-en="Thanks for your rating">Gracias por valorar</p>
+</section>
+
+<!-- =========================
+     RECONOCIMIENTO OFICIAL
+========================= -->
+<section id="reconocimiento" class="section">
+    <h2 class="section-title" data-es="Reconocimiento Oficial" data-en="Official Recognition">Reconocimiento Oficial</h2>
+    <p data-es="Seleccionado en la I Convocatoria de Proyectos de Alto Impacto Estudiantil 2025-26. Evaluación externa institucional y financiación parcial concedida."
+       data-en="Selected in the I Call for High Impact Student Projects 2025-26. External institutional evaluation and partial funding granted.">
+        Seleccionado en la I Convocatoria de Proyectos de Alto Impacto Estudiantil 2025-26. Evaluación externa institucional y financiación parcial concedida.
+    </p>
+</section>
+
+<!-- =========================
+     AVISO LEGAL Y PRIVACIDAD
+========================= -->
+<section id="legal" class="section-alt">
+    <h2 class="section-title" data-es="Aviso Legal y Política de Privacidad" data-en="Legal Notice and Privacy Policy">Aviso Legal y Política de Privacidad</h2>
+    <ul>
+        <li data-es="Responsable del tratamiento: HOPE-UP" data-en="Data controller: HOPE-UP">Responsable del tratamiento: HOPE-UP</li>
+        <li data-es="Finalidad: Prevención y acompañamiento emocional" data-en="Purpose: Emotional prevention and support">Finalidad: Prevención y acompañamiento emocional</li>
+        <li data-es="Base legal: Consentimiento y interés legítimo" data-en="Legal basis: Consent and legitimate interest">Base legal: Consentimiento y interés legítimo</li>
+        <li data-es="Derechos ARCO: Acceso, Rectificación, Cancelación, Oposición" data-en="ARCO rights: Access, Rectification, Cancellation, Opposition">Derechos ARCO: Acceso, Rectificación, Cancelación, Oposición</li>
+        <li data-es="Conservación de datos: 5 años" data-en="Data retention: 5 years">Conservación de datos: 5 años</li>
+    </ul>
+</section>
+
+<script>
+// =========================
+// VALORACIÓN ESTRELLAS
+// =========================
+function setRating(r){
+    document.getElementById('rating-result').innerHTML = `Has dado ${r} estrellas ⭐`;
+}
+
+// =========================
+// MOCKUPS APP INTERACTIVOS
+// =========================
+document.querySelectorAll('.mockups .phone').forEach(phone=>{
+    phone.addEventListener('mouseenter',()=>phone.style.transform='scale(1.08)');
+    phone.addEventListener('mouseleave',()=>phone.style.transform='scale(1)');
+});
+
+// =========================
+// CAMBIO DE IDIOMA
+// =========================
+function setLang(lang){
+    document.querySelectorAll('[data-es]').forEach(el=>{
+        el.innerHTML = (lang==='es') ? el.getAttribute('data-es') : el.getAttribute('data-en');
+    });
+}
+
+// =========================
+// SCROLL SUAVE
+// =========================
+document.querySelectorAll('header.navbar nav a').forEach(link=>{
+    link.addEventListener('click', e=>{
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        window.scrollTo({top: target.offsetTop-50, behavior:'smooth'});
+    });
+});
+
+// =========================
+// TOOLTIP REFERENCIAS
+// =========================
+document.querySelectorAll('.reference').forEach(ref=>{
+    ref.addEventListener('mouseenter',()=>ref.style.backgroundColor='#f0f0f0');
+    ref.addEventListener('mouseleave',()=>ref.style.backgroundColor='transparent');
+});
+</script>
