@@ -2,7 +2,69 @@
    HOPE-UP JAVASCRIPT 3.1
    Funcionalidad Profesional Interactiva – Parte 1
    ===================================================== */
+/* CONTADOR MENSAJE */
 
+const mensaje = document.getElementById("mensaje");
+const contador = document.getElementById("contador");
+
+mensaje.addEventListener("input", () => {
+contador.textContent = mensaje.value.length + "/500 caracteres";
+});
+
+
+/* ENVIO SIMULADO */
+
+document.getElementById("contactForm").addEventListener("submit", function(e){
+
+e.preventDefault();
+
+alert("Mensaje enviado correctamente. Gracias por contactar con HOPE-UP.");
+
+this.reset();
+contador.textContent="0/500 caracteres";
+
+});
+/* EMOJI RATING */
+
+const emojis = document.querySelectorAll(".emoji");
+const emotionResult = document.getElementById("emotion-result");
+
+emojis.forEach(emoji => {
+
+emoji.addEventListener("click", ()=>{
+
+let value = emoji.dataset.value;
+let message = "";
+
+switch(value){
+
+case "5":
+message="¡Nos alegra que te sientas muy bien! 😄";
+break;
+
+case "4":
+message="Nos alegra que la experiencia sea positiva 🙂";
+break;
+
+case "3":
+message="Gracias por tu opinión 😐";
+break;
+
+case "2":
+message="Intentaremos mejorar 🙁";
+break;
+
+case "1":
+message="Sentimos que la experiencia no haya sido buena 😢";
+break;
+
+}
+
+emotionResult.innerText = message;
+
+});
+
+});
 /* ------------------------------
    NAVBAR EFECTO SCROLL Y STICKY
 --------------------------------*/
@@ -591,3 +653,4 @@ document.addEventListener("DOMContentLoaded", () => {
     updateTime();
     checkCookies();
 });
+
