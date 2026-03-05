@@ -1,13 +1,21 @@
 <script>
 // ==========================
-// 1️⃣ CAMBIO DE IDIOMA
+// 1️⃣ CAMBIO DE IDIOMA COMPLETO
 // ==========================
 let lang = "es";
 
 function toggleLanguage() {
     lang = lang === "es" ? "en" : "es";
+    
+    // Recorrer todos los elementos con data-es / data-en
     document.querySelectorAll("[data-es]").forEach(el => {
-        el.textContent = el.dataset[lang];
+        // Si es un input, textarea o select, cambiar placeholder o value
+        if (el.tagName === "INPUT" || el.tagName === "TEXTAREA" || el.tagName === "SELECT") {
+            if(el.dataset[lang]) el.placeholder = el.dataset[lang];
+        } else {
+            // Texto normal
+            el.textContent = el.dataset[lang];
+        }
     });
 }
 
@@ -76,3 +84,4 @@ if(form){
     });
 }
 </script>
+
