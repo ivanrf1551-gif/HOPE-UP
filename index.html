@@ -1,145 +1,224 @@
-<!DOCTYPE html>
+
+  <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HOPE-UP</title>
 
-   <header class="navbar">
-    <div class="logo-container">
-<img src="logotipo-HOPE-UP.png">
-    </div>
-   <!-- LOGOS INSTITUCIONALES -->
-<section class="institucional">
-    <p data-es="Proyecto reconocido y apoyado por:" data-en="Project recognized and supported by:">
-        Proyecto reconocido y apoyado por:
-    </p>
-    <div class="logos">
-<img src="UCLM-Logo.png" alt="UCLM Logo">
-<img src="logos-globalcaja_home_sala_prensa_globalcaja.jpg">
-    </div>
-</section>
-
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
+/* ==========================
+   RESET Y BASE
+========================= */
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+  scroll-behavior:smooth;
 }
 
 body{
-background:white;
-color:#1F3D2B;
+  background:white;
+  color:#1F3D2B;
 }
 
 .container{
-width:90%;
-max-width:1100px;
-margin:auto;
+  width:90%;
+  max-width:1100px;
+  margin:auto;
 }
 
 section{
-padding:80px 0;
+  padding:80px 0;
 }
 
-h1,h2,h3{
-margin-bottom:15px;
+h1,h2,h3,h4{
+  margin-bottom:15px;
+  font-weight:600;
 }
 
-/* NAVBAR */
+/* ==========================
+   NAVBAR
+========================= */
 nav{
-position:fixed;
-top:0;
-width:100%;
-background:white;
-box-shadow:0 2px 10px rgba(0,0,0,0.05);
-z-index:1000;
+  position:fixed;
+  top:0;
+  width:100%;
+  background:white;
+  box-shadow:0 2px 10px rgba(0,0,0,0.05);
+  z-index:1000;
 }
 
 .nav-container{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 0;
 }
 
 .logo{
-font-weight:700;
-font-size:1.4rem;
-color:#4CAF6A;
+  font-weight:700;
+  font-size:1.4rem;
+  color:#4CAF6A;
 }
 
 nav ul{
-display:flex;
-gap:25px;
-list-style:none;
+  display:flex;
+  gap:25px;
+  list-style:none;
 }
 
 nav a{
-text-decoration:none;
-color:#1F3D2B;
-font-weight:500;
+  text-decoration:none;
+  color:#1F3D2B;
+  font-weight:500;
 }
 
 .language-btn{
-background:#CFF5DD;
-border:none;
-padding:8px 12px;
-border-radius:20px;
-cursor:pointer;
+  background:#CFF5DD;
+  border:none;
+  padding:8px 12px;
+  border-radius:20px;
+  cursor:pointer;
 }
 
-/* HERO */
-
+/* ==========================
+   HERO
+========================= */
 .hero{
-height:100vh;
-display:flex;
-align-items:center;
-background:linear-gradient(135deg,#CFF5DD,#ffffff);
-padding-top:80px;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  background:linear-gradient(135deg,#CFF5DD,#ffffff);
+  padding-top:80px;
 }
 
 .hero-content{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:40px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+  flex-wrap:wrap;
 }
 
 .hero-text{
-max-width:500px;
+  max-width:500px;
+  margin-top:-30px; /* sube el texto un poco dentro del hero */
 }
 
 .hero-text h1{
-font-size:2.8rem;
+  font-size:2.8rem;
+  margin-bottom:20px;
+}
+
+.hero-text p{
+  margin-bottom:30px;
+  line-height:1.5;
 }
 
 .hero-buttons a{
-padding:12px 22px;
-border-radius:30px;
-text-decoration:none;
-margin-right:10px;
+  padding:12px 22px;
+  border-radius:30px;
+  text-decoration:none;
+  margin-right:10px;
+  transition: all 0.3s ease;
 }
 
 .btn-primary{
-background:#4CAF6A;
-color:white;
+  background:#4CAF6A;
+  color:white;
+}
+
+.btn-primary:hover{
+  background:#43A05B;
 }
 
 .btn-secondary{
-border:2px solid #4CAF6A;
-color:#4CAF6A;
+  border:2px solid #4CAF6A;
+  color:#4CAF6A;
+}
+
+.btn-secondary:hover{
+  background:#4CAF6A;
+  color:white;
 }
 
 .hero img{
-width:420px;
-border-radius:20px;
+  width:420px;
+  max-width:100%;
+  border-radius:20px;
 }
 
+/* ==========================
+   LOGOS INSTITUCIONALES
+========================= */
+.institucional{
+  text-align:center;
+  padding:40px 0;
+}
+
+.institucional p{
+  font-weight:500;
+  margin-bottom:20px;
+}
+
+.institucional .logos img{
+  max-width:200px;
+  margin:0 20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="container nav-container">
+    <div class="logo">HOPE-UP</div>
+    <ul>
+      <li><a href="#inicio" data-es="Inicio" data-en="Home">Inicio</a></li>
+      <li><a href="#sobre" data-es="Sobre nosotros" data-en="About">Sobre</a></li>
+      <li><a href="#impacto" data-es="Impacto" data-en="Impact">Impacto</a></li>
+      <li><a href="#proyectos" data-es="Proyectos" data-en="Projects">Proyectos</a></li>
+    </ul>
+    <button class="language-btn" onclick="toggleLanguage()">EN / ES</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="container hero-content">
+    <div class="hero-text">
+      <h1 data-es="Un proyecto para impulsar el cambio" data-en="A project to drive change">
+        Un proyecto para impulsar el cambio
+      </h1>
+      <p data-es="HOPE-UP es una iniciativa social que conecta personas, ideas y tecnología para generar impacto positivo."
+         data-en="HOPE-UP is a social initiative connecting people, ideas and technology to create positive impact.">
+        HOPE-UP es una iniciativa social que conecta personas, ideas y tecnología para generar impacto positivo.
+      </p>
+      <div class="hero-buttons">
+        <a href="#sobre" class="btn-primary" data-es="Conócenos" data-en="About us">Conócenos</a>
+        <a href="#impacto" class="btn-secondary" data-es="Nuestro impacto" data-en="Our impact">Nuestro impacto</a>
+      </div>
+    </div>
+    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="Imagen Hero">
+  </div>
+</section>
+
+<!-- LOGOS INSTITUCIONALES -->
+<section class="institucional">
+  <p data-es="Proyecto reconocido y apoyado por:" data-en="Project recognized and supported by:">
+    Proyecto reconocido y apoyado por:
+  </p>
+  <div class="logos">
+    <img src="UCLM-Logo.png" alt="UCLM Logo">
+    <img src="logos-globalcaja_home_sala_prensa_globalcaja.jpg" alt="Globalcaja Logo">
+  </div>
+</section>
 /* CARDS */
 
 .grid{
@@ -542,5 +621,6 @@ emotionResult.innerText="Gracias por compartir cómo te sientes";
 
 </body>
 </html>
+
 
 
