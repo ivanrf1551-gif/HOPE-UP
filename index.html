@@ -384,4 +384,173 @@ if(form){
 </script>
 </body>
 </html>
-   
+ <section id="test-bienestar" class="test-bienestar">
+  <div class="container">
+    <h2 data-es="Test de bienestar" data-en="Wellbeing Test">Test de bienestar</h2>
+    <p data-es="Responde unas preguntas rápidas para conocer tu estado emocional actual."
+       data-en="Answer a few quick questions to know your current emotional state.">
+      Responde unas preguntas rápidas para conocer tu estado emocional actual.
+    </p>
+    
+    <form id="wellbeingForm">
+      <label data-es="¿Cómo te sientes hoy?" data-en="How are you feeling today?">
+        ¿Cómo te sientes hoy?
+      </label>
+      <select id="estado-animo" required>
+        <option value="" data-es="Selecciona tu estado" data-en="Select your mood">Selecciona tu estado</option>
+        <option value="feliz" data-es="Feliz" data-en="Happy">Feliz</option>
+        <option value="tranquilo" data-es="Tranquilo" data-en="Calm">Tranquilo</option>
+        <option value="estresado" data-es="Estresado" data-en="Stressed">Estresado</option>
+        <option value="triste" data-es="Triste" data-en="Sad">Triste</option>
+        <option value="ansioso" data-es="Ansioso" data-en="Anxious">Ansioso</option>
+      </select>
+
+      <button type="submit" class="btn-primary" data-es="Ver recomendaciones" data-en="See recommendations">
+        Ver recomendaciones
+      </button>
+    </form>
+
+    <div id="test-result" class="test-result" style="margin-top:20px;"></div>
+  </div>
+</section>
+
+<script>
+// Test de bienestar
+document.getElementById("wellbeingForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const estado = document.getElementById("estado-animo").value;
+  const resultado = document.getElementById("test-result");
+  let mensaje = "";
+
+  switch(estado){
+    case "feliz":
+      mensaje = "¡Genial! Mantén tu energía positiva con actividades que te hagan sonreír.";
+      break;
+    case "tranquilo":
+      mensaje = "Estás en calma. Puedes reforzar tu tranquilidad con ejercicios de respiración.";
+      break;
+    case "estresado":
+      mensaje = "Respira profundo. Prueba ejercicios de relajación o una pausa breve.";
+      break;
+    case "triste":
+      mensaje = "No estás solo. Escucha música que te guste o habla con alguien de confianza.";
+      break;
+    case "ansioso":
+      mensaje = "Intenta enfocarte en tu respiración y ejercicios de mindfulness.";
+      break;
+    default:
+      mensaje = "Selecciona un estado para ver recomendaciones.";
+  }
+
+  resultado.textContent = mensaje;
+});
+</script>
+<section id="recursos" class="recursos">
+  <div class="container">
+    <h2 data-es="Recursos de calma" data-en="Calm Resources">Recursos de calma</h2>
+    
+    <div class="ejercicios">
+      <h3 data-es="Ejercicios de respiración" data-en="Breathing Exercises">Ejercicios de respiración</h3>
+      <ul>
+        <li data-es="Inhala 4 segundos, mantén 4, exhala 4, mantén 4." data-en="Inhale 4s, hold 4s, exhale 4s, hold 4s."></li>
+        <li data-es="Relaja hombros y cuello mientras respiras profundamente." data-en="Relax shoulders and neck while breathing deeply."></li>
+      </ul>
+
+      <h3 data-es="Series o películas según tu estado de ánimo" data-en="Movies/Series by Mood">Series o películas según tu estado de ánimo</h3>
+      <ul>
+        <li data-es="Feliz: comedias ligeras, Friends, The Good Place" data-en="Happy: light comedies, Friends, The Good Place"></li>
+        <li data-es="Triste: películas motivadoras, Forrest Gump, Soul" data-en="Sad: motivational movies, Forrest Gump, Soul"></li>
+        <li data-es="Ansioso: series calmantes, Planet Earth, Our Planet" data-en="Anxious: calming series, Planet Earth, Our Planet"></li>
+        <li data-es="Estresado: documentales relajantes, Cooked, Abstract" data-en="Stressed: relaxing documentaries, Cooked, Abstract"></li>
+      </ul>
+    </div>
+
+    <div class="emergencia" style="margin-top:30px;">
+      <h3 data-es="Emergencias" data-en="Emergency">Emergencias</h3>
+      <p data-es="Si estás en peligro inmediato, llama:" data-en="If in immediate danger, call:">
+        Si estás en peligro inmediato, llama:
+      </p>
+      <button class="btn-primary" onclick="window.location.href='tel:112'">📞 112</button>
+      <button class="btn-secondary" onclick="window.location.href='tel:024'">📞 024</button>
+    </div>
+  </div>
+</section>
+
+<style>
+.recursos ul{
+  list-style-type: disc;
+  margin-left:20px;
+}
+.recursos h3{
+  margin-top:20px;
+  margin-bottom:10px;
+}
+.recursos button{
+  padding:10px 20px;
+  margin:5px;
+  border-radius:25px;
+  border:none;
+  cursor:pointer;
+}
+</style>
+<section id="estado-arte" class="estado-arte">
+  <div class="container">
+    <h2 data-es="Cómo nace HOPE-UP" data-en="How HOPE-UP was born">Cómo nace HOPE-UP</h2>
+    <p data-es="HOPE-UP surge de la necesidad de detectar señales de malestar emocional temprano en jóvenes, combinando IA con un enfoque humano y ético."
+       data-en="HOPE-UP arises from the need to detect early signs of emotional distress in young people, combining AI with a human and ethical approach.">
+      HOPE-UP surge de la necesidad de detectar señales de malestar emocional temprano en jóvenes, combinando IA con un enfoque humano y ético.
+    </p>
+
+    <h3 data-es="Estado del arte" data-en="State of the Art">Estado del arte</h3>
+    <p data-es="Actualmente existen aplicaciones de seguimiento emocional, pero HOPE-UP integra IA responsable, supervisión humana y recursos de apoyo locales para un enfoque preventivo."
+       data-en="Currently, emotional monitoring apps exist, but HOPE-UP integrates responsible AI, human oversight, and local support resources for a preventive approach.">
+      Actualmente existen aplicaciones de seguimiento emocional, pero HOPE-UP integra IA responsable, supervisión humana y recursos de apoyo locales para un enfoque preventivo.
+    </p>
+  </div>
+</section>
+<section id="comunidad" class="comunidad">
+  <div class="container">
+    <h2 data-es="Comunidad HOPE-UP" data-en="HOPE-UP Community">Comunidad HOPE-UP</h2>
+    <p data-es="Conecta con otros jóvenes, comparte experiencias y participa en actividades de bienestar." 
+       data-en="Connect with other young people, share experiences, and join wellbeing activities.">
+      Conecta con otros jóvenes, comparte experiencias y participa en actividades de bienestar.
+    </p>
+
+    <div class="testimonios">
+      <h3 data-es="Testimonios" data-en="Testimonials">Testimonios</h3>
+      <div class="grid">
+        <div class="card">
+          <p data-es="HOPE-UP me ayudó a sentirme escuchado y apoyado." 
+             data-en="HOPE-UP helped me feel heard and supported."></p>
+          <span>- Laura, 19 años</span>
+        </div>
+        <div class="card">
+          <p data-es="Las recomendaciones de calma me enseñaron a controlar mi ansiedad."
+             data-en="The calmness recommendations taught me to manage my anxiety."></p>
+          <span>- Miguel, 22 años</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="participa" style="margin-top:30px;">
+      <h3 data-es="Participa" data-en="Participate">Participa</h3>
+      <p data-es="Únete a talleres, webinars y actividades de bienestar para mejorar tu salud emocional." 
+         data-en="Join workshops, webinars, and wellbeing activities to improve your emotional health."></p>
+    </div>
+  </div>
+</section>
+
+<style>
+.comunidad .grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  margin-top:20px;
+}
+.comunidad .card{
+  background:#F7F7F7;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+</style>
