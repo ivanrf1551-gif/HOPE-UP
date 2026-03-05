@@ -15,18 +15,26 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
-background:#ffffff;
+background:white;
 color:#1F3D2B;
-line-height:1.6;
 }
 
 .container{
 width:90%;
-max-width:1200px;
+max-width:1100px;
 margin:auto;
+}
+
+section{
+padding:80px 0;
+}
+
+h1,h2,h3{
+margin-bottom:15px;
 }
 
 /* NAVBAR */
@@ -49,14 +57,14 @@ padding:20px 0;
 
 .logo{
 font-weight:700;
-font-size:1.5rem;
+font-size:1.4rem;
 color:#4CAF6A;
 }
 
 nav ul{
 display:flex;
+gap:25px;
 list-style:none;
-gap:30px;
 }
 
 nav a{
@@ -65,11 +73,12 @@ color:#1F3D2B;
 font-weight:500;
 }
 
-.contact-btn{
-background:#8FD9A8;
-padding:10px 18px;
-border-radius:25px;
-color:white;
+.language-btn{
+background:#CFF5DD;
+border:none;
+padding:8px 12px;
+border-radius:20px;
+cursor:pointer;
 }
 
 /* HERO */
@@ -79,31 +88,29 @@ height:100vh;
 display:flex;
 align-items:center;
 background:linear-gradient(135deg,#CFF5DD,#ffffff);
+padding-top:80px;
 }
 
 .hero-content{
 display:flex;
 align-items:center;
 justify-content:space-between;
-gap:50px;
+gap:40px;
+}
+
+.hero-text{
+max-width:500px;
 }
 
 .hero-text h1{
-font-size:3rem;
-margin-bottom:20px;
-}
-
-.hero-text p{
-font-size:1.1rem;
-margin-bottom:30px;
-color:#555;
+font-size:2.8rem;
 }
 
 .hero-buttons a{
-padding:12px 24px;
+padding:12px 22px;
 border-radius:30px;
 text-decoration:none;
-margin-right:15px;
+margin-right:10px;
 }
 
 .btn-primary{
@@ -116,96 +123,74 @@ border:2px solid #4CAF6A;
 color:#4CAF6A;
 }
 
-.hero-image img{
-width:450px;
+.hero img{
+width:420px;
+border-radius:20px;
 }
 
-/* SECTIONS */
+/* CARDS */
 
-section{
-padding:80px 0;
-}
-
-.section-title{
-text-align:center;
-margin-bottom:60px;
-}
-
-.section-title h2{
-font-size:2rem;
-margin-bottom:10px;
-}
-
-/* ABOUT */
-
-.about-grid{
+.grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
+gap:25px;
 }
 
-.about-card{
+.card{
 background:#F7F7F7;
-padding:30px;
+padding:25px;
 border-radius:15px;
 text-align:center;
 box-shadow:0 10px 20px rgba(0,0,0,0.05);
 }
 
-/* SERVICES */
+/* IMPACT */
 
-.services-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-}
-
-.service-card{
-padding:30px;
-border-radius:15px;
-background:white;
-box-shadow:0 10px 20px rgba(0,0,0,0.05);
-transition:0.3s;
-}
-
-.service-card:hover{
-transform:translateY(-5px);
-}
-
-/* STATS */
-
-.stats{
+.impact{
 background:#CFF5DD;
+text-align:center;
 }
 
-.stats-grid{
+.impact-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-text-align:center;
 gap:30px;
+margin-top:40px;
 }
 
-.stat h3{
-font-size:2rem;
+.impact-box h3{
+font-size:1.8rem;
 color:#4CAF6A;
 }
 
 /* PROJECTS */
 
-.projects-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
 .project{
-height:200px;
-border-radius:15px;
 background:#eaeaea;
+height:180px;
+border-radius:15px;
 display:flex;
 align-items:center;
 justify-content:center;
-font-weight:500;
+}
+
+/* RATING */
+
+.rating{
+text-align:center;
+}
+
+.stars{
+font-size:2rem;
+cursor:pointer;
+}
+
+.star{
+color:#ccc;
+}
+
+.star.active{
+color:#FFD700;
 }
 
 /* CTA */
@@ -214,21 +199,14 @@ font-weight:500;
 background:#8FD9A8;
 color:white;
 text-align:center;
-padding:80px 20px;
-}
-
-.cta h2{
-font-size:2rem;
-margin-bottom:20px;
 }
 
 .cta a{
 background:white;
 color:#4CAF6A;
-padding:12px 30px;
+padding:12px 25px;
 border-radius:30px;
 text-decoration:none;
-font-weight:500;
 }
 
 /* FOOTER */
@@ -237,37 +215,12 @@ footer{
 background:#1F3D2B;
 color:white;
 text-align:center;
-padding:40px 20px;
-}
-
-footer a{
-color:#8FD9A8;
-text-decoration:none;
-margin:0 10px;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:900px){
-
-.hero-content{
-flex-direction:column;
-text-align:center;
-}
-
-.hero-image img{
-width:300px;
-}
-
-nav ul{
-display:none;
-}
-
+padding:30px;
 }
 
 </style>
-
 </head>
+
 <body>
 
 <!-- NAVBAR -->
@@ -278,105 +231,85 @@ display:none;
 <div class="logo">HOPE-UP</div>
 
 <ul>
-<li><a href="#">Inicio</a></li>
-<li><a href="#">Sobre nosotros</a></li>
-<li><a href="#">Servicios</a></li>
-<li><a href="#">Proyectos</a></li>
-<li><a class="contact-btn" href="#">Contacto</a></li>
+<li><a href="#inicio" data-es="Inicio" data-en="Home">Inicio</a></li>
+<li><a href="#sobre" data-es="Sobre nosotros" data-en="About">Sobre</a></li>
+<li><a href="#impacto" data-es="Impacto" data-en="Impact">Impacto</a></li>
+<li><a href="#proyectos" data-es="Proyectos" data-en="Projects">Proyectos</a></li>
 </ul>
+
+<button class="language-btn" onclick="toggleLanguage()">EN / ES</button>
 
 </div>
 </nav>
 
 <!-- HERO -->
 
-<section class="hero">
+<section class="hero" id="inicio">
 
 <div class="container hero-content">
 
 <div class="hero-text">
-<h1>Impulsamos el futuro con tecnología y esperanza</h1>
-<p>HOPE-UP desarrolla soluciones innovadoras que conectan tecnología, sostenibilidad y crecimiento.</p>
+
+<h1 data-es="Un proyecto para impulsar el cambio"
+data-en="A project to drive change">
+Un proyecto para impulsar el cambio
+</h1>
+
+<p data-es="HOPE-UP es una iniciativa social que conecta personas, ideas y tecnología para generar impacto positivo."
+data-en="HOPE-UP is a social initiative connecting people, ideas and technology to create positive impact.">
+HOPE-UP es una iniciativa social que conecta personas, ideas y tecnología para generar impacto positivo.
+</p>
 
 <div class="hero-buttons">
-<a class="btn-primary" href="#">Conócenos</a>
-<a class="btn-secondary" href="#">Nuestros servicios</a>
+<a href="#sobre" class="btn-primary"
+data-es="Conócenos"
+data-en="About us">Conócenos</a>
+
+<a href="#impacto" class="btn-secondary"
+data-es="Nuestro impacto"
+data-en="Our impact">Nuestro impacto</a>
 </div>
 
 </div>
 
-<div class="hero-image">
-<img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="">
-</div>
-
-</div>
-
-</section>
-
-<!-- ABOUT -->
-
-<section>
-
-<div class="container">
-
-<div class="section-title">
-<h2>Sobre HOPE-UP</h2>
-<p>Nuestra visión y valores</p>
-</div>
-
-<div class="about-grid">
-
-<div class="about-card">
-<h3>Innovación</h3>
-<p>Creamos soluciones tecnológicas que transforman ideas en impacto real.</p>
-</div>
-
-<div class="about-card">
-<h3>Sostenibilidad</h3>
-<p>Construimos soluciones pensando en el futuro del planeta.</p>
-</div>
-
-<div class="about-card">
-<h3>Crecimiento</h3>
-<p>Ayudamos a empresas y personas a evolucionar.</p>
-</div>
-
-</div>
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
 
 </div>
 
 </section>
 
-<!-- SERVICES -->
+<!-- SOBRE -->
 
-<section>
+<section id="sobre">
 
 <div class="container">
 
-<div class="section-title">
-<h2>Servicios</h2>
+<h2 data-es="Sobre HOPE-UP" data-en="About HOPE-UP">Sobre HOPE-UP</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3 data-es="Comunidad" data-en="Community">Comunidad</h3>
+<p data-es="Creemos en el poder de las personas para generar cambios reales."
+data-en="We believe in the power of people to create real change.">
+Creemos en el poder de las personas para generar cambios reales.
+</p>
 </div>
 
-<div class="services-grid">
-
-<div class="service-card">
-<h3>Innovación tecnológica</h3>
-<p>Desarrollamos soluciones modernas para empresas.</p>
+<div class="card">
+<h3 data-es="Colaboración" data-en="Collaboration">Colaboración</h3>
+<p data-es="Trabajamos junto a asociaciones para multiplicar el impacto."
+data-en="We collaborate with organizations to multiply impact.">
+Trabajamos junto a asociaciones para multiplicar el impacto.
+</p>
 </div>
 
-<div class="service-card">
-<h3>Desarrollo digital</h3>
-<p>Construimos plataformas y herramientas digitales.</p>
-</div>
-
-<div class="service-card">
-<h3>Consultoría estratégica</h3>
-<p>Ayudamos a definir el futuro tecnológico.</p>
-</div>
-
-<div class="service-card">
-<h3>Soluciones sostenibles</h3>
-<p>Tecnología enfocada en el impacto positivo.</p>
+<div class="card">
+<h3 data-es="Innovación social" data-en="Social innovation">Innovación social</h3>
+<p data-es="Ideas y tecnología para soluciones con propósito."
+data-en="Ideas and technology for purpose-driven solutions.">
+Ideas y tecnología para soluciones con propósito.
+</p>
 </div>
 
 </div>
@@ -385,32 +318,31 @@ display:none;
 
 </section>
 
-<!-- STATS -->
+<!-- IMPACT -->
 
-<section class="stats">
+<section class="impact" id="impacto">
 
 <div class="container">
 
-<div class="stats-grid">
+<h2 data-es="Nuestro impacto" data-en="Our impact">Nuestro impacto</h2>
 
-<div class="stat">
-<h3>+100</h3>
-<p>Proyectos</p>
+<div class="impact-grid">
+
+<div class="impact-box">
+<h3>1</h3>
+<p data-es="Proyecto social" data-en="Social project">Proyecto social</p>
 </div>
 
-<div class="stat">
-<h3>+20</h3>
-<p>Partners</p>
+<div class="impact-box">
+<h3>4</h3>
+<p data-es="Asociaciones colaboradoras"
+data-en="Partner associations">Asociaciones</p>
 </div>
 
-<div class="stat">
-<h3>+10</h3>
-<p>Países</p>
-</div>
-
-<div class="stat">
-<h3>98%</h3>
-<p>Satisfacción</p>
+<div class="impact-box">
+<h3>España</h3>
+<p data-es="Ámbito de actuación"
+data-en="Country of action">Ámbito</p>
 </div>
 
 </div>
@@ -419,24 +351,44 @@ display:none;
 
 </section>
 
-<!-- PROJECTS -->
+<!-- PROYECTOS -->
 
-<section>
+<section id="proyectos">
 
 <div class="container">
 
-<div class="section-title">
-<h2>Proyectos</h2>
-</div>
+<h2 data-es="Proyectos" data-en="Projects">Proyectos</h2>
 
-<div class="projects-grid">
+<div class="grid">
 
-<div class="project">Proyecto 1</div>
-<div class="project">Proyecto 2</div>
-<div class="project">Proyecto 3</div>
-<div class="project">Proyecto 4</div>
+<div class="project">HOPE-UP</div>
 
 </div>
+
+</div>
+
+</section>
+
+<!-- RATING -->
+
+<section class="rating">
+
+<div class="container">
+
+<h2 data-es="Valora nuestra página"
+data-en="Rate our page">Valora nuestra página</h2>
+
+<div class="stars" id="stars">
+
+<span class="star" data-value="1">★</span>
+<span class="star" data-value="2">★</span>
+<span class="star" data-value="3">★</span>
+<span class="star" data-value="4">★</span>
+<span class="star" data-value="5">★</span>
+
+</div>
+
+<p id="rating-result"></p>
 
 </div>
 
@@ -446,25 +398,66 @@ display:none;
 
 <section class="cta">
 
-<h2>Construyamos el futuro juntos</h2>
+<div class="container">
 
-<a href="#">Contactar</a>
+<h2 data-es="Únete al proyecto"
+data-en="Join the project">Únete al proyecto</h2>
+
+<a href="#inicio"
+data-es="Volver arriba"
+data-en="Back to top">Volver arriba</a>
+
+</div>
 
 </section>
-
-<!-- FOOTER -->
 
 <footer>
 
 <p>© 2026 HOPE-UP</p>
 
-<p>
-<a href="#">LinkedIn</a>
-<a href="#">Instagram</a>
-<a href="#">Twitter</a>
-</p>
-
 </footer>
+
+<script>
+
+/* LANGUAGE SWITCH */
+
+let lang="es";
+
+function toggleLanguage(){
+
+lang = lang === "es" ? "en" : "es";
+
+document.querySelectorAll("[data-es]").forEach(el=>{
+el.textContent = el.dataset[lang];
+});
+
+}
+
+/* RATING */
+
+const stars = document.querySelectorAll(".star");
+const result = document.getElementById("rating-result");
+
+stars.forEach(star=>{
+
+star.addEventListener("click",()=>{
+
+let rating = star.dataset.value;
+
+stars.forEach(s=>{
+s.classList.remove("active");
+if(s.dataset.value <= rating){
+s.classList.add("active");
+}
+});
+
+result.innerText = "Valoración: " + rating + " / 5";
+
+});
+
+});
+
+</script>
 
 </body>
 </html>
