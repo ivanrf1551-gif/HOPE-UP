@@ -40,7 +40,9 @@ nav{
   box-shadow:0 2px 10px rgba(0,0,0,0.05);
   z-index:1000;
 }
-
+#sobre, #impacto {
+  padding-top: 120px; /* sube o baja el valor según necesites */
+}
 .nav-container{
   display:flex;
   justify-content:space-between;
@@ -306,3 +308,4 @@ footer{
     gap:15px;
   }
 }
+
