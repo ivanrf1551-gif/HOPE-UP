@@ -366,6 +366,71 @@ Ideas y tecnología para soluciones con propósito.
 </div>
 
 </section>
+  <!-- EQUIPO HOPE-UP -->
+
+<section id="equipo">
+
+<div class="container">
+
+<h2 style="text-align:center;">Las personas detrás de HOPE-UP</h2>
+
+<p style="text-align:center;max-width:800px;margin:auto;margin-bottom:40px;">
+Un equipo universitario comprometido con la prevención y el bienestar emocional
+</p>
+
+<div class="grid">
+
+<div class="card">
+<h3>GP</h3>
+<h4>Gloria Parra Requena</h4>
+<p><strong>Responsable e Investigadora Principal</strong></p>
+<p>
+Responsable y coordinadora del proyecto HOPE-UP, con experiencia en investigación aplicada 
+y enfoque multidisciplinar para la prevención del malestar emocional en jóvenes.
+</p>
+</div>
+
+<div class="card">
+<h3>CI</h3>
+<h4>Celia Ibáñez García</h4>
+<p><strong>Alumna fundadora</strong></p>
+<p>
+Alumna fundadora del proyecto, comprometida con el desarrollo y la visión de HOPE-UP desde sus inicios.
+</p>
+</div>
+
+<div class="card">
+<h3>CG</h3>
+<h4>Carmen Gómez Alarcón</h4>
+<p><strong>Alumna fundadora</strong></p>
+<p>
+Alumna fundadora con dedicación al impacto social y al diseño de soluciones tecnológicas empáticas.
+</p>
+</div>
+
+<div class="card">
+<h3>MG</h3>
+<h4>Marta Gómez Alarcón</h4>
+<p><strong>Alumna fundadora</strong></p>
+<p>
+Alumna fundadora involucrada en la investigación y el desarrollo del enfoque preventivo de HOPE-UP.
+</p>
+</div>
+
+<div class="card">
+<h3>IR</h3>
+<h4>Iván Ruiz Fernández</h4>
+<p><strong>Alumno fundador</strong></p>
+<p>
+Alumno fundador con enfoque en la parte técnica y en la integración de inteligencia artificial responsable.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
 
 <!-- IMPACT -->
 
@@ -503,7 +568,7 @@ document.querySelectorAll("[data-es]").forEach(el=>{
 el.textContent = el.dataset[lang];
 });
 
-}
+  }
   <!-- EMOTION RATING -->
 
 <section id="emociones">
@@ -546,6 +611,58 @@ Descargar App
 </div>
 
 </section>
+  <!-- CONTACTO -->
+
+<section id="contacto">
+
+<div class="container">
+
+<h2 style="text-align:center;">
+Si alguna vez lo necesitas,
+queremos que haya una señal
+antes de que sea tarde.
+</h2>
+
+<p style="text-align:center;margin-bottom:40px;">
+Contacta con nosotros
+</p>
+
+<form id="contactForm" style="max-width:600px;margin:auto;">
+
+<label>Nombre</label>
+<input type="text" placeholder="Tu nombre" required>
+
+<label>Email</label>
+<input type="email" placeholder="tu@email.com" required>
+
+<label>Asunto</label>
+<select required>
+<option value="">Selecciona un asunto</option>
+<option>Información del proyecto</option>
+<option>Colaboración</option>
+<option>Soporte</option>
+</select>
+
+<label>Mensaje</label>
+<textarea id="mensaje" maxlength="500" placeholder="Cuéntanos cómo podemos ayudarte o cómo te gustaría colaborar..."></textarea>
+
+<p id="contador">0/500 caracteres</p>
+
+<button type="submit">Enviar mensaje</button>
+
+</form>
+
+<div style="text-align:center;margin-top:30px;">
+
+<p><strong>Email directo</strong></p>
+
+<p>hope-up@uclm.es</p>
+
+</div>
+
+</div>
+
+</section>
 
 /* RATING */
 
@@ -575,5 +692,6 @@ result.innerText = "Valoración: " + rating + " / 5";
 
 </body>
 </html>
+
 
 
