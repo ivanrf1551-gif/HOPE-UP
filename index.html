@@ -1,5 +1,4 @@
-
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -60,10 +59,8 @@ nav{
   padding:20px 0;
 }
 
-.logo{
-  font-weight:700;
-  font-size:1.4rem;
-  color:#4CAF6A;
+.logo-container img{
+  height:50px; /* Ajusta según tu logo */
 }
 
 nav ul{
@@ -170,6 +167,23 @@ nav a{
   max-width:200px;
   margin:0 20px;
 }
+
+/* ==========================
+   CARDS
+========================= */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:#F7F7F7;
+  padding:25px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 10px 20px rgba(0,0,0,0.05);
+}
 </style>
 </head>
 
@@ -178,7 +192,10 @@ nav a{
 <!-- NAVBAR -->
 <nav>
   <div class="container nav-container">
-    <div class="logo">HOPE-UP</div>
+    <div class="logo-container">
+      <!-- Logo de HOPE-UP en lugar de texto -->
+      <img src="logotipo-HOPE-UP.png" alt="Logo HOPE-UP">
+    </div>
     <ul>
       <li><a href="#inicio" data-es="Inicio" data-en="Home">Inicio</a></li>
       <li><a href="#sobre" data-es="Sobre nosotros" data-en="About">Sobre</a></li>
@@ -621,6 +638,7 @@ emotionResult.innerText="Gracias por compartir cómo te sientes";
 
 </body>
 </html>
+
 
 
 
