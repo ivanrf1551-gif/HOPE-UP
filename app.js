@@ -1,24 +1,54 @@
 <script>
+<script>
 // ==========================
-// 1️⃣ CAMBIO DE IDIOMA COMPLETO
+// 1️⃣ GESTIÓN DE IDIOMA PROFESIONAL
 // ==========================
-let lang = "es";
+const LanguageManager = (() => {
+  let currentLang = "es"; // idioma inicial
 
-function toggleLanguage() {
-    lang = lang === "es" ? "en" : "es";
-    
-    // Recorrer todos los elementos con data-es / data-en
+  // Cambiar idioma
+  const toggle = () => {
+    currentLang = currentLang === "es" ? "en" : "es";
+    updatePage();
+  };
+
+  // Actualizar todos los elementos de la página
+  const updatePage = () => {
     document.querySelectorAll("[data-es]").forEach(el => {
-        // Si es un input, textarea o select, cambiar placeholder o value
-        if (el.tagName === "INPUT" || el.tagName === "TEXTAREA" || el.tagName === "SELECT") {
-            if(el.dataset[lang]) el.placeholder = el.dataset[lang];
-        } else {
-            // Texto normal
-            el.textContent = el.dataset[lang];
-        }
-    });
-}
+      const tag = el.tagName.toUpperCase();
 
+      // INPUT y TEXTAREA: placeholder
+      if (tag === "INPUT" || tag === "TEXTAREA") {
+        if (el.dataset[currentLang]) el.placeholder = el.dataset[currentLang];
+      }
+      // SELECT: actualizar cada opción si tiene data-es / data-en
+      else if (tag === "SELECT") {
+        Array.from(el.options).forEach(opt => {
+          if (opt.dataset && opt.dataset[currentLang]) opt.textContent = opt.dataset[currentLang];
+        });
+      }
+      // Elementos normales: h1, p, span, a...
+      else {
+        if (el.dataset[currentLang]) el.textContent = el.dataset[currentLang];
+      }
+    });
+  };
+
+  return {
+    toggle,
+    setLang: (lang) => { currentLang = lang; updatePage(); },
+    getLang: () => currentLang
+  };
+})();
+
+// Botón de idioma
+document.querySelectorAll(".language-btn").forEach(btn => {
+  btn.addEventListener("click", () => LanguageManager.toggle());
+});
+
+// Inicializar página con idioma por defecto
+document.addEventListener("DOMContentLoaded", () => LanguageManager.setLang("es"));
+</script>
 // ==========================
 // 2️⃣ VALORACIÓN POR ESTRELLAS
 // ==========================
@@ -84,4 +114,5 @@ if(form){
     });
 }
 </script>
+
 
