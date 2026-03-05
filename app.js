@@ -2,7 +2,7 @@
 // 1️⃣ GESTIÓN DE IDIOMA PROFESIONAL
 // ==========================
 const LanguageManager = (() => {
-  let currentLang = "es"; // idioma inicial
+  let currentLang = "es";
 
   const toggle = () => {
     currentLang = currentLang === "es" ? "en" : "es";
@@ -13,18 +13,13 @@ const LanguageManager = (() => {
     document.querySelectorAll("[data-es]").forEach(el => {
       const tag = el.tagName.toUpperCase();
 
-      // INPUT y TEXTAREA: placeholder
       if (tag === "INPUT" || tag === "TEXTAREA") {
         if (el.dataset[currentLang]) el.placeholder = el.dataset[currentLang];
-      }
-      // SELECT: actualizar opciones
-      else if (tag === "SELECT") {
+      } else if (tag === "SELECT") {
         Array.from(el.options).forEach(opt => {
           if (opt.dataset && opt.dataset[currentLang]) opt.textContent = opt.dataset[currentLang];
         });
-      }
-      // Elementos normales: h1, p, span, a...
-      else {
+      } else {
         if (el.dataset[currentLang]) el.textContent = el.dataset[currentLang];
       }
     });
@@ -37,12 +32,10 @@ const LanguageManager = (() => {
   };
 })();
 
-// Botón de idioma
 document.querySelectorAll(".language-btn").forEach(btn => {
   btn.addEventListener("click", () => LanguageManager.toggle());
 });
 
-// Inicializar página con idioma por defecto
 document.addEventListener("DOMContentLoaded", () => LanguageManager.setLang("es"));
 
 
@@ -82,6 +75,7 @@ emojis.forEach(emoji => {
       case "1": text="Muy triste 😢"; break;
     }
     emotionResult.innerText = text;
+    showRecommendations(value);
   });
 });
 
@@ -102,29 +96,67 @@ const ContactFormManager = (() => {
   };
 
   const resetForm = () => {
-    if (form) form.reset();
-    if (contador) contador.textContent = `0/${MAX_CHARS} caracteres`;
+    if(form) form.reset();
+    if(contador) contador.textContent = `0/${MAX_CHARS} caracteres`;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!form) return;
-
-    // Aquí se podría añadir envío real o validación avanzada
+    if(!form) return;
     alert("✅ Mensaje enviado correctamente. Gracias por contactar con HOPE-UP.");
     resetForm();
   };
 
   const init = () => {
-    if (mensaje) mensaje.addEventListener("input", updateCounter);
-    if (form) form.addEventListener("submit", handleSubmit);
-    updateCounter(); // contador inicial
+    if(mensaje) mensaje.addEventListener("input", updateCounter);
+    if(form) form.addEventListener("submit", handleSubmit);
+    updateCounter();
   };
 
   return { init, resetForm };
 })();
 
-// Inicializar formulario al cargar la página
-document.addEventListener("DOMContentLoaded", () => {
-  ContactFormManager.init();
-});
+document.addEventListener("DOMContentLoaded", () => ContactFormManager.init());
+
+
+// ==========================
+// 5️⃣ RECOMENDACIONES Y EJERCICIOS DE CALMA
+// ==========================
+function showRecommendations(moodValue){
+  const recContainer = document.getElementById("recommendations");
+  if(!recContainer) return;
+
+  let content = "";
+  switch(moodValue){
+    case "5": 
+      content = "<p>🎬 Te recomendamos ver comedias o series ligeras para mantener tu buen ánimo.</p>"; 
+      break;
+    case "4": 
+      content = "<p>🎬 Puedes disfrutar de películas inspiradoras o documentales motivadores.</p>"; 
+      break;
+    case "3": 
+      content = "<p>🧘 Realiza ejercicios de respiración profunda y escucha música relajante.</p>"; 
+      break;
+    case "2": 
+      content = "<p>🧘 Prueba meditación guiada o estiramientos suaves para mejorar tu ánimo.</p>"; 
+      break;
+    case "1": 
+      content = "<p>🚨 Si te sientes muy mal, llama al 112 o 024. También recomendamos ejercicios de calma y hablar con un profesional.</p>"; 
+      break;
+  }
+  recContainer.innerHTML = content;
+}
+
+
+// ==========================
+// 6️⃣ BOTONES DE EMERGENCIA
+// ==========================
+const emergency112 = document.getElementById("call112");
+const emergency024 = document.getElementById("call024");
+
+if(emergency112){
+  emergency112.addEventListener("click", () => window.location.href = "tel:112");
+}
+if(emergency024){
+  emergency024.addEventListener("click", () => window.location.href = "tel:024");
+}
