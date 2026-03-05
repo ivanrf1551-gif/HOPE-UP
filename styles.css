@@ -1,6 +1,6 @@
 /* ==========================
    RESET Y BASE
-========================== */
+========================= */
 *{
   margin:0;
   padding:0;
@@ -38,7 +38,7 @@ h1,h2,h3,h4{
 
 /* ==========================
    NAVBAR
-========================== */
+========================= */
 nav{
   position:fixed;
   top:0;
@@ -83,13 +83,13 @@ nav a{
 
 /* ==========================
    HERO
-========================== */
+========================= */
 .hero{
   height:100vh;
   display:flex;
   align-items:center;
   background:linear-gradient(135deg,#CFF5DD,#ffffff);
-  padding-top:80px;
+  padding-top:80px; /* altura del navbar */
 }
 
 .hero-content{
@@ -102,6 +102,7 @@ nav a{
 
 .hero-text{
   max-width:500px;
+  margin-top: -30px; /* sube el texto un poco dentro del hero */
 }
 
 .hero-text h1{
@@ -313,5 +314,6 @@ footer{
     gap:15px;
   }
 }
+
 
 
