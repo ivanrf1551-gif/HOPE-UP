@@ -684,3 +684,94 @@ if(diarioForm){
   });
 }
 </script>
+<section id="interactivo" class="interactive">
+  <div class="container">
+    <h2 data-es="Diario emocional y Chat de apoyo" data-en="Emotional Diary & Support Chat">
+      Diario emocional y Chat de apoyo
+    </h2>
+    <p data-es="Registra tu estado de ánimo diario y recibe recomendaciones personalizadas."
+       data-en="Log your daily mood and receive personalized recommendations.">
+      Registra tu estado de ánimo diario y recibe recomendaciones personalizadas.
+    </p>
+
+    <!-- Diario de emociones -->
+    <form id="diarioForm" style="max-width:600px;margin:auto;">
+      <label for="estado" data-es="Estado de ánimo de hoy" data-en="Today's mood">Estado de ánimo de hoy</label>
+      <select id="estado" required>
+        <option value="" data-es="Selecciona tu estado" data-en="Select your mood">Selecciona tu estado</option>
+        <option value="feliz" data-es="Feliz" data-en="Happy">Feliz</option>
+        <option value="neutral" data-es="Neutral" data-en="Neutral">Neutral</option>
+        <option value="triste" data-es="Triste" data-en="Sad">Triste</option>
+        <option value="ansioso" data-es="Ansioso/a" data-en="Anxious">Ansioso/a</option>
+        <option value="estresado" data-es="Estresado/a" data-en="Stressed">Estresado/a</option>
+      </select>
+      <textarea id="notaDiario" maxlength="300" placeholder="Escribe cómo te sientes hoy..." data-es="Escribe cómo te sientes hoy..." data-en="Write how you feel today..."></textarea>
+      <button type="submit" class="btn-primary" data-es="Guardar" data-en="Save">Guardar</button>
+    </form>
+
+    <p id="feedbackDiario" style="text-align:center;margin-top:15px;"></p>
+
+    <!-- Chat de apoyo simulado -->
+    <div style="text-align:center;margin-top:40px;">
+      <h3 data-es="Chat de apoyo (simulado)" data-en="Support Chat (simulated)">Chat de apoyo (simulado)</h3>
+      <p data-es="Próximamente podrás interactuar con nuestra IA para recibir consejos personalizados."
+         data-en="Soon you will be able to interact with our AI for personalized advice.">
+        Próximamente podrás interactuar con nuestra IA para recibir consejos personalizados.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+// Funcionalidad simple para guardar el diario emocional
+const diarioForm = document.getElementById('diarioForm');
+const feedbackDiario = document.getElementById('feedbackDiario');
+
+if(diarioForm){
+  diarioForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const estado = document.getElementById('estado').value;
+    const nota = document.getElementById('notaDiario').value;
+    feedbackDiario.textContent = `Estado guardado: ${estado}. Nota: ${nota}`;
+    diarioForm.reset();
+  });
+}
+</script>
+<section id="privacidad" class="privacidad">
+  <div class="container">
+    <h2 data-es="Política de privacidad" data-en="Privacy Policy">Política de privacidad</h2>
+    <p data-es="HOPE-UP respeta tu privacidad y cumple con el RGPD y la normativa EU AI Act."
+       data-en="HOPE-UP respects your privacy and complies with GDPR and EU AI Act regulations.">
+       HOPE-UP respeta tu privacidad y cumple con el RGPD y la normativa EU AI Act.
+    </p>
+    <ul>
+      <li data-es="Protección de datos personales: toda la información se almacena cifrada y de manera segura." 
+          data-en="Personal data protection: all information is stored encrypted and securely.">
+        Protección de datos personales: toda la información se almacena cifrada y de manera segura.
+      </li>
+      <li data-es="Derecho a eliminar tus datos en cualquier momento." 
+          data-en="Right to delete your data at any time.">
+        Derecho a eliminar tus datos en cualquier momento.
+      </li>
+      <li data-es="Transparencia total sobre cómo usamos la inteligencia artificial." 
+          data-en="Full transparency on how we use artificial intelligence.">
+        Transparencia total sobre cómo usamos la inteligencia artificial.
+      </li>
+    </ul>
+    <a href="#" data-es="Leer más sobre privacidad" data-en="Read more about privacy">Leer más sobre privacidad</a>
+  </div>
+</section>
+<section id="emergencia" class="emergencia">
+  <div class="container">
+    <h2 data-es="Llamadas de emergencia" data-en="Emergency Calls">Llamadas de emergencia</h2>
+    <p data-es="Si tú o alguien cercano se encuentra en peligro, llama inmediatamente." 
+       data-en="If you or someone close is in danger, call immediately.">
+       Si tú o alguien cercano se encuentra en peligro, llama inmediatamente.
+    </p>
+    <div class="emergency-buttons">
+      <a href="tel:112" class="btn-primary">112 - Emergencias</a>
+      <a href="tel:024" class="btn-secondary">024 - Prevención de Suicidio</a>
+    </div>
+  </div>
+</section>
+
