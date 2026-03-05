@@ -90,29 +90,53 @@ emojis.forEach(emoji => {
     });
 });
 
+<script>
 // ==========================
-// 4️⃣ FORMULARIO DE CONTACTO
+// 4️⃣ FORMULARIO DE CONTACTO PROFESIONAL
 // ==========================
-const form = document.getElementById("contactForm");
-const mensaje = document.getElementById("mensaje");
-const contador = document.getElementById("contador");
+const ContactFormManager = (() => {
+  const form = document.getElementById("contactForm");
+  const mensaje = document.getElementById("mensaje");
+  const contador = document.getElementById("contador");
+  const MAX_CHARS = 500;
 
-// Contador de caracteres
-if(mensaje && contador){
-    mensaje.addEventListener("input", () => {
-        contador.textContent = mensaje.value.length + "/500 caracteres";
-    });
-}
+  // Actualiza el contador de caracteres
+  const updateCounter = () => {
+    if (contador && mensaje) {
+      const length = mensaje.value.length;
+      contador.textContent = `${length}/${MAX_CHARS} caracteres`;
+    }
+  };
 
-// Envío simulado
-if(form){
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        alert("Mensaje enviado correctamente. Gracias por contactar con HOPE-UP.");
-        form.reset();
-        if(contador) contador.textContent = "0/500 caracteres";
-    });
-}
+  // Resetear formulario y contador
+  const resetForm = () => {
+    if(form) form.reset();
+    if(contador) contador.textContent = `0/${MAX_CHARS} caracteres`;
+  };
+
+  // Envío simulado
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if(!form) return;
+
+    // Aquí podrías agregar validación extra o envío real a un servidor
+    alert("✅ Mensaje enviado correctamente. Gracias por contactar con HOPE-UP.");
+    resetForm();
+  };
+
+  // Inicializar eventos
+  const init = () => {
+    if(mensaje) mensaje.addEventListener("input", updateCounter);
+    if(form) form.addEventListener("submit", handleSubmit);
+    updateCounter(); // mostrar contador inicial
+  };
+
+  return { init, resetForm };
+})();
+
+// Inicializar al cargar la página
+document.addEventListener("DOMContentLoaded", () => {
+  ContactFormManager.init();
+});
 </script>
-
 
