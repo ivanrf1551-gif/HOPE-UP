@@ -82,563 +82,306 @@ nav a{
   border-radius:20px;
   cursor:pointer;
 }
-
-/* ==========================
-   HERO
-========================= */
-.hero{
-  height:100vh;
-  display:flex;
-  align-items:center;
-  background:linear-gradient(135deg,#CFF5DD,#ffffff);
-  padding-top:80px;
-}
-
-.hero-content{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:40px;
-  flex-wrap:wrap;
-}
-
-.hero-text{
-  max-width:500px;
-  margin-top:-30px; /* sube el texto un poco dentro del hero */
-}
-
-.hero-text h1{
-  font-size:2.8rem;
-  margin-bottom:20px;
-}
-
-.hero-text p{
-  margin-bottom:30px;
-  line-height:1.5;
-}
-
-.hero-buttons a{
-  padding:12px 22px;
-  border-radius:30px;
-  text-decoration:none;
-  margin-right:10px;
-  transition: all 0.3s ease;
-}
-
-.btn-primary{
-  background:#4CAF6A;
-  color:white;
-}
-
-.btn-primary:hover{
-  background:#43A05B;
-}
-
-.btn-secondary{
-  border:2px solid #4CAF6A;
-  color:#4CAF6A;
-}
-
-.btn-secondary:hover{
-  background:#4CAF6A;
-  color:white;
-}
-
-.hero img{
-  width:420px;
-  max-width:100%;
-  border-radius:20px;
-}
-
-/* ==========================
-   LOGOS INSTITUCIONALES
-========================= */
-.institucional{
-  text-align:center;
-  padding:40px 0;
-}
-
-.institucional p{
-  font-weight:500;
-  margin-bottom:20px;
-}
-
-.institucional .logos img{
-  max-width:200px;
-  margin:0 20px;
-}
-
-/* ==========================
-   CARDS
-========================= */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
-}
-
-.card{
-  background:#F7F7F7;
-  padding:25px;
-  border-radius:15px;
-  text-align:center;
-  box-shadow:0 10px 20px rgba(0,0,0,0.05);
-}
 </style>
 </head>
-
 <body>
 
 <!-- NAVBAR -->
 <nav>
   <div class="container nav-container">
     <div class="logo-container">
-      <!-- Logo de HOPE-UP en lugar de texto -->
       <img src="logotipo-HOPE-UP.png" alt="Logo HOPE-UP">
     </div>
     <ul>
       <li><a href="#inicio" data-es="Inicio" data-en="Home">Inicio</a></li>
-      <li><a href="#sobre" data-es="Sobre nosotros" data-en="About">Sobre</a></li>
+      <li><a href="#sobre" data-es="El Proyecto" data-en="Project">El Proyecto</a></li>
+      <li><a href="#funciona" data-es="Cómo Funciona" data-en="How it works">Cómo Funciona</a></li>
       <li><a href="#impacto" data-es="Impacto" data-en="Impact">Impacto</a></li>
-      <li><a href="#proyectos" data-es="Proyectos" data-en="Projects">Proyectos</a></li>
+      <li><a href="#equipo" data-es="Equipo" data-en="Team">Equipo</a></li>
+      <li><a href="#contacto" data-es="Contactar" data-en="Contact">Contactar</a></li>
     </ul>
     <button class="language-btn" onclick="toggleLanguage()">EN / ES</button>
   </div>
 </nav>
-
-<!-- HERO -->
+   <!-- HERO -->
 <section class="hero" id="inicio">
   <div class="container hero-content">
     <div class="hero-text">
-      <h1 data-es="Un proyecto para impulsar el cambio" data-en="A project to drive change">
-        Un proyecto para impulsar el cambio
+      <h1 data-es="No estás solo." data-en="You are not alone.">
+        No estás solo.
       </h1>
-      <p data-es="HOPE-UP es una iniciativa social que conecta personas, ideas y tecnología para generar impacto positivo."
-         data-en="HOPE-UP is a social initiative connecting people, ideas and technology to create positive impact.">
-        HOPE-UP es una iniciativa social que conecta personas, ideas y tecnología para generar impacto positivo.
+      <p data-es="La tecnología también puede cuidar de ti. HOPE-UP es una herramienta basada en inteligencia artificial diseñada para detectar de forma temprana señales de malestar emocional y activar redes de apoyo antes de que sea demasiado tarde."
+         data-en="Technology can also take care of you. HOPE-UP is an AI-based tool designed to detect early signs of emotional distress and activate support networks before it's too late.">
+        La tecnología también puede cuidar de ti. HOPE-UP es una herramienta basada en inteligencia artificial diseñada para detectar de forma temprana señales de malestar emocional y activar redes de apoyo antes de que sea demasiado tarde.
       </p>
       <div class="hero-buttons">
-        <a href="#sobre" class="btn-primary" data-es="Conócenos" data-en="About us">Conócenos</a>
-        <a href="#impacto" class="btn-secondary" data-es="Nuestro impacto" data-en="Our impact">Nuestro impacto</a>
+        <a href="#sobre" class="btn-primary" data-es="Descubrir el proyecto" data-en="Discover the project">Descubrir el proyecto</a>
+        <a href="#funciona" class="btn-secondary" data-es="Cómo funciona" data-en="How it works">Cómo funciona</a>
       </div>
     </div>
     <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="Imagen Hero">
   </div>
 </section>
 
-<!-- LOGOS INSTITUCIONALES -->
-<section class="institucional">
-  <p data-es="Proyecto reconocido y apoyado por:" data-en="Project recognized and supported by:">
-    Proyecto reconocido y apoyado por:
-  </p>
-  <div class="logos">
-    <img src="UCLM-Logo.png" alt="UCLM Logo">
-    <img src="logos-globalcaja_home_sala_prensa_globalcaja.jpg" alt="Globalcaja Logo">
+<!-- PROPÓSITO -->
+<section id="sobre">
+  <div class="container">
+    <h2 data-es="Nuestro propósito" data-en="Our Purpose">Nuestro propósito</h2>
+    <p data-es="Prevención que salva vidas. HOPE-UP es un proyecto universitario innovador que combina inteligencia artificial con un enfoque profundamente humano."
+       data-en="Prevention that saves lives. HOPE-UP is an innovative university project combining AI with a deeply human approach.">
+      Prevención que salva vidas. HOPE-UP es un proyecto universitario innovador que combina inteligencia artificial con un enfoque profundamente humano.
+    </p>
+    <div class="grid">
+      <div class="card">
+        <h3 data-es="Prevención Temprana" data-en="Early Prevention">Prevención Temprana</h3>
+        <p data-es="Detectamos señales de malestar emocional antes de que se conviertan en crisis." data-en="We detect signs of emotional distress before they turn into crises.">Detectamos señales de malestar emocional antes de que se conviertan en crisis.</p>
+      </div>
+      <div class="card">
+        <h3 data-es="IA Responsable" data-en="Responsible AI">IA Responsable</h3>
+        <p data-es="Tecnología ética diseñada con supervisión humana y cumplimiento normativo." data-en="Ethical technology designed with human supervision and compliance.">Tecnología ética diseñada con supervisión humana y cumplimiento normativo.</p>
+      </div>
+      <div class="card">
+        <h3 data-es="Conexión con Profesionales" data-en="Connection with Professionals">Conexión con Profesionales</h3>
+        <p data-es="Activamos redes de apoyo y conectamos con recursos especializados." data-en="We activate support networks and connect to specialized resources.">Activamos redes de apoyo y conectamos con recursos especializados.</p>
+      </div>
+      <div class="card">
+        <h3 data-es="Impacto Social" data-en="Social Impact">Impacto Social</h3>
+        <p data-es="Contribuimos a los ODS y trabajamos por una sociedad más saludable." data-en="We contribute to the SDGs and work for a healthier society.">Contribuimos a los ODS y trabajamos por una sociedad más saludable.</p>
+      </div>
+    </div>
   </div>
 </section>
-/* CARDS */
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
-
-.card{
-background:#F7F7F7;
-padding:25px;
-border-radius:15px;
-text-align:center;
-box-shadow:0 10px 20px rgba(0,0,0,0.05);
-}
-
-/* IMPACT */
-
-.impact{
-background:#CFF5DD;
-text-align:center;
-}
-
-.impact-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:30px;
-margin-top:40px;
-}
-
-.impact-box h3{
-font-size:1.8rem;
-color:#4CAF6A;
-}
-
-/* RATING */
-
-.rating{
-text-align:center;
-}
-
-.stars{
-font-size:2rem;
-cursor:pointer;
-}
-
-.star{
-color:#ccc;
-}
-
-.star.active{
-color:#FFD700;
-}
-
-/* EMOJIS */
-
-.emoji-rating span{
-font-size:2rem;
-cursor:pointer;
-margin:10px;
-}
-
-/* CTA */
-
-.cta{
-background:#8FD9A8;
-color:white;
-text-align:center;
-}
-
-.cta a{
-background:white;
-color:#4CAF6A;
-padding:12px 25px;
-border-radius:30px;
-text-decoration:none;
-}
-
-/* FOOTER */
-
-footer{
-background:#1F3D2B;
-color:white;
-text-align:center;
-padding:30px;
-}
-
-</style>
-</head>
-<body>
-
-<nav>
-<div class="container nav-container">
-
-<div class="logo">HOPE-UP</div>
-
-<ul>
-<li><a href="#inicio">Inicio</a></li>
-<li><a href="#sobre">Sobre</a></li>
-<li><a href="#impacto">Impacto</a></li>
-<li><a href="#proyectos">Proyecto</a></li>
-</ul>
-
-<button class="language-btn" onclick="toggleLanguage()">EN / ES</button>
-
-</div>
-</nav>
-
-
+<!-- CÓMO FUNCIONA -->
+<section id="funciona">
+  <div class="container">
+    <h2 data-es="Cómo Funciona" data-en="How it works">Cómo Funciona</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>01</h3>
+        <p data-es="Interacción Natural: el usuario comparte pensamientos y emociones en un entorno seguro." data-en="Natural Interaction: the user shares thoughts and emotions in a safe environment.">Interacción Natural: el usuario comparte pensamientos y emociones en un entorno seguro.</p>
+      </div>
+      <div class="card">
+        <h3>02</h3>
+        <p data-es="Análisis Inteligente: nuestra IA detecta patrones de riesgo emocional." data-en="Intelligent Analysis: our AI detects emotional risk patterns.">Análisis Inteligente: nuestra IA detecta patrones de riesgo emocional.</p>
+      </div>
+      <div class="card">
+        <h3>03</h3>
+        <p data-es="Detección Temprana: se identifican señales de riesgo antes de que la situación se agrave." data-en="Early Detection: risk signals are identified before situations worsen.">Detección Temprana: se identifican señales de riesgo antes de que la situación se agrave.</p>
+      </div>
+      <div class="card">
+        <h3>04</h3>
+        <p data-es="Activación de Apoyo: se activan recursos de ayuda y conexión con profesionales." data-en="Support Activation: help resources and professional connections are activated.">Activación de Apoyo: se activan recursos de ayuda y conexión con profesionales.</p>
+      </div>
+    </div>
+    <p data-es="Importante: HOPE-UP no sustituye la atención médica profesional." data-en="Important: HOPE-UP does not replace professional medical care.">
+      Importante: HOPE-UP no sustituye la atención médica profesional.
+    </p>
+  </div>
+</section>
+   <!-- HERO -->
 <section class="hero" id="inicio">
-
-<div class="container hero-content">
-
-<div class="hero-text">
-
-<h1 data-es="Un proyecto para impulsar el cambio"
-data-en="A project to drive change">
-Un proyecto para impulsar el cambio
-</h1>
-
-<p data-es="HOPE-UP es una iniciativa social que conecta personas, ideas y tecnología para generar impacto positivo."
-data-en="HOPE-UP is a social initiative connecting people, ideas and technology to create positive impact.">
-HOPE-UP es una iniciativa social que conecta personas, ideas y tecnología para generar impacto positivo.
-</p>
-
-<div class="hero-buttons">
-
-<a href="#sobre" class="btn-primary"
-data-es="Conócenos"
-data-en="About us">Conócenos</a>
-
-<a href="#impacto" class="btn-secondary"
-data-es="Nuestro impacto"
-data-en="Our impact">Nuestro impacto</a>
-
-</div>
-</div>
-
-<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f">
-
-</div>
+  <div class="container hero-content">
+    <div class="hero-text">
+      <h1 data-es="No estás solo." data-en="You are not alone.">
+        No estás solo.
+      </h1>
+      <p data-es="La tecnología también puede cuidar de ti. HOPE-UP es una herramienta basada en inteligencia artificial diseñada para detectar de forma temprana señales de malestar emocional y activar redes de apoyo antes de que sea demasiado tarde."
+         data-en="Technology can also take care of you. HOPE-UP is an AI-based tool designed to detect early signs of emotional distress and activate support networks before it's too late.">
+        La tecnología también puede cuidar de ti. HOPE-UP es una herramienta basada en inteligencia artificial diseñada para detectar de forma temprana señales de malestar emocional y activar redes de apoyo antes de que sea demasiado tarde.
+      </p>
+      <div class="hero-buttons">
+        <a href="#sobre" class="btn-primary" data-es="Descubrir el proyecto" data-en="Discover the project">Descubrir el proyecto</a>
+        <a href="#funciona" class="btn-secondary" data-es="Cómo funciona" data-en="How it works">Cómo funciona</a>
+      </div>
+    </div>
+    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="Imagen Hero">
+  </div>
 </section>
 
-
+<!-- PROPÓSITO -->
 <section id="sobre">
-
-<div class="container">
-
-<h2>Sobre HOPE-UP</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Comunidad</h3>
-<p>Creemos en el poder de las personas para generar cambios reales.</p>
-</div>
-
-<div class="card">
-<h3>Colaboración</h3>
-<p>Trabajamos junto a asociaciones para multiplicar el impacto.</p>
-</div>
-
-<div class="card">
-<h3>Innovación social</h3>
-<p>Ideas y tecnología para soluciones con propósito.</p>
-</div>
-
-</div>
-
-</div>
+  <div class="container">
+    <h2 data-es="Nuestro propósito" data-en="Our Purpose">Nuestro propósito</h2>
+    <p data-es="Prevención que salva vidas. HOPE-UP es un proyecto universitario innovador que combina inteligencia artificial con un enfoque profundamente humano."
+       data-en="Prevention that saves lives. HOPE-UP is an innovative university project combining AI with a deeply human approach.">
+      Prevención que salva vidas. HOPE-UP es un proyecto universitario innovador que combina inteligencia artificial con un enfoque profundamente humano.
+    </p>
+    <div class="grid">
+      <div class="card">
+        <h3 data-es="Prevención Temprana" data-en="Early Prevention">Prevención Temprana</h3>
+        <p data-es="Detectamos señales de malestar emocional antes de que se conviertan en crisis." data-en="We detect signs of emotional distress before they turn into crises.">Detectamos señales de malestar emocional antes de que se conviertan en crisis.</p>
+      </div>
+      <div class="card">
+        <h3 data-es="IA Responsable" data-en="Responsible AI">IA Responsable</h3>
+        <p data-es="Tecnología ética diseñada con supervisión humana y cumplimiento normativo." data-en="Ethical technology designed with human supervision and compliance.">Tecnología ética diseñada con supervisión humana y cumplimiento normativo.</p>
+      </div>
+      <div class="card">
+        <h3 data-es="Conexión con Profesionales" data-en="Connection with Professionals">Conexión con Profesionales</h3>
+        <p data-es="Activamos redes de apoyo y conectamos con recursos especializados." data-en="We activate support networks and connect to specialized resources.">Activamos redes de apoyo y conectamos con recursos especializados.</p>
+      </div>
+      <div class="card">
+        <h3 data-es="Impacto Social" data-en="Social Impact">Impacto Social</h3>
+        <p data-es="Contribuimos a los ODS y trabajamos por una sociedad más saludable." data-en="We contribute to the SDGs and work for a healthier society.">Contribuimos a los ODS y trabajamos por una sociedad más saludable.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-
+<!-- CÓMO FUNCIONA -->
+<section id="funciona">
+  <div class="container">
+    <h2 data-es="Cómo Funciona" data-en="How it works">Cómo Funciona</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>01</h3>
+        <p data-es="Interacción Natural: el usuario comparte pensamientos y emociones en un entorno seguro." data-en="Natural Interaction: the user shares thoughts and emotions in a safe environment.">Interacción Natural: el usuario comparte pensamientos y emociones en un entorno seguro.</p>
+      </div>
+      <div class="card">
+        <h3>02</h3>
+        <p data-es="Análisis Inteligente: nuestra IA detecta patrones de riesgo emocional." data-en="Intelligent Analysis: our AI detects emotional risk patterns.">Análisis Inteligente: nuestra IA detecta patrones de riesgo emocional.</p>
+      </div>
+      <div class="card">
+        <h3>03</h3>
+        <p data-es="Detección Temprana: se identifican señales de riesgo antes de que la situación se agrave." data-en="Early Detection: risk signals are identified before situations worsen.">Detección Temprana: se identifican señales de riesgo antes de que la situación se agrave.</p>
+      </div>
+      <div class="card">
+        <h3>04</h3>
+        <p data-es="Activación de Apoyo: se activan recursos de ayuda y conexión con profesionales." data-en="Support Activation: help resources and professional connections are activated.">Activación de Apoyo: se activan recursos de ayuda y conexión con profesionales.</p>
+      </div>
+    </div>
+    <p data-es="Importante: HOPE-UP no sustituye la atención médica profesional." data-en="Important: HOPE-UP does not replace professional medical care.">
+      Importante: HOPE-UP no sustituye la atención médica profesional.
+    </p>
+  </div>
+</section>
+   <!-- EQUIPO -->
 <section id="equipo">
-
-<div class="container">
-
-<h2 style="text-align:center;">Las personas detrás de HOPE-UP</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>GP</h3>
-<h4>Gloria Parra Requena</h4>
-<p>Responsable e Investigadora Principal</p>
-</div>
-
-<div class="card">
-<h3>CI</h3>
-<h4>Celia Ibáñez García</h4>
-<p>Alumna fundadora</p>
-</div>
-
-<div class="card">
-<h3>CG</h3>
-<h4>Carmen Gómez Alarcón</h4>
-<p>Alumna fundadora</p>
-</div>
-
-<div class="card">
-<h3>MG</h3>
-<h4>Marta Gómez Alarcón</h4>
-<p>Alumna fundadora</p>
-</div>
-
-<div class="card">
-<h3>IR</h3>
-<h4>Iván Ruiz Fernández</h4>
-<p>Alumno fundador</p>
-</div>
-
-</div>
-
-</div>
+  <div class="container">
+    <h2 data-es="Las personas detrás de HOPE-UP" data-en="The people behind HOPE-UP">Las personas detrás de HOPE-UP</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>GP</h3>
+        <h4>Gloria Parra Requena</h4>
+        <p data-es="Responsable e Investigadora Principal" data-en="Lead Researcher and Coordinator">Responsable e Investigadora Principal</p>
+      </div>
+      <div class="card">
+        <h3>CI</h3>
+        <h4>Celia Ibáñez García</h4>
+        <p data-es="Alumna fundadora" data-en="Founding Student">Alumna fundadora</p>
+      </div>
+      <div class="card">
+        <h3>CG</h3>
+        <h4>Carmen Gómez Alarcón</h4>
+        <p data-es="Alumna fundadora" data-en="Founding Student">Alumna fundadora</p>
+      </div>
+      <div class="card">
+        <h3>MG</h3>
+        <h4>Marta Gómez Alarcón</h4>
+        <p data-es="Alumna fundadora" data-en="Founding Student">Alumna fundadora</p>
+      </div>
+      <div class="card">
+        <h3>IR</h3>
+        <h4>Iván Ruiz Fernández</h4>
+        <p data-es="Alumno fundador" data-en="Founding Student">Alumno fundador</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-
-<section class="impact" id="impacto">
-
-<div class="container">
-
-<h2>Nuestro impacto</h2>
-
-<div class="impact-grid">
-
-<div class="impact-box">
-<h3>1</h3>
-<p>Proyecto social</p>
-</div>
-
-<div class="impact-box">
-<h3>4</h3>
-<p>Asociaciones colaboradoras</p>
-</div>
-
-<div class="impact-box">
-<h3>España</h3>
-<p>Ámbito de actuación</p>
-</div>
-
-</div>
-
-</div>
-</section>
-
-
-<section class="rating">
-
-<div class="container">
-
-<h2>Valora nuestra página</h2>
-
-<div class="stars" id="stars">
-<span class="star" data-value="1">★</span>
-<span class="star" data-value="2">★</span>
-<span class="star" data-value="3">★</span>
-<span class="star" data-value="4">★</span>
-<span class="star" data-value="5">★</span>
-</div>
-
-<p id="rating-result"></p>
-
-</div>
-</section>
-
-
-<section id="emociones">
-
-<div class="container" style="text-align:center;">
-
-<h2>¿Cómo te sientes?</h2>
-
-<div class="emoji-rating">
-
-<span class="emoji" data-value="5">😄</span>
-<span class="emoji" data-value="4">🙂</span>
-<span class="emoji" data-value="3">😐</span>
-<span class="emoji" data-value="2">🙁</span>
-<span class="emoji" data-value="1">😢</span>
-
-</div>
-
-<p id="emotion-result"></p>
-
-</div>
-</section>
-
-
-<section id="descarga" class="cta">
-
-<div class="container">
-
-<h2>Descargar aplicación</h2>
-
-<a href="https://www.repsol.com/es/index.cshtml" target="_blank">
-Descargar App
-</a>
-
-</div>
-
-</section>
-
-
+<!-- CONTACTO -->
 <section id="contacto">
-
-<div class="container">
-
-<h2 style="text-align:center;">
-Si alguna vez lo necesitas, queremos que haya una señal antes de que sea tarde.
-</h2>
-
-<form style="max-width:600px;margin:auto;">
-
-<input type="text" placeholder="Tu nombre" required>
-<input type="email" placeholder="tu@email.com" required>
-
-<select>
-<option>Selecciona un asunto</option>
-<option>Información</option>
-<option>Colaboración</option>
-</select>
-
-<textarea maxlength="500" placeholder="Cuéntanos cómo podemos ayudarte"></textarea>
-
-<button type="submit">Enviar mensaje</button>
-
-</form>
-
-<p style="text-align:center;margin-top:20px;">
-📧 hope-up@uclm.es
-</p>
-
-</div>
-
+  <div class="container">
+    <h2 style="text-align:center;" data-es="Si alguna vez lo necesitas, queremos que haya una señal antes de que sea tarde."
+        data-en="If you ever need it, we want there to be a signal before it’s too late.">
+      Si alguna vez lo necesitas, queremos que haya una señal antes de que sea tarde.
+    </h2>
+    <form id="contactForm" style="max-width:600px;margin:auto;">
+      <input type="text" placeholder="Tu nombre" data-es-placeholder="Tu nombre" data-en-placeholder="Your name" required>
+      <input type="email" placeholder="tu@email.com" data-es-placeholder="tu@email.com" data-en-placeholder="your@email.com" required>
+      <select>
+        <option data-es="Selecciona un asunto" data-en="Select a subject">Selecciona un asunto</option>
+        <option data-es="Información" data-en="Information">Información</option>
+        <option data-es="Colaboración" data-en="Collaboration">Colaboración</option>
+      </select>
+      <textarea id="mensaje" maxlength="500" placeholder="Cuéntanos cómo podemos ayudarte" data-es-placeholder="Cuéntanos cómo podemos ayudarte" data-en-placeholder="Tell us how we can help"></textarea>
+      <p id="contador">0/500 caracteres</p>
+      <button type="submit" data-es="Enviar mensaje" data-en="Send message">Enviar mensaje</button>
+    </form>
+    <p style="text-align:center;margin-top:20px;">📧 hope-up@uclm.es</p>
+  </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-
-<p>© 2026 HOPE-UP</p>
-
+  <p>© 2026 HOPE-UP</p>
 </footer>
+
+<!-- SCRIPT MULTILINGÜE, VALORACIÓN Y EMOJIS -->
 <script>
-
-/* CAMBIO DE IDIOMA */
-
-let lang="es";
-
-function toggleLanguage(){
-
-lang = lang === "es" ? "en" : "es";
-
-document.querySelectorAll("[data-es]").forEach(el=>{
-el.textContent = el.dataset[lang];
-});
-
+// ==========================
+// CAMBIO DE IDIOMA COMPLETO
+// ==========================
+let lang = "es";
+function toggleLanguage() {
+    lang = lang === "es" ? "en" : "es";
+    document.querySelectorAll("[data-es]").forEach(el => {
+        el.textContent = el.dataset[lang];
+    });
+    document.querySelectorAll("[data-es-placeholder]").forEach(el => {
+        el.placeholder = el.dataset[lang + "Placeholder"];
+    });
 }
 
-
-/* VALORACIÓN ESTRELLAS */
-
+// ==========================
+// VALORACIÓN ESTRELLAS
+// ==========================
 const stars = document.querySelectorAll(".star");
 const result = document.getElementById("rating-result");
-
-stars.forEach(star=>{
-
-star.addEventListener("click",()=>{
-
-let rating = star.dataset.value;
-
-stars.forEach(s=>{
-s.classList.remove("active");
-if(s.dataset.value <= rating){
-s.classList.add("active");
-}
+stars.forEach(star => {
+    star.addEventListener("click", () => {
+        let rating = star.dataset.value;
+        stars.forEach(s => {
+            s.classList.remove("active");
+            if(s.dataset.value <= rating) s.classList.add("active");
+        });
+        result.innerText = "Valoración: " + rating + " / 5";
+    });
 });
 
-result.innerText = "Valoración: " + rating + " / 5";
-
-});
-
-});
-
-
-/* VALORACIÓN EMOJIS */
-
+// ==========================
+// EMOJIS
+// ==========================
 const emojis = document.querySelectorAll(".emoji");
 const emotionResult = document.getElementById("emotion-result");
-
-emojis.forEach(emoji=>{
-
-emoji.addEventListener("click",()=>{
-
-emotionResult.innerText="Gracias por compartir cómo te sientes";
-
+emojis.forEach(emoji => {
+    emoji.addEventListener("click", () => {
+        emotionResult.innerText = "Gracias por compartir cómo te sientes";
+    });
 });
 
-});
+// ==========================
+// FORMULARIO CONTACTO
+// ==========================
+const form = document.getElementById("contactForm");
+const mensaje = document.getElementById("mensaje");
+const contador = document.getElementById("contador");
 
+if(mensaje && contador){
+    mensaje.addEventListener("input", () => {
+        contador.textContent = mensaje.value.length + "/500 caracteres";
+    });
+}
+
+if(form){
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        alert("Mensaje enviado correctamente. Gracias por contactar con HOPE-UP.");
+        form.reset();
+        if(contador) contador.textContent = "0/500 caracteres";
+    });
+}
 </script>
-
 </body>
 </html>
-
-
-
-
+   
