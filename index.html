@@ -554,3 +554,133 @@ document.getElementById("wellbeingForm").addEventListener("submit", function(e){
   box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
 </style>
+<section id="blog" class="blog">
+  <div class="container">
+    <h2 data-es="Blog y Noticias" data-en="Blog & News">Blog y Noticias</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1588776814546-26d0d3be4baf" alt="Ansiedad juvenil">
+        <h3 data-es="Cómo detectar señales de ansiedad" data-en="How to detect anxiety signals">
+          Cómo detectar señales de ansiedad
+        </h3>
+        <p data-es="Aprende a reconocer signos de ansiedad en jóvenes y cómo actuar a tiempo."
+           data-en="Learn to recognize anxiety signs in young people and how to act in time.">
+          Aprende a reconocer signos de ansiedad en jóvenes y cómo actuar a tiempo.
+        </p>
+        <a href="#" class="btn-primary" data-es="Leer más" data-en="Read more">Leer más</a>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1588776814546-26d0d3be4baf" alt="Técnicas de relajación">
+        <h3 data-es="5 técnicas de relajación efectivas" data-en="5 effective relaxation techniques">
+          5 técnicas de relajación efectivas
+        </h3>
+        <p data-es="Descubre métodos simples para reducir el estrés diario."
+           data-en="Discover simple methods to reduce daily stress.">
+          Descubre métodos simples para reducir el estrés diario.
+        </p>
+        <a href="#" class="btn-primary" data-es="Leer más" data-en="Read more">Leer más</a>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1588776814546-26d0d3be4baf" alt="Actualización HOPE-UP">
+        <h3 data-es="Actualización HOPE-UP: nuevas funciones" data-en="HOPE-UP Update: new features">
+          Actualización HOPE-UP: nuevas funciones
+        </h3>
+        <p data-es="Conoce las últimas mejoras de nuestra IA responsable y las nuevas herramientas."
+           data-en="Check out the latest improvements of our responsible AI and new tools.">
+          Conoce las últimas mejoras de nuestra IA responsable y las nuevas herramientas.
+        </p>
+        <a href="#" class="btn-primary" data-es="Leer más" data-en="Read more">Leer más</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="recursos" class="resources">
+  <div class="container">
+    <h2 data-es="Recursos útiles" data-en="Useful Resources">Recursos útiles</h2>
+    <div class="grid">
+      <div class="card">
+        <h3 data-es="Teléfono de Prevención del Suicidio" data-en="Suicide Prevention Hotline">
+          Teléfono de Prevención del Suicidio
+        </h3>
+        <p data-es="Llama directamente al 024 o al 112 si estás en riesgo." 
+           data-en="Call 024 or 112 directly if you are at risk.">
+          Llama directamente al 024 o al 112 si estás en riesgo.
+        </p>
+        <a href="tel:024" class="btn-primary" data-es="Llamar ahora" data-en="Call now">Llamar ahora</a>
+      </div>
+      <div class="card">
+        <h3 data-es="Plataformas de apoyo emocional" data-en="Emotional support platforms">
+          Plataformas de apoyo emocional
+        </h3>
+        <p data-es="Accede a sitios web confiables con consejos y chat de apoyo."
+           data-en="Access trusted websites with advice and chat support.">
+          Accede a sitios web confiables con consejos y chat de apoyo.
+        </p>
+        <a href="https://www.suportemental.es" target="_blank" class="btn-primary" data-es="Visitar" data-en="Visit">Visitar</a>
+      </div>
+      <div class="card">
+        <h3 data-es="Aplicaciones de meditación y mindfulness" data-en="Meditation & Mindfulness Apps">
+          Aplicaciones de meditación y mindfulness
+        </h3>
+        <p data-es="Prueba ejercicios guiados de respiración y relajación."
+           data-en="Try guided breathing and relaxation exercises.">
+          Prueba ejercicios guiados de respiración y relajación.
+        </p>
+        <a href="https://www.calm.com" target="_blank" class="btn-primary" data-es="Probar" data-en="Try">Probar</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="interactivo" class="interactive">
+  <div class="container">
+    <h2 data-es="Diario emocional y Chat de apoyo" data-en="Emotional Diary & Support Chat">
+      Diario emocional y Chat de apoyo
+    </h2>
+    <p data-es="Registra tu estado de ánimo diario y recibe recomendaciones personalizadas."
+       data-en="Log your daily mood and receive personalized recommendations.">
+      Registra tu estado de ánimo diario y recibe recomendaciones personalizadas.
+    </p>
+
+    <!-- Diario de emociones -->
+    <form id="diarioForm" style="max-width:600px;margin:auto;">
+      <label for="estado" data-es="Estado de ánimo de hoy" data-en="Today's mood">Estado de ánimo de hoy</label>
+      <select id="estado" required>
+        <option value="" data-es="Selecciona tu estado" data-en="Select your mood">Selecciona tu estado</option>
+        <option value="feliz" data-es="Feliz" data-en="Happy">Feliz</option>
+        <option value="neutral" data-es="Neutral" data-en="Neutral">Neutral</option>
+        <option value="triste" data-es="Triste" data-en="Sad">Triste</option>
+        <option value="ansioso" data-es="Ansioso/a" data-en="Anxious">Ansioso/a</option>
+        <option value="estresado" data-es="Estresado/a" data-en="Stressed">Estresado/a</option>
+      </select>
+      <textarea id="notaDiario" maxlength="300" placeholder="Escribe cómo te sientes hoy..." data-es="Escribe cómo te sientes hoy..." data-en="Write how you feel today..."></textarea>
+      <button type="submit" class="btn-primary" data-es="Guardar" data-en="Save">Guardar</button>
+    </form>
+
+    <p id="feedbackDiario" style="text-align:center;margin-top:15px;"></p>
+
+    <!-- Chat de apoyo simulado -->
+    <div style="text-align:center;margin-top:40px;">
+      <h3 data-es="Chat de apoyo (simulado)" data-en="Support Chat (simulated)">Chat de apoyo (simulado)</h3>
+      <p data-es="Próximamente podrás interactuar con nuestra IA para recibir consejos personalizados."
+         data-en="Soon you will be able to interact with our AI for personalized advice.">
+        Próximamente podrás interactuar con nuestra IA para recibir consejos personalizados.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+// Funcionalidad simple para guardar el diario emocional
+const diarioForm = document.getElementById('diarioForm');
+const feedbackDiario = document.getElementById('feedbackDiario');
+
+if(diarioForm){
+  diarioForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const estado = document.getElementById('estado').value;
+    const nota = document.getElementById('notaDiario').value;
+    feedbackDiario.textContent = `Estado guardado: ${estado}. Nota: ${nota}`;
+    diarioForm.reset();
+  });
+}
+</script>
